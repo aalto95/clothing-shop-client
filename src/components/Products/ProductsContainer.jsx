@@ -1,6 +1,7 @@
 import s from './Products.module.css'
 import Products from "./Products";
 import {connect} from "react-redux";
+import {showDetailsActionCreator} from "../../redux/products-reducer";
 
 let mapStateToProps = state => {
     return {
@@ -10,7 +11,9 @@ let mapStateToProps = state => {
 
 let mapDispatchToProps = dispatch => {
     return {
-
+        showDetails: (id) => {
+            dispatch(showDetailsActionCreator(id))
+        }
     }
 }
 

@@ -1,14 +1,27 @@
-.productImage {
-  width: 24.7vw;
-  height: 45vh;
-  background-repeat: no-repeat;
-  background-size: 24vw;
-}
-
 .productContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
+}
+.productContainer .productWrap {
+  flex-basis: 300px;
+}
+.productContainer .productWrap .productImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px;
+}
+.productContainer .productWrap .addToCart {
+  display: flex;
+  justify-content: center;
+}
+.productContainer .productWrap .addToCart .cartIcon {
+  width: 20px;
+  height: 20px;
 }
 
 /*# sourceMappingURL=Products.module.css.map */
