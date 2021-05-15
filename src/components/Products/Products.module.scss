@@ -1,0 +1,12 @@
+.productImage {
+  width: 24.7vw;
+  height: 45vh;
+  background-repeat: no-repeat;
+  background-size: 24vw;
+}
+
+.productContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
