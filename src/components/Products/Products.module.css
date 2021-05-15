@@ -18,10 +18,13 @@
 .productContainer .productWrap .addToCart {
   display: flex;
   justify-content: center;
+  cursor: pointer;
+  padding: 10px;
 }
 .productContainer .productWrap .addToCart .cartIcon {
   width: 20px;
   height: 20px;
+  margin-left: 5px;
 }
 
 /*# sourceMappingURL=Products.module.css.map */

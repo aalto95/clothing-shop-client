@@ -1,10 +1,11 @@
 import s from './../Products.module.css'
+import CartIcon from './../../../assets/shopping-cart.svg'
 
 const Product = (props) => {
     return (
         <div className={s.productWrap}>
             <div
-                listid={props.listid}
+                productid={props.productid}
                 className={s.productImage}
                 style={props.style}
                 onClick={ props.onProductClick }
@@ -13,9 +14,15 @@ const Product = (props) => {
             <p>{props.name} <b>{props.price}</b></p>
             <div className={s.addToCart}
                  onClick={ props.onAddToCartClick }
+                 productid={props.productid}
             >
-                <p>Add to cart</p>
-                <img src="https://img-premium.flaticon.com/png/512/833/833314.png?token=exp=1621087217~hmac=7ab8c9188900f857af108eb158294f2a" alt="cart-icon" className={s.cartIcon}/>
+                <p productid={props.productid}>Add to cart</p>
+                <img
+                    src={CartIcon}
+                    alt="cart-icon"
+                    className={s.cartIcon}
+                    productid={props.productid}
+                />
             </div>
         </div>
     )

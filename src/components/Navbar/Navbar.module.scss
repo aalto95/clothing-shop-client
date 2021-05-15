@@ -1,8 +1,8 @@
 nav {
   display: grid;
   grid-template-areas:
-  ". l . n . log .";
-  grid-template-columns: 50px 70px 20px 1fr 50px 50px 50px;
+  ". l . n . log . c .";
+  grid-template-columns: 50px 70px 20px 1fr 50px 50px 20px 30px 50px;
   grid-template-rows: 9vh;
   align-items: center;
   .logo {
@@ -20,6 +20,9 @@ nav {
   }
   .loginButton {
     grid-area: log;
+  }
+  .cartIcon {
+    grid-area: c;
   }
 }
 

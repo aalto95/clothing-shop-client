@@ -53,7 +53,9 @@ let initialState = {
             type: 'vegetable'
         },
     ],
-    modalWindowData: ''
+    cart: [
+
+    ]
 }
 
 const productsReducer = (state = initialState, action) => {
@@ -62,11 +64,15 @@ const productsReducer = (state = initialState, action) => {
     switch(action.type) {
         case SHOW_DETAILS:
             return stateCopy
+        case ADD_TO_CART:
+            stateCopy.cart.push(stateCopy.groceries[action.id])
+            console.log(stateCopy.cart)
+            return stateCopy
         default:
             return stateCopy
     }
 }
 
 export let showDetailsActionCreator = (id) => ({ type: SHOW_DETAILS, id: id })
-export let addToCartActionCreator = (id) => ({ type: ADD_TO_CART })
+export let addToCartActionCreator = (id) => ({ type: ADD_TO_CART, id: id })
 export default productsReducer
