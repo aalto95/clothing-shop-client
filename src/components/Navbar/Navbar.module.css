@@ -1,0 +1,25 @@
+nav {
+  display: grid;
+  grid-template-areas: ". l . n . log .";
+  grid-template-columns: 50px 70px 20px 1fr 50px 50px 50px;
+  grid-template-rows: 9vh;
+  align-items: center;
+}
+nav .logo {
+  max-width: 70px;
+  max-height: 70px;
+  grid-area: l;
+}
+nav .navigationList {
+  display: flex;
+  grid-area: n;
+}
+nav .navigationList li {
+  margin: 10px;
+  list-style: none;
+}
+nav .loginButton {
+  grid-area: log;
+}
+
+/*# sourceMappingURL=Navbar.module.css.map */

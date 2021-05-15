@@ -1,0 +1,28 @@
+.startingImage {
+  height: 91vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("https://dg6qn11ynnp6a.cloudfront.net/wp-content/uploads/2021/02/17161734/430527996.zaddy_.s.canned.cocktails.png");
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  a {
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: rosybrown;
+
+      p {
+        font-weight: 700;
+        font-size: 0.8rem;
+        padding: 0 1rem 0 1rem;
+      }
+    }
+  }
+}
