@@ -8,9 +8,7 @@ const Products = (props) => {
         props.showDetails(id)
     }
 
-    let addToCart = (e) => {
-        let id = e.target.attributes.productid.value
-        console.log(id)
+    let addToCart = (id) => {
         props.addToCart(id)
     }
 
@@ -19,7 +17,7 @@ const Products = (props) => {
         key={grocery.id}
         price={grocery.price}
         onProductClick={ showDetails }
-        onAddToCartClick = { addToCart }
+        onAddToCartClick = { () => addToCart(grocery.id) }
         name={grocery.name}
         style={{backgroundImage: `url(${grocery.img})`}}
     />)

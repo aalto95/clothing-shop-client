@@ -1,5 +1,6 @@
 const SHOW_DETAILS = 'SHOW-DETAILS'
 const ADD_TO_CART = 'ADD-TO-CART'
+const ADD_MORE = 'ADD-MORE'
 
 let initialState = {
     groceries: [
@@ -60,13 +61,17 @@ let initialState = {
 
 const productsReducer = (state = initialState, action) => {
     let stateCopy = Object.assign({}, state)
-
     switch(action.type) {
         case SHOW_DETAILS:
             return stateCopy
         case ADD_TO_CART:
-            stateCopy.cart.push(stateCopy.groceries[action.id])
-            console.log(stateCopy.cart)
+            stateCopy.cart.push(Object.assign(stateCopy.groceries[action.id], {quantity: 1}, {cartId: stateCopy.cart.length}))
+            let uniqueCart = new Set(stateCopy.cart)
+            stateCopy.cart = [...uniqueCart]
+            return stateCopy
+        case ADD_MORE:
+            stateCopy.cart[action.id].quantity += 1
+            console.log(stateCopy.cart[action.id])
             return stateCopy
         default:
             return stateCopy
@@ -75,4 +80,5 @@ const productsReducer = (state = initialState, action) => {
 
 export let showDetailsActionCreator = (id) => ({ type: SHOW_DETAILS, id: id })
 export let addToCartActionCreator = (id) => ({ type: ADD_TO_CART, id: id })
+export let addMoreActionCreator = (id) => ({ type: ADD_MORE, id: id })
 export default productsReducer

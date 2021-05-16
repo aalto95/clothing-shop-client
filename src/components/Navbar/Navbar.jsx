@@ -9,8 +9,6 @@ const Navbar = (props) => {
             <ul className={s.navigationList}>
                 <li><NavLink to='/'>MARKET</NavLink></li>
                 <li><NavLink to='/'>FOOD</NavLink></li>
-                <li><NavLink to='/'>ALCOHOL</NavLink></li>
-                <li><NavLink to='/'>SMOKES</NavLink></li>
                 <li><NavLink to='/'>ESSENTIALS</NavLink></li>
                 <li><NavLink to='/'>PARTNER WITH US</NavLink></li>
             </ul>
