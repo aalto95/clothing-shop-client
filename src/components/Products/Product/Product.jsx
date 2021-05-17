@@ -8,10 +8,9 @@ const Product = (props) => {
                 productid={props.productid}
                 className={s.productImage}
                 style={props.style}
-                onClick={ props.onProductClick }
             >
             </div>
-            <p>{props.name} <b>{props.price}</b></p>
+            <p>{props.name} <b>{props.price}$</b></p>
             <div className={s.addToCart}
                  onClick={ props.onAddToCartClick }
                  productid={props.productid}

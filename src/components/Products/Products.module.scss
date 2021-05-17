@@ -2,7 +2,7 @@
 .productContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 
   .productWrap {
     flex-basis: 300px;
