@@ -1,7 +1,7 @@
 import s from './Cart.module.css'
 import {connect} from "react-redux";
 import Cart from "./Cart";
-import {addMoreActionCreator} from "../../redux/products-reducer";
+import {addMoreActionCreator, checkoutActionCreator} from "../../redux/products-reducer";
 
 let mapStateToProps = state => {
     return {
@@ -14,6 +14,9 @@ let mapDispatchToProps = dispatch => {
     return {
         addMore: (id) => {
             dispatch(addMoreActionCreator(id))
+        },
+        checkout: () => {
+            dispatch(checkoutActionCreator())
         }
     }
 }

@@ -1,10 +1,20 @@
 .cart {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .productImg {
   width: 200px;
+}
+
+.checkoutButton {
+  min-width: 100px;
+  min-height: 30px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=Cart.module.css.map */
