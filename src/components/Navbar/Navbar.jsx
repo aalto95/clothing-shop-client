@@ -1,5 +1,5 @@
 import s from './Navbar.module.css'
-import CartIcon from './../../assets/shopping-cart.svg'
+import CartIcon from './../../assets/images/shopping-cart.svg'
 import {NavLink} from "react-router-dom";
 
 const Navbar = (props) => {

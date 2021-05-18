@@ -1,27 +1,22 @@
-import s from './../Products.module.css'
-import CartIcon from './../../../assets/shopping-cart.svg'
+import styles from './../Products.module.css'
 
 const Product = (props) => {
+
     return (
-        <div className={s.productWrap}>
+        <div className={styles.productWrap}>
             <div
-                productid={props.productid}
-                className={s.productImage}
+                className={styles.productImage}
                 style={props.style}
             >
             </div>
             <p>{props.name} <b>{props.price}$</b></p>
-            <div className={s.addToCart}
-                 onClick={ props.onAddToCartClick }
-                 productid={props.productid}
+            <div
+                className={styles.addToCart}
+                onClick={ props.onAddToCartClick }
             >
-                <p productid={props.productid}>Add to cart</p>
-                <img
-                    src={CartIcon}
-                    alt="cart-icon"
-                    className={s.cartIcon}
-                    productid={props.productid}
-                />
+                <button
+                    className={styles.onAddToCart}
+                >Add to cart</button>
             </div>
         </div>
     )

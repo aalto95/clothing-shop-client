@@ -21,6 +21,17 @@
   cursor: pointer;
   padding: 10px;
 }
+.productContainer .productWrap .addToCart button {
+  border: none;
+  min-width: 100px;
+  min-height: 30px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.productContainer .productWrap .addToCart .onAddToCart:active {
+  transition-duration: 0.1s;
+  background-color: #a58faa;
+}
 .productContainer .productWrap .addToCart .cartIcon {
   width: 20px;
   height: 20px;

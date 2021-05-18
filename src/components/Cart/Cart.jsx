@@ -1,13 +1,23 @@
 import React from "react";
 import styles from './Cart.module.css'
+import deleteIcon from './../../assets/images/delete.svg'
+import {ReactSVG} from "react-svg";
 
 const Cart = (props) => {
-    console.log(props.cart)
 
     const forceUpdate: () => void = React.useState()[1].bind(null, {})
 
-    let onAddMore = (id) => {
-        props.addMore(id)
+    let onAdd = (id) => {
+        props.addOne(id)
+        forceUpdate()
+    }
+
+    let onSubtract = (id) => {
+        if (props.cart[id].quantity > 1) {
+            props.subtractOne(id)
+        } else {
+            props.removeFromCart(id)
+        }
         forceUpdate()
     }
 
@@ -25,16 +35,26 @@ const Cart = (props) => {
         return subTotal
     }
 
+    let onRemoveFromCart = (id) => {
+        props.removeFromCart(id)
+        forceUpdate()
+    }
+
     return (
         <div className={styles.cart}>
-            {props.cart.map((product) =>
-                <div key={product.id}>
+            {props.cart.map((product, i) =>
+                <div key={i} className={styles.product}>
                     <img src={product.img} className={styles.productImg}/>
-                    <p>{product.name} x {product.quantity} <b>{product.price * product.quantity}$</b></p>
-                    <button onClick={() => onAddMore(product.cartId)}>Add More</button>
+                        <p className={styles.productName}>{product.name} x {product.quantity} = <b>{product.price * product.quantity}$</b></p>
+                    <div className={styles.buttonSquad}>
+                        <button className={styles.quantityButton} onClick={() => onAdd(i)}>+</button>
+                        <button className={styles.quantityButton} onClick={() => onSubtract(i)}>-</button>
+                        <ReactSVG className={styles.deleteIcon} src={deleteIcon} onClick={() => { onRemoveFromCart(i) }}/>
+                    </div>
+
                 </div>
             )}
-            {totalPrice()}
+            Subtotal: <b>{totalPrice()}$</b>
             <button
                 className={styles.checkoutButton}
                 onClick={onCheckout}

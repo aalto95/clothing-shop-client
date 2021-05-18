@@ -22,6 +22,20 @@
       justify-content: center;
       cursor: pointer;
       padding: 10px;
+
+      button {
+        border: none;
+        min-width: 100px;
+        min-height: 30px;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+
+      .onAddToCart:active {
+        transition-duration: .1s;
+        background-color: #a58faa;
+      }
+
       .cartIcon {
         width: 20px;
         height: 20px;

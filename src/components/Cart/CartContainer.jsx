@@ -1,7 +1,11 @@
 import s from './Cart.module.css'
 import {connect} from "react-redux";
 import Cart from "./Cart";
-import {addMoreActionCreator, checkoutActionCreator} from "../../redux/products-reducer";
+import {
+    addOneActionCreator,
+    checkoutActionCreator,
+    removeFromCartActionCreator, subtractOneActionCreator
+} from "../../redux/products-reducer";
 
 let mapStateToProps = state => {
     return {
@@ -12,12 +16,18 @@ let mapStateToProps = state => {
 
 let mapDispatchToProps = dispatch => {
     return {
-        addMore: (id) => {
-            dispatch(addMoreActionCreator(id))
+        addOne: (id) => {
+            dispatch(addOneActionCreator(id))
+        },
+        subtractOne: (id) => {
+            dispatch(subtractOneActionCreator(id))
         },
         checkout: () => {
             dispatch(checkoutActionCreator())
-        }
+        },
+        removeFromCart: (id) => {
+            dispatch(removeFromCartActionCreator(id))
+        },
     }
 }
 

@@ -1,15 +1,14 @@
 const SHOW_DETAILS = 'SHOW-DETAILS'
 const ADD_TO_CART = 'ADD-TO-CART'
-const ADD_MORE = 'ADD-MORE'
 const SET_PRODUCTS = 'SET-PRODUCTS'
 const CHECKOUT = 'CHECKOUT'
+const REMOVE_FROM_CART = 'REMOVE-FROM-CART'
+const ADD_ONE = 'ADD-ONE'
+const SUBTRACT_ONE = 'SUBTRACT-ONE'
 
 let initialState = {
-    groceries: [
-    ],
-    cart: [
-
-    ]
+    groceries: [],
+    cart: []
 }
 
 const productsReducer = (state = initialState, action) => {
@@ -30,18 +29,29 @@ const productsReducer = (state = initialState, action) => {
             let uniqueCart = new Set(stateCopy.cart)
             stateCopy.cart = [...uniqueCart]
             return stateCopy
-        case ADD_MORE:
+        case ADD_ONE:
             return {
                 ...state, ...state.cart[action.id].quantity += 1
+            }
+        case SUBTRACT_ONE:
+            return {
+                ...state, ...state.cart[action.id].quantity -= 1
+            }
+        case REMOVE_FROM_CART:
+            return {
+                ...state, ...state.cart.splice(action.id, 1)
             }
         default:
             return stateCopy
     }
 }
 
-export let showDetailsActionCreator = (id) => ({ type: SHOW_DETAILS, id: id })
-export let addToCartActionCreator = (id) => ({ type: ADD_TO_CART, id: id })
-export let addMoreActionCreator = (id) => ({ type: ADD_MORE, id: id })
-export let setProductsActionCreator = (groceries) => ({ type: SET_PRODUCTS, groceries: groceries })
+export let showDetailsActionCreator = (id) => ({ type: SHOW_DETAILS, id })
+export let addToCartActionCreator = (id) => ({ type: ADD_TO_CART, id })
+export let addOneActionCreator = (id) => ({ type: ADD_ONE, id })
+export let subtractOneActionCreator = (id) => ({ type: SUBTRACT_ONE, id })
+export let setProductsActionCreator = (groceries) => ({ type: SET_PRODUCTS, groceries })
 export let checkoutActionCreator = () => ({ type: CHECKOUT, })
+export let removeFromCartActionCreator = (id) => ({ type: REMOVE_FROM_CART, id })
+
 export default productsReducer

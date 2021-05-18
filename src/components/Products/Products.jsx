@@ -20,11 +20,11 @@ const Products = (props) => {
         props.addToCart(id)
     }
 
-    let productElements = props.groceries.map((grocery) => <Product
+    let productElements = props.groceries.map((grocery, i) => <Product
         productid={grocery.id}
         key={grocery.id}
         price={grocery.price}
-        onAddToCartClick = { () => addToCart(grocery.id - 1) }
+        onAddToCartClick = { () => addToCart(i) }
         name={grocery.name}
         style={{backgroundImage: `url(${grocery.img})`}}
     />)

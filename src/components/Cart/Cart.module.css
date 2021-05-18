@@ -1,12 +1,36 @@
 .cart {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+.cart .product {
+  min-width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cart .product .productImg {
+  width: 200px;
+}
+.cart .product .productName {
+  min-width: 200px;
+  max-width: 200px;
 }
 
-.productImg {
-  width: 200px;
+.buttonSquad {
+  display: flex;
+}
+.buttonSquad .quantityButton {
+  min-width: 50px;
+  border: none;
+  cursor: pointer;
+}
+.buttonSquad .deleteIcon {
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .checkoutButton {
