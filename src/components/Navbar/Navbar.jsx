@@ -1,8 +1,10 @@
 import s from './Navbar.module.css'
 import CartIcon from './../../assets/images/shopping-cart.svg'
 import {NavLink} from "react-router-dom";
+import React, {useEffect} from "react";
 
 const Navbar = (props) => {
+
     return (
         <nav>
             <NavLink to='/'><img src='https://freedesignfile.com/upload/2020/07/GROCERY-STORE-logo-vector.jpg' className={s.logo}/></NavLink>
