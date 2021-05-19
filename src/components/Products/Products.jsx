@@ -1,20 +1,7 @@
 import s from './Products.module.css'
 import Product from "./Product/Product";
-import axios from "axios";
 
 const Products = (props) => {
-
-    if (!props.groceries.length) {
-        axios.get("https://60a0e51dd2855b00173b15c9.mockapi.io/products")
-            .then(response => {
-                props.setProducts(response.data)
-            })
-    }
-
-    let showDetails = (e) => {
-        let id = e.target.attributes.productid.value
-        props.showDetails(id)
-    }
 
     let addToCart = (id) => {
         props.addToCart(id)
@@ -33,7 +20,6 @@ const Products = (props) => {
         <div className={s.productContainer}>
             {productElements}
         </div>
-
     )
 }
 

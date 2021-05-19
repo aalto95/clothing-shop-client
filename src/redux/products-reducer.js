@@ -5,10 +5,12 @@ const CHECKOUT = 'CHECKOUT'
 const REMOVE_FROM_CART = 'REMOVE-FROM-CART'
 const ADD_ONE = 'ADD-ONE'
 const SUBTRACT_ONE = 'SUBTRACT-ONE'
+const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING'
 
 let initialState = {
     groceries: [],
-    cart: []
+    cart: [],
+    isFetching: false
 }
 
 const productsReducer = (state = initialState, action) => {
@@ -20,7 +22,7 @@ const productsReducer = (state = initialState, action) => {
             }
         case SET_PRODUCTS:
             return {
-                ...state, groceries: [...state.groceries, ...action.groceries]
+                ...state, groceries: action.groceries
             }
         case SHOW_DETAILS:
             return stateCopy
@@ -41,6 +43,10 @@ const productsReducer = (state = initialState, action) => {
             return {
                 ...state, ...state.cart.splice(action.id, 1)
             }
+        case TOGGLE_IS_FETCHING:
+            return {
+                ...state, isFetching: action.isFetching
+            }
         default:
             return stateCopy
     }
@@ -53,5 +59,6 @@ export let subtractOne = (id) => ({ type: SUBTRACT_ONE, id })
 export let setProducts = (groceries) => ({ type: SET_PRODUCTS, groceries })
 export let checkout = () => ({ type: CHECKOUT, })
 export let removeFromCart = (id) => ({ type: REMOVE_FROM_CART, id })
+export let toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching })
 
 export default productsReducer

@@ -7,6 +7,7 @@ import {NavLink, Route} from 'react-router-dom'
 import Cart from "./components/Cart/Cart";
 import CartContainer from "./components/Cart/CartContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
+import Preloader from "./components/Preloader/Preloader";
 
 function App() {
   return (
