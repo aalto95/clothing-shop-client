@@ -1,7 +1,7 @@
 import s from './Products.module.css'
 import Products from "./Products";
 import {connect} from "react-redux";
-import {addToCartActionCreator, setProductsActionCreator, showDetailsActionCreator} from "../../redux/products-reducer";
+import {addToCart, setProducts, showDetails} from "../../redux/products-reducer";
 
 let mapStateToProps = state => {
     return {
@@ -10,20 +10,10 @@ let mapStateToProps = state => {
     }
 }
 
-let mapDispatchToProps = dispatch => {
-    return {
-        showDetails: (id) => {
-            dispatch(showDetailsActionCreator(id))
-        },
-        addToCart: (id) => {
-            dispatch(addToCartActionCreator(id))
-        },
-        setProducts: (groceries) => {
-            dispatch(setProductsActionCreator(groceries))
-        }
-    }
-}
-
-const ProductsContainer = connect(mapStateToProps, mapDispatchToProps) (Products)
+const ProductsContainer = connect(mapStateToProps, {
+    showDetails,
+    addToCart,
+    setProducts
+}) (Products)
 
 export default ProductsContainer

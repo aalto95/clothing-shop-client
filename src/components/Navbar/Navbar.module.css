@@ -23,6 +23,9 @@ nav .loginButton {
 }
 nav .cartIcon {
   grid-area: c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=Navbar.module.css.map */

@@ -5,6 +5,8 @@ import React, {useEffect} from "react";
 
 const Navbar = (props) => {
 
+    useEffect(() => console.log('mounted'), [props.cart])
+
     return (
         <nav>
             <NavLink to='/'><img src='https://freedesignfile.com/upload/2020/07/GROCERY-STORE-logo-vector.jpg' className={s.logo}/></NavLink>
@@ -20,6 +22,7 @@ const Navbar = (props) => {
                     src={CartIcon}
                     alt="cart-icon"
                 />
+                <p>{props.cart.length}</p>
             </NavLink>
         </nav>
     )

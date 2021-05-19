@@ -46,12 +46,12 @@ const productsReducer = (state = initialState, action) => {
     }
 }
 
-export let showDetailsActionCreator = (id) => ({ type: SHOW_DETAILS, id })
-export let addToCartActionCreator = (id) => ({ type: ADD_TO_CART, id })
-export let addOneActionCreator = (id) => ({ type: ADD_ONE, id })
-export let subtractOneActionCreator = (id) => ({ type: SUBTRACT_ONE, id })
-export let setProductsActionCreator = (groceries) => ({ type: SET_PRODUCTS, groceries })
-export let checkoutActionCreator = () => ({ type: CHECKOUT, })
-export let removeFromCartActionCreator = (id) => ({ type: REMOVE_FROM_CART, id })
+export let showDetails = (id) => ({ type: SHOW_DETAILS, id })
+export let addToCart = (id) => ({ type: ADD_TO_CART, id })
+export let addOne = (id) => ({ type: ADD_ONE, id })
+export let subtractOne = (id) => ({ type: SUBTRACT_ONE, id })
+export let setProducts = (groceries) => ({ type: SET_PRODUCTS, groceries })
+export let checkout = () => ({ type: CHECKOUT, })
+export let removeFromCart = (id) => ({ type: REMOVE_FROM_CART, id })
 
 export default productsReducer

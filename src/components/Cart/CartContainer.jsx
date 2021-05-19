@@ -2,9 +2,9 @@ import s from './Cart.module.css'
 import {connect} from "react-redux";
 import Cart from "./Cart";
 import {
-    addOneActionCreator,
-    checkoutActionCreator,
-    removeFromCartActionCreator, subtractOneActionCreator
+    addOne,
+    checkout,
+    removeFromCart, subtractOne
 } from "../../redux/products-reducer";
 
 let mapStateToProps = state => {
@@ -14,23 +14,11 @@ let mapStateToProps = state => {
     }
 }
 
-let mapDispatchToProps = dispatch => {
-    return {
-        addOne: (id) => {
-            dispatch(addOneActionCreator(id))
-        },
-        subtractOne: (id) => {
-            dispatch(subtractOneActionCreator(id))
-        },
-        checkout: () => {
-            dispatch(checkoutActionCreator())
-        },
-        removeFromCart: (id) => {
-            dispatch(removeFromCartActionCreator(id))
-        },
-    }
-}
-
-const CartContainer = connect(mapStateToProps, mapDispatchToProps) (Cart)
+const CartContainer = connect(mapStateToProps, {
+    addOne,
+    subtractOne,
+    checkout,
+    removeFromCart
+}) (Cart)
 
 export default CartContainer

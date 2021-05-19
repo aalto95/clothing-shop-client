@@ -6,11 +6,12 @@ import ProductsContainer from "./components/Products/ProductsContainer";
 import {NavLink, Route} from 'react-router-dom'
 import Cart from "./components/Cart/Cart";
 import CartContainer from "./components/Cart/CartContainer";
+import NavbarContainer from "./components/Navbar/NavbarContainer";
 
 function App() {
   return (
     <div className="App">
-        <Navbar />
+        <NavbarContainer />
         <Route exact path="/"
                render={ () => <StartingPage /> }/>
         <Route exact path="/"
