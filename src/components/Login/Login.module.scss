@@ -1,0 +1,17 @@
+.loginComponent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 91vh;
+
+  .loginForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: #a58faa;
+    width: 60%;
+    height: 40%;
+  }
+}
