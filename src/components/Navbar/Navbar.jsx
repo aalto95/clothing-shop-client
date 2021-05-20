@@ -1,7 +1,9 @@
-import s from './Navbar.module.css'
+import styles from './Navbar.module.css'
 import CartIcon from './../../assets/images/shopping-cart.svg'
 import {NavLink} from "react-router-dom";
 import React, {useEffect} from "react";
+import 'react-dropdown/style.css';
+import NavIcon from './../../assets/images/menu.png'
 
 const Navbar = (props) => {
 
@@ -9,21 +11,36 @@ const Navbar = (props) => {
 
     return (
         <nav>
-            <NavLink to='/'><img src='https://freedesignfile.com/upload/2020/07/GROCERY-STORE-logo-vector.jpg' className={s.logo}/></NavLink>
-            <ul className={s.navigationList}>
-                <li><NavLink to='/'>MARKET</NavLink></li>
-                <li><NavLink to='/'>FOOD</NavLink></li>
-                <li><NavLink to='/'>ESSENTIALS</NavLink></li>
-                <li><NavLink to='/'>PARTNER WITH US</NavLink></li>
-            </ul>
-            <NavLink to='/login' className={s.loginButton}>LOGIN</NavLink>
-            <NavLink to='/cart' className={s.cartIcon}>
-                <img
-                    src={CartIcon}
-                    alt="cart-icon"
-                />
-                <p>{props.cart.length}</p>
-            </NavLink>
+            <NavLink to='/'><img src='https://freedesignfile.com/upload/2020/07/GROCERY-STORE-logo-vector.jpg' className={styles.logo}/></NavLink>
+            <div className={styles.regularNavbar}>
+                <ul className={styles.navigationList}>
+                    <li><NavLink to='/'>MARKET</NavLink></li>
+                    <li><NavLink to='/food'>FOOD</NavLink></li>
+                    <li><NavLink to='/'>ESSENTIALS</NavLink></li>
+                    <li><NavLink to='/'>PARTNER WITH US</NavLink></li>
+                </ul>
+                <NavLink to='/login' className={styles.loginButton}>LOGIN</NavLink>
+                <NavLink to='/cart' className={styles.cartIcon}>
+                    <img
+                        src={CartIcon}
+                        alt="cart-icon"
+                    />
+                </NavLink>
+            </div>
+
+            <div class={styles.dropdown}>
+                <button class={styles.dropbtn}>
+                    <img src={NavIcon} className={styles.navIcon}/>
+                </button>
+                <div class={styles.dropdownContent}>
+                    <NavLink to='/'>MARKET</NavLink>
+                    <NavLink to='/food'>FOOD</NavLink>
+                    <NavLink to='/'>ESSENTIALS</NavLink>
+                    <NavLink to='/'>PARTNER WITH US</NavLink>
+                    <NavLink to='/login'>LOGIN</NavLink>
+                    <NavLink to='/cart'>CART</NavLink>
+                </div>
+            </div>
         </nav>
     )
 }

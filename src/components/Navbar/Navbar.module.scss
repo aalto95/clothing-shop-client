@@ -1,33 +1,108 @@
 nav {
   display: grid;
-  grid-template-areas:
-  ". l . n . log . c .";
-  grid-template-columns: 50px 70px 20px 1fr 50px 50px 20px 30px 50px;
+
   grid-template-rows: 9vh;
   align-items: center;
   .logo {
-    max-width: 60px;
-    max-height: 60px;
+    max-width: 50px;
+    max-height: 50px;
     grid-area: l;
   }
-  .navigationList {
-    display: flex;
-    grid-area: n;
-    li {
-      margin: 10px;
-      list-style: none;
+  .regularNavbar {
+    .navigationList {
+      display: flex;
+      grid-area: n;
+      li {
+        margin: 10px;
+        list-style: none;
+      }
     }
-  }
-  .loginButton {
-    grid-area: log;
-  }
-  .cartIcon {
-    grid-area: c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
+    .loginButton {
+      grid-area: login;
+    }
+    .cartIcon {
+      grid-area: c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+    }
   }
 }
 
+@media screen and (min-width: 801px) {
+  nav {
+    grid-template-areas: "l . rn";
+    grid-template-columns: 5% 2% 93%;
+    align-items: center;
+    .regularNavbar {
+      grid-area: rn;
+      display: grid;
+      grid-template-areas: "n login c";
+      grid-template-columns: 80% 10% 10%;
+      align-items: center;
+    }
+    .dropdown {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  nav {
+    grid-template-areas: "l . d .";
+    grid-template-columns: 10% 30% 20% 40%;
+    .regularNavbar {
+      display: none;
+    }
+    .dropdown {
+      grid-area: d;
+      overflow: hidden;
+      font-family: Arial;
+      &:hover {
+        .dropdownContent {
+          display: block;
+        }
+      }
+      .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        background-color: inherit;
+        font-family: inherit; /* Important for vertical align on mobile phones */
+        margin: 0; /* Important for vertical align on mobile phones */
+        .navIcon {
+          width: 50px;
+          height: 50px;
+        }
+      }
+
+      .dropdownContent {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+
+        a {
+          float: none;
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          text-align: left;
+
+          &:hover {
+            background-color: #ddd;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Navbar container */
 
