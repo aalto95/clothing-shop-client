@@ -15,16 +15,17 @@
     justify-content: center;
     align-items: center;
 
-    background-color: rosybrown;
+    background-color: #335694;
 
     margin: 10px;
     padding: 0 1rem 0 1rem;
 
-    p {
-      font-weight: 700;
-      font-size: 0.8rem;
-
-    }
+  }
+  .mainMessage {
+    margin: 10px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #E1DB7B;
   }
 
 }

@@ -1,14 +1,14 @@
-import s from './StartingPage.module.css'
+import styles from './StartingPage.module.css'
 
 const StartingPage = (props) => {
     return (
-        <div className={s.startingImage}>
+        <div className={styles.startingImage}>
             <div>
-                <p>brand new drinks</p>
+                <p className={styles.mainMessage}>brand new drinks</p>
             </div>
             <a href="#">
                 <div>
-                    <p>SHOP NOW</p>
+                    <p className={styles.mainMessage}>SHOP NOW</p>
                 </div>
             </a>
         </div>
