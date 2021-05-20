@@ -16,7 +16,7 @@ const Navbar = (props) => {
                 <li><NavLink to='/'>ESSENTIALS</NavLink></li>
                 <li><NavLink to='/'>PARTNER WITH US</NavLink></li>
             </ul>
-            <a href="" className={s.loginButton}>LOGIN</a>
+            <NavLink to='/login' className={s.loginButton}>LOGIN</NavLink>
             <NavLink to='/cart' className={s.cartIcon}>
                 <img
                     src={CartIcon}
