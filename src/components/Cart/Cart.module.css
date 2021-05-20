@@ -42,4 +42,10 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 800px) {
+  .product {
+    flex-direction: column;
+  }
+}
+
 /*# sourceMappingURL=Cart.module.css.map */

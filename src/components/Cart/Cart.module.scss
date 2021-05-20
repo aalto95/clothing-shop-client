@@ -45,3 +45,13 @@
   border: none;
   cursor: pointer;
 }
+
+@media screen and (max-width: 800px) {
+  .product {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 801px) {
+
+}
