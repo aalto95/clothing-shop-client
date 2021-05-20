@@ -1,13 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-import Navbar from "./components/Navbar/Navbar";
 import StartingPage from "./components/StartingPage/StartingPage";
 import ProductsContainer from "./components/Products/ProductsContainer";
-import {NavLink, Route} from 'react-router-dom'
-import Cart from "./components/Cart/Cart";
+import {Route} from 'react-router-dom'
 import CartContainer from "./components/Cart/CartContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
-import Preloader from "./components/Preloader/Preloader";
 
 function App() {
   return (
