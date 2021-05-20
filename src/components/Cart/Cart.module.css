@@ -40,7 +40,14 @@
   border-radius: 30px;
   border: none;
   cursor: pointer;
-  color: #ddd;
+  background-color: #ddd;
+}
+
+.emptyCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 91vh;
 }
 
 @media screen and (max-width: 800px) {
