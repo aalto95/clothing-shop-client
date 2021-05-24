@@ -5,6 +5,7 @@ import {Route} from 'react-router-dom'
 import CartContainer from "./components/Cart/CartContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import Login from "./components/Login/Login";
+import LoginContainer from "./components/Login/LoginContainer";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/cart"
                render={ () => <CartContainer /> }/>
         <Route path="/login"
-               render={ () => <Login /> }/>
+               render={ () => <LoginContainer /> }/>
     </div>
   );
 }
