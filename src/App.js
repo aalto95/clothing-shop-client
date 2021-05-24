@@ -6,6 +6,7 @@ import CartContainer from "./components/Cart/CartContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 import Admin from "./components/Admin/Admin";
+import AdminContainer from "./components/Admin/AdminContainer";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route path="/login"
                render={ () => <LoginContainer /> }/>
         <Route path="/admin"
-               render={ () => <Admin/> }/>
+               render={ () => <AdminContainer/> }/>
     </div>
   );
 }

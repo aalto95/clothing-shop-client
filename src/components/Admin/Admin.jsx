@@ -3,9 +3,16 @@ import React from "react";
 
 const Admin = (props) => {
 
+    if (props.isLogged) {
+        return (
+            <div>
+                HERE WILL BE AN ADMIN PAGE
+            </div>
+        )
+    }
     return (
         <div>
-            HERE WILL BE AN ADMIN PAGE
+            FORBIDDEN. ERROR 403
         </div>
     )
 }
