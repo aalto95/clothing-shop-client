@@ -17,8 +17,9 @@ nav {
         list-style: none;
       }
     }
-    .loginButton {
+    .logButton {
       grid-area: login;
+      cursor: pointer;
     }
     .cartIcon {
       grid-area: c;

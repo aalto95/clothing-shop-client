@@ -16,8 +16,9 @@ nav .regularNavbar .navigationList li {
   margin: 10px;
   list-style: none;
 }
-nav .regularNavbar .loginButton {
+nav .regularNavbar .logButton {
   grid-area: login;
+  cursor: pointer;
 }
 nav .regularNavbar .cartIcon {
   grid-area: c;
@@ -97,4 +98,4 @@ nav .regularNavbar .cartIcon {
 }
 /* Login container */
 
-/*# sourceMappingURL=Login.module.css.map */
+/*# sourceMappingURL=Navbar.module.css.map */

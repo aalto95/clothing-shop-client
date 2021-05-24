@@ -7,8 +7,6 @@ import NavIcon from './../../assets/images/menu.png'
 
 const Navbar = (props) => {
 
-    useEffect(() => console.log('mounted'), [props.cart])
-
     return (
         <nav>
             <NavLink to='/'><img src='https://freedesignfile.com/upload/2020/07/GROCERY-STORE-logo-vector.jpg' className={styles.logo}/></NavLink>
@@ -19,7 +17,11 @@ const Navbar = (props) => {
                     <li><NavLink to='/'>ESSENTIALS</NavLink></li>
                     <li><NavLink to='/'>PARTNER WITH US</NavLink></li>
                 </ul>
-                <NavLink to='/login' className={styles.loginButton}>LOGIN</NavLink>
+                {
+                    props.isLogged
+                    ? <div onClick={props.logout} className={styles.logButton}>LOGOUT</div>
+                    : <NavLink to='/login' className={styles.logButton}>LOGIN</NavLink>
+                }
                 <NavLink to='/cart' className={styles.cartIcon}>
                     <img
                         src={CartIcon}
