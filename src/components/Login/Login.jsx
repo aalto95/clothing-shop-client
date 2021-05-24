@@ -12,7 +12,7 @@ const Login = (props) => {
 
     return (
        <div className={styles.loginComponent}>
-           { props.isLogged && <Redirect to='/'/> }
+           { props.isLogged && <Redirect to='/admin'/> }
                <form action="" className={styles.loginForm} onSubmit={onFormSubmit}>
                    <label htmlFor="name">Username</label>
                    <input type="text" name="name" onChange={props.onLoginChange} value={props.login}/>

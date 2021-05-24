@@ -4,8 +4,8 @@ import ProductsContainer from "./components/Products/ProductsContainer";
 import {Route} from 'react-router-dom'
 import CartContainer from "./components/Cart/CartContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
-import Login from "./components/Login/Login";
 import LoginContainer from "./components/Login/LoginContainer";
+import Admin from "./components/Admin/Admin";
 
 function App() {
   return (
@@ -19,6 +19,8 @@ function App() {
                render={ () => <CartContainer /> }/>
         <Route path="/login"
                render={ () => <LoginContainer /> }/>
+        <Route path="/admin"
+               render={ () => <Admin/> }/>
     </div>
   );
 }
