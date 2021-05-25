@@ -6,39 +6,47 @@ nav {
 nav .logo {
   max-width: 50px;
   max-height: 50px;
-  grid-area: l;
+  grid-area: logo;
 }
-nav .regularNavbar .navigationList {
+nav .desktopNavbar .navigationList {
   display: flex;
-  grid-area: n;
+  grid-area: navList;
 }
-nav .regularNavbar .navigationList li {
+nav .desktopNavbar .navigationList li {
   margin: 10px;
   list-style: none;
 }
-nav .regularNavbar .logButton {
+nav .desktopNavbar .logButton {
   grid-area: login;
   cursor: pointer;
 }
-nav .regularNavbar .cartIcon {
-  grid-area: c;
+nav .desktopNavbar .cartIcon {
+  grid-area: cart;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 30px;
 }
+nav .desktopNavbar .gearIcon {
+  grid-area: gear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
 
 @media screen and (min-width: 801px) {
   nav {
-    grid-template-areas: "l . rn";
+    grid-template-areas: "logo . desktopNavbar";
     grid-template-columns: 5% 2% 93%;
     align-items: center;
   }
-  nav .regularNavbar {
-    grid-area: rn;
+  nav .desktopNavbar {
+    grid-area: desktopNavbar;
     display: grid;
-    grid-template-areas: "n login c";
-    grid-template-columns: 80% 10% 10%;
+    grid-template-areas: "navList login cart gear";
+    grid-template-columns: 80% 10% 3% 3%;
     align-items: center;
   }
   nav .dropdown {
@@ -47,14 +55,14 @@ nav .regularNavbar .cartIcon {
 }
 @media screen and (max-width: 800px) {
   nav {
-    grid-template-areas: "l . d .";
+    grid-template-areas: "logo . dropdown .";
     grid-template-columns: 10% 30% 20% 40%;
   }
   nav .regularNavbar {
     display: none;
   }
   nav .dropdown {
-    grid-area: d;
+    grid-area: dropdown;
     overflow: hidden;
     font-family: Arial;
   }

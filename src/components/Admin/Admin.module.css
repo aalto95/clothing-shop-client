@@ -1,3 +1,8 @@
-
+.addProductForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 /*# sourceMappingURL=Admin.module.css.map */

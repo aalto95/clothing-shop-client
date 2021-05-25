@@ -11,7 +11,8 @@ const NavbarContainer = (props) => {
 let mapStateToProps = state => {
     return {
         cart: state.productsPage.cart,
-        isLogged: state.loginPage.isLogged
+        isLogged: state.loginPage.isLogged,
+        isAdmin: state.loginPage.isAdmin
     }
 }
 

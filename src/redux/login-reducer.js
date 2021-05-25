@@ -6,7 +6,8 @@ const LOGOUT = 'LOGOUT'
 let initialState = {
     login: '',
     password: '',
-    isLogged: false
+    isLogged: false,
+    isAdmin: null
 }
 
 const loginReducer = (state = initialState, action) => {
@@ -23,10 +24,21 @@ const loginReducer = (state = initialState, action) => {
             }
         case ON_FORM_SUBMIT:
             if (state.login === 'admin' && state.password === 'admin') {
-                console.log('you are logged in')
+                console.log('you are logged in as admin')
                 return {
                     ...state,
                     isLogged: true,
+                    isAdmin: true,
+                    login: '',
+                    password: ''
+                }
+            }
+            else if (state.login === 'user' && state.password === 'user') {
+                console.log('you are logged in as user')
+                return {
+                    ...state,
+                    isLogged: true,
+                    isAdmin: false,
                     login: '',
                     password: ''
                 }
@@ -37,7 +49,8 @@ const loginReducer = (state = initialState, action) => {
         case LOGOUT:
             return {
                 ...state,
-                isLogged: false
+                isLogged: false,
+                isAdmin: null
             }
         default:
             return state
