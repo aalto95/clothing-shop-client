@@ -20,7 +20,9 @@ const productsReducer = (state = initialState, action) => {
     switch(action.type) {
         case CHECKOUT:
             return  {
-                ...state, cart: []
+                ...state,
+                cart: [],
+                cartSize: 0
             }
         case SET_PRODUCTS:
             return {
@@ -29,11 +31,6 @@ const productsReducer = (state = initialState, action) => {
         case SHOW_DETAILS:
             return stateCopy
         case ADD_TO_CART:
-            // stateCopy.cart.push(Object.assign(stateCopy.groceries[action.id], {quantity: 1}, {cartId: stateCopy.cart.length}))
-            // let uniqueCart = new Set(stateCopy.cart)
-            // stateCopy.cart = [...uniqueCart]
-            // stateCopy.cartSize += 1
-            // return stateCopy
             newCartSize = state.cartSize + 1
             return {
                 ...state,
