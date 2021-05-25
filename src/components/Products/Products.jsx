@@ -1,4 +1,4 @@
-import s from './Products.module.css'
+import styles from './Products.module.css'
 import Product from "./Product/Product";
 
 const Products = (props) => {
@@ -33,9 +33,12 @@ const Products = (props) => {
     />)
 
     return (
-        <div className={s.productContainer}>
-            {productElements}
-        </div>
+        <>
+            <h1 className={styles.label}>Most popular products</h1>
+            <div className={styles.productContainer}>
+                {productElements}
+            </div>
+        </>
     )
 }
 

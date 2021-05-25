@@ -20,22 +20,27 @@ nav {
       grid-area: login;
       cursor: pointer;
     }
-    .cartIcon {
-      grid-area: cart;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 30px;
-    }
-    .gearIcon {
-      grid-area: gear;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 30px;
-      height: 30px;
-    }
   }
+}
+
+.cartIcon {
+  grid-area: cart;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  p {
+    margin: 10px;
+  }
+}
+
+.gearIcon {
+  grid-area: gear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
 }
 
 @media screen and (min-width: 801px) {
@@ -47,7 +52,7 @@ nav {
       grid-area: desktopNavbar;
       display: grid;
       grid-template-areas: "navList login cart gear";
-      grid-template-columns: 80% 10% 3% 3%;
+      grid-template-columns: 80% 10% 5% 5%;
       align-items: center;
     }
     .dropdown {
@@ -59,9 +64,9 @@ nav {
 @media screen and (max-width: 800px) {
 
   nav {
-    grid-template-areas: "logo . dropdown .";
+    grid-template-areas: "logo . dropdown gear";
     grid-template-columns: 10% 30% 20% 40%;
-    .regularNavbar {
+    .desktopNavbar {
       display: none;
     }
     .dropdown {

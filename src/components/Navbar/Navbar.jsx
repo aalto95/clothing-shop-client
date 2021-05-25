@@ -24,13 +24,12 @@ const Navbar = (props) => {
                     ? <div onClick={props.logout} className={styles.logButton}>LOGOUT</div>
                     : <NavLink to='/login' className={styles.logButton}>LOGIN</NavLink>
                 }
-                <NavLink to='/cart' >
+                <NavLink to='/cart' className={styles.cartIcon}>
                     <img
-                        className={styles.cartIcon}
                         src={CartIcon}
                         alt="cart-icon"
                     />
-                    {props.cartSize}
+                    <p>{props.cartSize}</p>
                 </NavLink>
                 {
                     props.isAdmin &&
@@ -57,6 +56,7 @@ const Navbar = (props) => {
                     <NavLink to='/cart'>CART</NavLink>
                 </div>
             </div>
+
         </nav>
     )
 }

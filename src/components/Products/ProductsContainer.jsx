@@ -1,7 +1,7 @@
 import s from './Products.module.css'
 import Products from "./Products";
 import {connect} from "react-redux";
-import {addOne, addToCart, setProducts, showDetails, toggleIsFetching} from "../../redux/products-reducer";
+import {addToCart, setProducts, toggleIsFetching, addOne} from "../../redux/products-reducer";
 import axios from "axios";
 import {useEffect} from "react";
 import Preloader from "../Preloader/Preloader";
@@ -40,7 +40,6 @@ let mapStateToProps = state => {
 }
 
 let mapDispatchToProps = {
-    showDetails,
     addToCart,
     setProducts,
     toggleIsFetching,

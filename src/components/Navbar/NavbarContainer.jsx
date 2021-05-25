@@ -9,6 +9,7 @@ const NavbarContainer = (props) => {
             isLogged={props.isLogged}
             isAdmin={props.isAdmin}
             cartSize={props.cartSize}
+            logout={props.logout}
         />
     )
 }
