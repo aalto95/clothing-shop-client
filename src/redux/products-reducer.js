@@ -10,11 +10,13 @@ const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING'
 let initialState = {
     groceries: [],
     cart: [],
-    isFetching: false
+    isFetching: false,
+    cartSize: 0
 }
 
 const productsReducer = (state = initialState, action) => {
     let stateCopy = Object.assign({}, state)
+    let newCartSize
     switch(action.type) {
         case CHECKOUT:
             return  {
@@ -30,18 +32,29 @@ const productsReducer = (state = initialState, action) => {
             stateCopy.cart.push(Object.assign(stateCopy.groceries[action.id], {quantity: 1}, {cartId: stateCopy.cart.length}))
             let uniqueCart = new Set(stateCopy.cart)
             stateCopy.cart = [...uniqueCart]
+            stateCopy.cartSize += 1
             return stateCopy
         case ADD_ONE:
+            newCartSize = state.cartSize + 1
             return {
-                ...state, ...state.cart[action.id].quantity += 1
+                ...state,
+                ...state.cart[action.id].quantity += 1,
+                cartSize: newCartSize
             }
         case SUBTRACT_ONE:
+            newCartSize = state.cartSize - 1
             return {
-                ...state, ...state.cart[action.id].quantity -= 1
+                ...state,
+                ...state.cart[action.id].quantity -= 1,
+                cartSize: newCartSize
             }
         case REMOVE_FROM_CART:
+            newCartSize = state.cartSize - state.cart[action.id].quantity
             return {
-                ...state, ...state.cart.splice(action.id, 1)
+                ...state,
+                ...state.cart.splice(action.id, 1),
+                cartSize: newCartSize
+
             }
         case TOGGLE_IS_FETCHING:
             return {

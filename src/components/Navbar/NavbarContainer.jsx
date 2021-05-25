@@ -4,7 +4,12 @@ import {logout} from "../../redux/login-reducer";
 
 const NavbarContainer = (props) => {
     return (
-        <Navbar />
+        <Navbar
+            cart={props.cart}
+            isLogged={props.isLogged}
+            isAdmin={props.isAdmin}
+            cartSize={props.cartSize}
+        />
     )
 }
 
@@ -12,7 +17,8 @@ let mapStateToProps = state => {
     return {
         cart: state.productsPage.cart,
         isLogged: state.loginPage.isLogged,
-        isAdmin: state.loginPage.isAdmin
+        isAdmin: state.loginPage.isAdmin,
+        cartSize: state.productsPage.cartSize
     }
 }
 
@@ -22,4 +28,4 @@ let mapDispatchToProps = {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps) (Navbar)
+export default connect(mapStateToProps, mapDispatchToProps) (NavbarContainer)

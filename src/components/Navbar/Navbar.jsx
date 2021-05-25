@@ -30,6 +30,7 @@ const Navbar = (props) => {
                         src={CartIcon}
                         alt="cart-icon"
                     />
+                    {props.cartSize}
                 </NavLink>
                 {
                     props.isAdmin &&
