@@ -1,7 +1,7 @@
 import s from './Products.module.css'
 import Products from "./Products";
 import {connect} from "react-redux";
-import {addToCart, setProducts, showDetails, toggleIsFetching} from "../../redux/products-reducer";
+import {addOne, addToCart, setProducts, showDetails, toggleIsFetching} from "../../redux/products-reducer";
 import axios from "axios";
 import {useEffect} from "react";
 import Preloader from "../Preloader/Preloader";
@@ -25,6 +25,7 @@ const ProductsContainer = (props) => {
             cart={props.cart}
             isFetching={props.isFetching}
             addToCart={props.addToCart}
+            addOne={props.addOne}
         />}
     </>
 }
@@ -38,9 +39,12 @@ let mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {
+let mapDispatchToProps = {
     showDetails,
     addToCart,
     setProducts,
-    toggleIsFetching
-}) (ProductsContainer)
+    toggleIsFetching,
+    addOne
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (ProductsContainer)
