@@ -7,6 +7,7 @@ import NavbarContainer from "./components/Navbar/NavbarContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 import Admin from "./components/Admin/Admin";
 import AdminContainer from "./components/Admin/AdminContainer";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
                render={ () => <LoginContainer /> }/>
         <Route path="/admin"
                render={ () => <AdminContainer/> }/>
+        <Footer />
     </div>
   );
 }
