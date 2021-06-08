@@ -1,6 +1,6 @@
 import styles from './Login.module.css'
 import React from "react";
-import {Redirect} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 
 
 const Login = (props) => {
@@ -13,13 +13,16 @@ const Login = (props) => {
     return (
        <div className={styles.loginComponent}>
            { props.isLogged && <Redirect to='/admin'/> }
+           <NavLink to="/"><h1 className={styles}>Grocery Store</h1></NavLink>
+           <div className={styles.formWrapper}>
                <form action="" className={styles.loginForm} onSubmit={onFormSubmit}>
-                   <label htmlFor="name">Username</label>
-                   <input type="text" name="name" onChange={props.onLoginChange} value={props.login}/>
-                   <label htmlFor="password">Password</label>
+                   <label htmlFor="username">USERNAME:</label>
+                   <input type="text" name="username" onChange={props.onLoginChange} value={props.login}/>
+                   <label htmlFor="password">PASSWORD:</label>
                    <input type="text" name="password" onChange={props.onPasswordChange} value={props.password}/>
-                   <input type="submit" />
+                   <input type="submit" className={styles.submitBtn} value="Login" disabled={!props.password && !props.login}/>
                </form>
+           </div>
        </div>
     )
 }

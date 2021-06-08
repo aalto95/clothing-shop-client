@@ -5,14 +5,14 @@ import {Route} from 'react-router-dom'
 import CartContainer from "./components/Cart/CartContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import LoginContainer from "./components/Login/LoginContainer";
-import Admin from "./components/Admin/Admin";
 import AdminContainer from "./components/Admin/AdminContainer";
 import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
-        <NavbarContainer />
+        <Route exact path="/"
+               render={ () => <NavbarContainer /> }/>
         <Route exact path="/"
                render={ () => <StartingPage /> }/>
         <Route exact path="/"
@@ -23,7 +23,8 @@ function App() {
                render={ () => <LoginContainer /> }/>
         <Route path="/admin"
                render={ () => <AdminContainer/> }/>
-        <Footer />
+        <Route exact path={"/"}
+               render={ () => <Footer/> }/>
     </div>
   );
 }
