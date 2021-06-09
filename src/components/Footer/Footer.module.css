@@ -1,11 +1,20 @@
 .footer {
-  background-color: #a58faa;
-  color: #FFF;
+  background-color: #C6C6C6;
+  color: #000;
   height: 20vh;
   margin-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+.footer p {
+  border-top: 1px solid #000;
+  padding: 30px;
+  width: 80vw;
+}
+.footer p a {
+  color: #a58faa;
 }
 
 /*# sourceMappingURL=Footer.module.css.map */
