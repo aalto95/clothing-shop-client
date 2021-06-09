@@ -32,15 +32,7 @@ const Products = (props) => {
         style={{backgroundImage: `url(${grocery.img})`}}
     />)
 
-    let previousPage = () => {
-        props.showPreviousPage()
-        props.getProducts()
-    }
 
-    let nextPage = () => {
-        props.showNextPage()
-        props.getProducts()
-    }
 
     return (
         <>
@@ -51,9 +43,9 @@ const Products = (props) => {
                 </div>
             </div>
             <div className={styles.pagination}>
-                <span onClick={previousPage}>&#8592;</span>
+                <button disabled={props.currentPage === 1} onClick={props.previousPage}>&#8592;</button>
                 <span className={styles.currentPage}>{props.currentPage}</span>
-                <span onClick={nextPage}>&#8594;</span>
+                <button disabled={props.currentPage === props.pageQuantity} onClick={props.nextPage}>&#8594;</button>
             </div>
         </>
     )

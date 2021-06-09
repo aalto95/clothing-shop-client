@@ -12,31 +12,42 @@ import {
 import axios from "axios";
 import {useEffect} from "react";
 import Preloader from "../Preloader/Preloader";
+import {productsAPI} from "../../api/api";
 
 const ProductsContainer = (props) => {
 
     let getPageQuantity = () => {
         axios.get(`https://60a0e51dd2855b00173b15c9.mockapi.io/products`)
             .then(response => {
-                console.log(response.data.length)
                 props.setPageQuantity(response.data.length)
             })
     }
 
-    let getProducts = () => {
+    let getProducts = (page) => {
         props.toggleIsFetching(true)
-        axios.get(`https://60a0e51dd2855b00173b15c9.mockapi.io/products?page=${props.currentPage}&limit=8`)
+        productsAPI.getProducts(page, props.pageLength)
             .then(response => {
                 props.toggleIsFetching(false)
-                props.setProducts(response.data)
+                props.setProducts(response)
             })
+    }
+
+    let previousPage = () => {
+        props.showPreviousPage()
+        getProducts(props.currentPage - 1)
+    }
+
+    let nextPage = () => {
+        props.showNextPage()
+        getProducts(props.currentPage + 1)
+
     }
 
     useEffect(getPageQuantity, [])
     useEffect(getProducts, [])
 
     return <>
-        {props.isFetching ? <Preloader /> : <Products
+        {<Products
             groceries={props.groceries}
             cart={props.cart}
             isFetching={props.isFetching}
@@ -44,8 +55,9 @@ const ProductsContainer = (props) => {
             addOne={props.addOne}
             getProducts={getProducts}
             currentPage={props.currentPage}
-            showPreviousPage={props.showPreviousPage}
-            showNextPage={props.showNextPage}
+            previousPage={previousPage}
+            nextPage={nextPage}
+            pageQuantity={props.pageQuantity}
         />}
     </>
 }
@@ -57,7 +69,8 @@ let mapStateToProps = state => {
         cart: state.productsPage.cart,
         isFetching: state.productsPage.isFetching,
         currentPage: state.productsPage.currentPage,
-        pageQuantity: state.productsPage.pageQuantity
+        pageQuantity: state.productsPage.pageQuantity,
+        pageLength: state.productsPage.pageLength
     }
 }
 

@@ -15,7 +15,9 @@ let initialState = {
     cart: [],
     cartSize: 0,
     currentPage: 1,
+    pageLength: 8,
     pageQuantity: null
+
 }
 
 const productsReducer = (state = initialState, action) => {
@@ -94,7 +96,7 @@ const productsReducer = (state = initialState, action) => {
         case SET_PAGE_QUANTITY:
             return {
                 ...state,
-                pageQuantity: Math.ceil(action.length / 8)
+                pageQuantity: Math.ceil(action.length / state.pageLength)
             }
 
         default:

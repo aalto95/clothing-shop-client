@@ -51,6 +51,12 @@
 
 .pagination {
   margin: 50px;
+  button {
+    border: none;
+    background-color: #DDDDDD;
+    padding: 10px;
+    border-radius: 5px;
+  }
   .currentPage {
     margin: 10px;
   }
