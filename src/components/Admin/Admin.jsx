@@ -32,8 +32,10 @@ const Admin = (props) => {
         )
     }
     return (
-        <div className={styles.adminPage}>
-            <h1>FORBIDDEN. ERROR 403</h1>
+        <div className={styles.errorPage}>
+            <h1>403</h1>
+            <h2>FORBIDDEN</h2>
+            <p>access to this resource is denied!</p>
         </div>
     )
 }
