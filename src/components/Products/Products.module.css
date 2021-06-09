@@ -43,6 +43,13 @@
   margin-left: 5px;
 }
 
+.pagination {
+  margin: 50px;
+}
+.pagination .currentPage {
+  margin: 10px;
+}
+
 @media screen and (min-width: 1201px) {
   .productWrap {
     flex-basis: 25%;

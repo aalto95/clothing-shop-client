@@ -49,6 +49,13 @@
   }
 }
 
+.pagination {
+  margin: 50px;
+  .currentPage {
+    margin: 10px;
+  }
+}
+
 
 
 @media screen and (min-width: 1201px) {

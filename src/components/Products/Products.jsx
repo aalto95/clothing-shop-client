@@ -32,6 +32,16 @@ const Products = (props) => {
         style={{backgroundImage: `url(${grocery.img})`}}
     />)
 
+    let previousPage = () => {
+        props.showPreviousPage()
+        props.getProducts()
+    }
+
+    let nextPage = () => {
+        props.showNextPage()
+        props.getProducts()
+    }
+
     return (
         <>
             <h1 className={styles.label}>Most popular products</h1>
@@ -39,6 +49,11 @@ const Products = (props) => {
                 <div className={styles.productContainer}>
                     {productElements}
                 </div>
+            </div>
+            <div className={styles.pagination}>
+                <span onClick={previousPage}>&#8592;</span>
+                <span className={styles.currentPage}>{props.currentPage}</span>
+                <span onClick={nextPage}>&#8594;</span>
             </div>
         </>
     )
