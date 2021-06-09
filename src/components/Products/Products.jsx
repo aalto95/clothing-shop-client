@@ -35,8 +35,10 @@ const Products = (props) => {
     return (
         <>
             <h1 className={styles.label}>Most popular products</h1>
-            <div className={styles.productContainer}>
-                {productElements}
+            <div className={styles.wrapper}>
+                <div className={styles.productContainer}>
+                    {productElements}
+                </div>
             </div>
         </>
     )

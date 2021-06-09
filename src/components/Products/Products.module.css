@@ -2,25 +2,30 @@
   margin: 50px;
 }
 
-.productContainer {
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+.wrapper .productContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  width: 80vw;
 }
-.productContainer .productWrap .productImage {
+.wrapper .productContainer .productWrap .productImage {
   display: flex;
   min-height: 200px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 200px;
 }
-.productContainer .productWrap .addToCart {
+.wrapper .productContainer .productWrap .addToCart {
   display: flex;
   justify-content: center;
   cursor: pointer;
   padding: 10px;
 }
-.productContainer .productWrap .addToCart button {
+.wrapper .productContainer .productWrap .addToCart button {
   border: none;
   min-width: 100px;
   min-height: 30px;
@@ -28,32 +33,32 @@
   cursor: pointer;
   background-color: #ddd;
 }
-.productContainer .productWrap .addToCart .onAddToCart:active {
+.wrapper .productContainer .productWrap .addToCart .onAddToCart:active {
   transition-duration: 0.1s;
   background-color: #a58faa;
 }
-.productContainer .productWrap .addToCart .cartIcon {
+.wrapper .productContainer .productWrap .addToCart .cartIcon {
   width: 20px;
   height: 20px;
   margin-left: 5px;
 }
 
-@media screen and (min-width: 1001px) {
+@media screen and (min-width: 1201px) {
   .productWrap {
     flex-basis: 25%;
   }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .productWrap {
     flex-basis: 33%;
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
   .productWrap {
     flex-basis: 50%;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .productWrap {
     flex-basis: 100%;
   }

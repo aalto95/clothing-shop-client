@@ -1,70 +1,75 @@
 .label {
   margin: 50px;
 }
-
-.productContainer {
+.wrapper {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
+  .productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 80vw;
+    .productWrap {
 
-  .productWrap {
+      .productImage {
+        display: flex;
+        min-height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 200px;
+      }
 
-    .productImage {
-      display: flex;
-      min-height: 200px;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 200px;
-    }
-
-    .addToCart {
-      display: flex;
-      justify-content: center;
-      cursor: pointer;
-      padding: 10px;
-
-      button {
-        border: none;
-        min-width: 100px;
-        min-height: 30px;
-        border-radius: 50px;
+      .addToCart {
+        display: flex;
+        justify-content: center;
         cursor: pointer;
-        background-color: #ddd;
-      }
+        padding: 10px;
 
-      .onAddToCart:active {
-        transition-duration: .1s;
-        background-color: #a58faa;
-      }
+        button {
+          border: none;
+          min-width: 100px;
+          min-height: 30px;
+          border-radius: 50px;
+          cursor: pointer;
+          background-color: #ddd;
+        }
 
-      .cartIcon {
-        width: 20px;
-        height: 20px;
-        margin-left: 5px;
+        .onAddToCart:active {
+          transition-duration: .1s;
+          background-color: #a58faa;
+        }
+
+        .cartIcon {
+          width: 20px;
+          height: 20px;
+          margin-left: 5px;
+        }
       }
     }
   }
 }
 
-@media screen and (min-width: 1001px) {
+
+
+@media screen and (min-width: 1201px) {
   .productWrap {
       flex-basis: 25%;
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .productWrap {
       flex-basis: 33%;
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
   .productWrap {
       flex-basis: 50%;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .productWrap {
       flex-basis: 100%;
   }
