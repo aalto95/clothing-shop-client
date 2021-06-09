@@ -1,4 +1,4 @@
-const ADD_PRODUCT_TO_DATABASE = 'ADD-PRODUCT-TO-DATABASE'
+const NULLIFY_FIELDS = 'NULLIFY-FIELDS'
 const ON_PRODUCT_NAME_CHANGE = 'ON-PRODUCT-NAME-CHANGE'
 const ON_PRODUCT_PRICE_CHANGE = 'ON-PRODUCT-RICE-CHANGE'
 const ON_PRODUCT_IMAGE_URL_CHANGE = 'ON-PRODUCT-IMAGE-URL-CHANGE'
@@ -33,7 +33,7 @@ const adminReducer = (state = initialState, action) => {
                 ...state,
                 productType: action.productType
             }
-        case ADD_PRODUCT_TO_DATABASE:
+        case NULLIFY_FIELDS:
             return {
                 ...state,
                 name: '',
@@ -50,6 +50,6 @@ export let onProductNameChange = (e) => ({ type: ON_PRODUCT_NAME_CHANGE, name: e
 export let onProductPriceChange = (e) => ({ type: ON_PRODUCT_PRICE_CHANGE, price: e.target.value })
 export let onProductImageURLChange = (e) => ({ type: ON_PRODUCT_IMAGE_URL_CHANGE, imageURL: e.target.value })
 export let onProductTypeChange = (e) => ({ type: ON_PRODUCT_TYPE_CHANGE, productType: e.target.value })
-export let addProductToDatabase = () => ({ type: ADD_PRODUCT_TO_DATABASE })
+export let nullifyFields = () => ({ type: NULLIFY_FIELDS })
 
 export default adminReducer

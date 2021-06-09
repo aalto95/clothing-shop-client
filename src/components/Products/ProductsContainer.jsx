@@ -7,19 +7,18 @@ import {
     toggleIsFetching,
     addOne,
     showPreviousPage,
-    showNextPage, setPageQuantity
+    showNextPage, setPagesQuantity
 } from "../../redux/products-reducer";
-import axios from "axios";
 import {useEffect} from "react";
 import Preloader from "../Preloader/Preloader";
 import {productsAPI} from "../../api/api";
 
 const ProductsContainer = (props) => {
 
-    let getPageQuantity = () => {
-        axios.get(`https://60a0e51dd2855b00173b15c9.mockapi.io/products`)
+    let getPagesQuantity = () => {
+        productsAPI.getPagesQuantity()
             .then(response => {
-                props.setPageQuantity(response.data.length)
+                props.setPagesQuantity(response)
             })
     }
 
@@ -43,7 +42,7 @@ const ProductsContainer = (props) => {
 
     }
 
-    useEffect(getPageQuantity, [])
+    useEffect(getPagesQuantity, [])
     useEffect(getProducts, [])
 
     return <>
@@ -57,7 +56,7 @@ const ProductsContainer = (props) => {
             currentPage={props.currentPage}
             previousPage={previousPage}
             nextPage={nextPage}
-            pageQuantity={props.pageQuantity}
+            pagesQuantity={props.pagesQuantity}
         />}
     </>
 }
@@ -81,7 +80,7 @@ let mapDispatchToProps = {
     addOne,
     showPreviousPage,
     showNextPage,
-    setPageQuantity
+    setPagesQuantity
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (ProductsContainer)

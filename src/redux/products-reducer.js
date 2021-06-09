@@ -7,7 +7,7 @@ const ADD_ONE = 'ADD-ONE'
 const SUBTRACT_ONE = 'SUBTRACT-ONE'
 const SHOW_PREVIOUS_PAGE = 'SHOW-PREVIOUS-PAGE'
 const SHOW_NEXT_PAGE = 'SHOW-NEXT-PAGE'
-const SET_PAGE_QUANTITY = 'SET-PAGE-QUANTITY'
+const SET_PAGES_QUANTITY = 'SET-PAGES-QUANTITY'
 
 let initialState = {
     groceries: [],
@@ -16,7 +16,7 @@ let initialState = {
     cartSize: 0,
     currentPage: 1,
     pageLength: 8,
-    pageQuantity: null
+    pagesQuantity: null
 
 }
 
@@ -76,7 +76,7 @@ const productsReducer = (state = initialState, action) => {
             }
 
         case SHOW_PREVIOUS_PAGE:
-            if (state.currentPage >= 2 && state.currentPage <= state.pageQuantity) {
+            if (state.currentPage >= 2 && state.currentPage <= state.pagesQuantity) {
                 return {
                     ...state,
                     currentPage: state.currentPage - 1
@@ -85,7 +85,7 @@ const productsReducer = (state = initialState, action) => {
             return state
 
         case SHOW_NEXT_PAGE:
-            if (state.currentPage < state.pageQuantity) {
+            if (state.currentPage < state.pagesQuantity) {
                 return {
                     ...state,
                     currentPage: state.currentPage + 1
@@ -93,10 +93,10 @@ const productsReducer = (state = initialState, action) => {
             }
             return state
 
-        case SET_PAGE_QUANTITY:
+        case SET_PAGES_QUANTITY:
             return {
                 ...state,
-                pageQuantity: Math.ceil(action.length / state.pageLength)
+                pagesQuantity: Math.ceil(action.length / state.pageLength)
             }
 
         default:
@@ -113,6 +113,6 @@ export let checkout = () => ({ type: CHECKOUT })
 export let removeFromCart = (id) => ({ type: REMOVE_FROM_CART, id })
 export let showPreviousPage = () => ({ type: SHOW_PREVIOUS_PAGE })
 export let showNextPage = () => ({ type: SHOW_NEXT_PAGE })
-export let setPageQuantity = (length) => ({ type: SET_PAGE_QUANTITY, length })
+export let setPagesQuantity = (length) => ({ type: SET_PAGES_QUANTITY, length })
 
 export default productsReducer

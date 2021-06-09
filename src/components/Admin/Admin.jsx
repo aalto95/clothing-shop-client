@@ -1,21 +1,16 @@
 import styles from './Admin.module.css'
 import React from "react";
-import axios from "axios";
+import {productsAPI} from "../../api/api";
 
 const Admin = (props) => {
     if (props.isLogged) {
 
         let pushProductToDatabase = (e) => {
             e.preventDefault()
-            axios.post("https://60a0e51dd2855b00173b15c9.mockapi.io/products", {
-                name: props.name,
-                price: props.price,
-                img: props.imageURL,
-                type: props.productType
-            })
+            productsAPI.postProduct(props.name, props.price, props.imageURL, props.type)
                 .then(response => {
                     console.log(response)
-                    props.addProductToDatabase()
+                    props.nullifyFields()
                 })
         }
         return (

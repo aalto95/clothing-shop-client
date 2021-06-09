@@ -2,7 +2,7 @@ import React from "react";
 import Admin from "./Admin";
 import {connect} from "react-redux";
 import {
-    addProductToDatabase,
+    nullifyFields,
     onProductImageURLChange,
     onProductNameChange,
     onProductPriceChange, onProductTypeChange
@@ -20,7 +20,7 @@ const AdminContainer = (props) => {
             onProductPriceChange={props.onProductPriceChange}
             onProductImageURLChange={props.onProductImageURLChange}
             onProductTypeChange={props.onProductTypeChange}
-            addProductToDatabase={props.addProductToDatabase}
+            nullifyFields={props.nullifyFields}
         />
     )
 }
@@ -40,7 +40,7 @@ let mapDispatchToProps = {
     onProductPriceChange,
     onProductImageURLChange,
     onProductTypeChange,
-    addProductToDatabase
+    nullifyFields
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (AdminContainer)

@@ -10,5 +10,16 @@ export const productsAPI = {
             .then(response => {
                 return response.data
             })
+    },
+    getPagesQuantity: () => {
+        return instance.get('')
+            .then(response => {
+                return response.data.length
+            })
+    },
+    postProduct: (name, price, img, type) => {
+        return instance.post(``, {
+            name, price, img, type
+        })
     }
 }
