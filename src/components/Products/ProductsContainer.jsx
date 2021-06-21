@@ -1,4 +1,3 @@
-import s from './Products.module.css'
 import Products from "./Products";
 import {connect} from "react-redux";
 import {
@@ -10,7 +9,6 @@ import {
     showNextPage, setPagesQuantity
 } from "../../redux/products-reducer";
 import {useEffect} from "react";
-import Preloader from "../Preloader/Preloader";
 import {productsAPI} from "../../api/api";
 
 const ProductsContainer = (props) => {

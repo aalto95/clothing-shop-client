@@ -1,0 +1,53 @@
+.navDesktop {
+  display: grid;
+  min-height: 54px;
+  height: 9vh;
+  align-items: center;
+  grid-template-areas: "logo . desktopNavbar";
+  grid-template-columns: 5% 2% 93%;
+  align-items: center;
+  .logo {
+    max-width: 50px;
+    max-height: 50px;
+    grid-area: logo;
+  }
+  .desktopNavbar {
+    grid-area: desktopNavbar;
+    display: grid;
+    grid-template-areas: "navList login cart gear";
+    grid-template-columns: 80% 10% 5% 5%;
+    align-items: center;
+    .navigationList {
+      display: flex;
+      grid-area: navList;
+      li {
+        margin: 10px;
+        list-style: none;
+      }
+    }
+    .logButton {
+      grid-area: login;
+      cursor: pointer;
+    }
+    .cartIcon {
+      width: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        padding: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .navDesktop {
+    display: none;
+  }
+}
+
+
+
+/* Login container */
+

@@ -1,4 +1,4 @@
-import styles from './Navbar.module.css'
+import styles from './NavbarDesktop.module.css'
 import CartIcon from './../../assets/images/shopping-cart.svg'
 import NavIcon from './../../assets/images/menu.png'
 import GearIcon from './../../assets/images/gear.svg'
@@ -7,10 +7,10 @@ import React from "react";
 import 'react-dropdown/style.css';
 
 
-const Navbar = (props) => {
+const NavbarDesktop = (props) => {
 
     return (
-        <nav>
+        <nav className={styles.navDesktop}>
             <NavLink to='/'><img src='https://freedesignfile.com/upload/2020/07/GROCERY-STORE-logo-vector.jpg' className={styles.logo}/></NavLink>
             <div className={styles.desktopNavbar}>
                 <ul className={styles.navigationList}>
@@ -42,23 +42,8 @@ const Navbar = (props) => {
                     </NavLink>
                 }
             </div>
-
-            <div class={styles.dropdown}>
-                <button class={styles.dropbtn}>
-                    <img src={NavIcon} className={styles.navIcon}/>
-                </button>
-                <div class={styles.dropdownContent}>
-                    <NavLink to='/'>MARKET</NavLink>
-                    <NavLink to='/food'>FOOD</NavLink>
-                    <NavLink to='/'>ESSENTIALS</NavLink>
-                    <NavLink to='/'>PARTNER WITH US</NavLink>
-                    <NavLink to='/login'>LOGIN</NavLink>
-                    <NavLink to='/cart'>CART</NavLink>
-                </div>
-            </div>
-
         </nav>
     )
 }
 
-export default Navbar
+export default NavbarDesktop
