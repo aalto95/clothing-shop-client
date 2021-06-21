@@ -6,6 +6,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &:hover {
+    background-color: #252525;
+  }
 }
 
 @mixin gridCenter {
@@ -14,18 +17,22 @@
   justify-content: center;
 }
 
-.navDesktop {
-  @include gridCenter;
+@mixin heightPreference {
   min-height: 54px;
   height: 6vh;
+}
+
+.navDesktop {
+  @include gridCenter;
+  @include heightPreference;
   width: 100vw;
   position: fixed;
   background-color: #303030;
-  grid-template-areas: "logo . navigation";
-  grid-template-columns: 5% 2% 93%;
+  grid-template-areas: "logo navigation";
+  grid-template-columns: 7% 93%;
   .logo {
-    max-width: 50px;
-    max-height: 50px;
+    max-width: 40px;
+    max-height: 40px;
     grid-area: logo;
   }
   .desktopNavbar {
@@ -37,38 +44,44 @@
       display: flex;
       grid-area: navList;
       li {
-        margin: 10px;
         list-style: none;
+        display: flex;
         a {
           @include navColor;
+          @include flexCenter;
+          @include heightPreference;
+          padding: 10px;
         }
       }
     }
     .interactionGroup {
       @include gridCenter;
+      @include heightPreference;
       grid-area: interactionGroup;
       grid-template-columns: 70px 70px 70px;
       grid-template-areas: 'search auth cart';
       justify-content: flex-end;
-      margin-right: 30px;
       .searchIcon {
-        grid-area: search;
         @include flexCenter;
+        @include heightPreference;
+        grid-area: search;
+        cursor: pointer;
         img {
           color: #262626;
           width: 20px;
-          cursor: pointer;
         }
       }
       .logButton {
         @include flexCenter;
         @include navColor;
+        @include heightPreference;
         grid-area: auth;
         cursor: pointer;
         text-align: left;
       }
       .cartIcon {
         @include flexCenter;
+        @include heightPreference;
         grid-area: cart;
         img {
           padding: 5px;

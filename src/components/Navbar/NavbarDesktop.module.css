@@ -7,12 +7,12 @@
   width: 100vw;
   position: fixed;
   background-color: #303030;
-  grid-template-areas: "logo . navigation";
-  grid-template-columns: 5% 2% 93%;
+  grid-template-areas: "logo navigation";
+  grid-template-columns: 7% 93%;
 }
 .navDesktop .logo {
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 40px;
+  max-height: 40px;
   grid-area: logo;
 }
 .navDesktop .desktopNavbar {
@@ -28,47 +28,72 @@
   grid-area: navList;
 }
 .navDesktop .desktopNavbar .navigationList li {
-  margin: 10px;
   list-style: none;
+  display: flex;
 }
 .navDesktop .desktopNavbar .navigationList li a {
   color: #969696;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 54px;
+  height: 6vh;
+  padding: 10px;
+}
+.navDesktop .desktopNavbar .navigationList li a:hover {
+  background-color: #252525;
 }
 .navDesktop .desktopNavbar .interactionGroup {
   display: grid;
   align-items: center;
   justify-content: center;
+  min-height: 54px;
+  height: 6vh;
   grid-area: interactionGroup;
   grid-template-columns: 70px 70px 70px;
   grid-template-areas: "search auth cart";
   justify-content: flex-end;
-  margin-right: 30px;
 }
 .navDesktop .desktopNavbar .interactionGroup .searchIcon {
-  grid-area: search;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 54px;
+  height: 6vh;
+  grid-area: search;
+  cursor: pointer;
+}
+.navDesktop .desktopNavbar .interactionGroup .searchIcon:hover {
+  background-color: #252525;
 }
 .navDesktop .desktopNavbar .interactionGroup .searchIcon img {
   color: #262626;
   width: 20px;
-  cursor: pointer;
 }
 .navDesktop .desktopNavbar .interactionGroup .logButton {
   display: flex;
   justify-content: center;
   align-items: center;
   color: #969696;
+  min-height: 54px;
+  height: 6vh;
   grid-area: auth;
   cursor: pointer;
   text-align: left;
+}
+.navDesktop .desktopNavbar .interactionGroup .logButton:hover {
+  background-color: #252525;
 }
 .navDesktop .desktopNavbar .interactionGroup .cartIcon {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 54px;
+  height: 6vh;
   grid-area: cart;
+}
+.navDesktop .desktopNavbar .interactionGroup .cartIcon:hover {
+  background-color: #252525;
 }
 .navDesktop .desktopNavbar .interactionGroup .cartIcon img {
   padding: 5px;
