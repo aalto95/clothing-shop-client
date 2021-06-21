@@ -46,7 +46,7 @@ const Cart = (props) => {
                     <div key={i} className={styles.product}>
                         <img src={product.img} className={styles.productImg}/>
                         <p className={styles.productName}>{product.name} x {product.quantity} = <b>{product.price * product.quantity}$</b></p>
-                        <div className={styles.buttonSquad}>
+                        <div className={styles.buttonGroup}>
                             <button className={styles.quantityButton} onClick={() => onAdd(i)}>+</button>
                             <button className={styles.quantityButton} onClick={() => onSubtract(i)}>-</button>
                             <ReactSVG className={styles.deleteIcon} src={deleteIcon} onClick={() => { onRemoveFromCart(i)}}/>
@@ -61,7 +61,7 @@ const Cart = (props) => {
     }
     return (
         <div className={styles.emptyCart}>
-            <h1>Looks very empty here...</h1>
+            <h1>Your cart is empty</h1>
         </div>
     )
 }

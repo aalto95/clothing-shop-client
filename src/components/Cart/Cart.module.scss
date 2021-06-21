@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  min-height: 80vh;
   .product {
     min-width: 50%;
     display: flex;
@@ -21,7 +21,7 @@
   }
 }
 
-.buttonSquad {
+.buttonGroup {
   display: flex;
   .quantityButton {
     background-color: #DDD;
@@ -50,7 +50,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 91vh;
+  height: 80vh;
 }
 
 @media screen and (max-width: 800px) {

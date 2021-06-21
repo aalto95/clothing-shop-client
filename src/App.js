@@ -11,7 +11,7 @@ import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <div className="App">
-            <Route exact path="/"
+            <Route path="/"
                    render={ () => <NavbarContainer /> }/>
             <Route exact path="/"
                    render={ () => <StartingPage /> }/>
@@ -23,7 +23,7 @@ function App() {
                    render={ () => <LoginContainer /> }/>
             <Route path="/admin"
                    render={ () => <AdminContainer/> }/>
-            <Route exact path="/"
+            <Route path="/"
                    render={ () => <Footer/> }/>
     </div>
   );

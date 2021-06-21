@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  min-height: 80vh;
 }
 .cart .product {
   min-width: 50%;
@@ -18,16 +19,16 @@
   max-width: 200px;
 }
 
-.buttonSquad {
+.buttonGroup {
   display: flex;
 }
-.buttonSquad .quantityButton {
+.buttonGroup .quantityButton {
   background-color: #DDD;
   min-width: 50px;
   border: none;
   cursor: pointer;
 }
-.buttonSquad .deleteIcon {
+.buttonGroup .deleteIcon {
   height: 30px;
   width: 30px;
   margin-left: 10px;
@@ -47,7 +48,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 91vh;
+  height: 80vh;
 }
 
 @media screen and (max-width: 800px) {

@@ -1,11 +1,14 @@
 .navDesktop {
   display: grid;
+  align-items: center;
+  justify-content: center;
   min-height: 54px;
-  height: 9vh;
-  align-items: center;
-  grid-template-areas: "logo . desktopNavbar";
+  height: 6vh;
+  width: 100vw;
+  position: fixed;
+  background-color: #303030;
+  grid-template-areas: "logo . navigation";
   grid-template-columns: 5% 2% 93%;
-  align-items: center;
 }
 .navDesktop .logo {
   max-width: 50px;
@@ -13,11 +16,12 @@
   grid-area: logo;
 }
 .navDesktop .desktopNavbar {
-  grid-area: desktopNavbar;
   display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-area: navigation;
   grid-template-areas: "navList interactionGroup";
   grid-template-columns: 70% 30%;
-  align-items: center;
 }
 .navDesktop .desktopNavbar .navigationList {
   display: flex;
@@ -27,35 +31,49 @@
   margin: 10px;
   list-style: none;
 }
+.navDesktop .desktopNavbar .navigationList li a {
+  color: #969696;
+}
 .navDesktop .desktopNavbar .interactionGroup {
   display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-area: interactionGroup;
+  grid-template-columns: 50px 50px 50px;
+  grid-template-areas: "search auth cart";
+}
+.navDesktop .desktopNavbar .interactionGroup .searchIcon {
+  grid-area: search;
+  display: flex;
   justify-content: center;
   align-items: center;
-  grid-area: interactionGroup;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-areas: "login cart gear";
+}
+.navDesktop .desktopNavbar .interactionGroup .searchIcon img {
+  color: #262626;
+  width: 20px;
+  cursor: pointer;
 }
 .navDesktop .desktopNavbar .interactionGroup .logButton {
-  grid-area: login;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #969696;
+  grid-area: auth;
   cursor: pointer;
   text-align: left;
 }
 .navDesktop .desktopNavbar .interactionGroup .cartIcon {
-  width: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 40px;
   grid-area: cart;
 }
 .navDesktop .desktopNavbar .interactionGroup .cartIcon img {
   padding: 5px;
 }
-.navDesktop .desktopNavbar .interactionGroup .gearWrapper {
-  display: flex;
-}
-.navDesktop .desktopNavbar .interactionGroup .gearWrapper .gearIcon {
-  width: 30px;
-  grid-area: gear;
+.navDesktop .desktopNavbar .interactionGroup .cartIcon p {
+  color: #969696;
 }
 
 @media screen and (max-width: 800px) {

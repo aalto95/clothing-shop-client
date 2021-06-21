@@ -1,57 +1,79 @@
-.navDesktop {
+@mixin navColor {
+  color: #969696;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin gridCenter {
   display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.navDesktop {
+  @include gridCenter;
   min-height: 54px;
-  height: 9vh;
-  align-items: center;
-  grid-template-areas: "logo . desktopNavbar";
+  height: 6vh;
+  width: 100vw;
+  position: fixed;
+  background-color: #303030;
+  grid-template-areas: "logo . navigation";
   grid-template-columns: 5% 2% 93%;
-  align-items: center;
   .logo {
     max-width: 50px;
     max-height: 50px;
     grid-area: logo;
   }
   .desktopNavbar {
-    grid-area: desktopNavbar;
-    display: grid;
+    @include gridCenter;
+    grid-area: navigation;
     grid-template-areas: "navList interactionGroup";
     grid-template-columns: 70% 30%;
-    align-items: center;
     .navigationList {
       display: flex;
       grid-area: navList;
       li {
         margin: 10px;
         list-style: none;
+        a {
+          @include navColor;
+        }
       }
     }
     .interactionGroup {
-      display: grid;
-      justify-content: center;
-      align-items: center;
+      @include gridCenter;
       grid-area: interactionGroup;
-      grid-template-columns: 100px 100px 100px;
-      grid-template-areas: 'login cart gear';
+      grid-template-columns: 50px 50px 50px;
+      grid-template-areas: 'search auth cart';
+      .searchIcon {
+        grid-area: search;
+        @include flexCenter;
+        img {
+          color: #262626;
+          width: 20px;
+          cursor: pointer;
+        }
+      }
       .logButton {
-        grid-area: login;
+        @include flexCenter;
+        @include navColor;
+        grid-area: auth;
         cursor: pointer;
         text-align: left;
       }
       .cartIcon {
+        @include flexCenter;
         width: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         grid-area: cart;
         img {
           padding: 5px;
         }
-      }
-      .gearWrapper {
-        display: flex;
-        .gearIcon {
-          width: 30px;
-          grid-area: gear;
+        p {
+          @include navColor
         }
       }
     }
