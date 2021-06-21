@@ -39,8 +39,10 @@
   align-items: center;
   justify-content: center;
   grid-area: interactionGroup;
-  grid-template-columns: 50px 50px 50px;
+  grid-template-columns: 70px 70px 70px;
   grid-template-areas: "search auth cart";
+  justify-content: flex-end;
+  margin-right: 30px;
 }
 .navDesktop .desktopNavbar .interactionGroup .searchIcon {
   grid-area: search;
@@ -66,7 +68,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
   grid-area: cart;
 }
 .navDesktop .desktopNavbar .interactionGroup .cartIcon img {

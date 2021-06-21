@@ -47,8 +47,10 @@
     .interactionGroup {
       @include gridCenter;
       grid-area: interactionGroup;
-      grid-template-columns: 50px 50px 50px;
+      grid-template-columns: 70px 70px 70px;
       grid-template-areas: 'search auth cart';
+      justify-content: flex-end;
+      margin-right: 30px;
       .searchIcon {
         grid-area: search;
         @include flexCenter;
@@ -67,7 +69,6 @@
       }
       .cartIcon {
         @include flexCenter;
-        width: 40px;
         grid-area: cart;
         img {
           padding: 5px;
