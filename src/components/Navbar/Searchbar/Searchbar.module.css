@@ -1,0 +1,16 @@
+.searchbar {
+  width: 100vw;
+  height: 50px;
+  background-color: #FFF;
+  transform: translateY(50px);
+  position: fixed;
+  z-index: 0;
+}
+.searchbar .inputField {
+  width: 50vw;
+  height: inherit;
+  border: none;
+  outline: none;
+}
+
+/*# sourceMappingURL=Searchbar.module.css.map */

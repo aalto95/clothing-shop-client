@@ -2,13 +2,13 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  min-height: 54px;
-  height: 6vh;
+  height: 50px;
   width: 100vw;
   position: fixed;
   background-color: #303030;
   grid-template-areas: "logo navigation";
   grid-template-columns: 7% 93%;
+  z-index: 1;
 }
 .navDesktop .logo {
   max-width: 40px;
@@ -36,8 +36,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 54px;
-  height: 6vh;
+  height: 50px;
   padding: 10px;
 }
 .navDesktop .desktopNavbar .navigationList li a:hover {
@@ -47,8 +46,7 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  min-height: 54px;
-  height: 6vh;
+  height: 50px;
   grid-area: interactionGroup;
   grid-template-columns: 70px 70px 70px;
   grid-template-areas: "search auth cart";
@@ -58,8 +56,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 54px;
-  height: 6vh;
+  height: 50px;
   grid-area: search;
   cursor: pointer;
 }
@@ -75,8 +72,7 @@
   justify-content: center;
   align-items: center;
   color: #969696;
-  min-height: 54px;
-  height: 6vh;
+  height: 50px;
   grid-area: auth;
   cursor: pointer;
   text-align: left;
@@ -88,8 +84,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 54px;
-  height: 6vh;
+  height: 50px;
   grid-area: cart;
 }
 .navDesktop .desktopNavbar .interactionGroup .cartIcon:hover {

@@ -8,6 +8,7 @@ const SUBTRACT_ONE = 'SUBTRACT-ONE'
 const SHOW_PREVIOUS_PAGE = 'SHOW-PREVIOUS-PAGE'
 const SHOW_NEXT_PAGE = 'SHOW-NEXT-PAGE'
 const SET_PAGES_QUANTITY = 'SET-PAGES-QUANTITY'
+const TOGGLE_SEARCHBAR = 'TOGGLE-SEARCHBAR'
 
 let initialState = {
     groceries: [],
@@ -16,8 +17,8 @@ let initialState = {
     cartSize: 0,
     currentPage: 1,
     pageLength: 8,
-    pagesQuantity: null
-
+    pagesQuantity: null,
+    isSearchbarToggled: false
 }
 
 const productsReducer = (state = initialState, action) => {
@@ -99,6 +100,11 @@ const productsReducer = (state = initialState, action) => {
                 pagesQuantity: Math.ceil(action.length / state.pageLength)
             }
 
+        case TOGGLE_SEARCHBAR:
+            return {
+                ...state,
+                isSearchbarToggled: !state.isSearchbarToggled
+            }
         default:
             return state
     }
@@ -114,5 +120,6 @@ export let removeFromCart = (id) => ({ type: REMOVE_FROM_CART, id })
 export let showPreviousPage = () => ({ type: SHOW_PREVIOUS_PAGE })
 export let showNextPage = () => ({ type: SHOW_NEXT_PAGE })
 export let setPagesQuantity = (length) => ({ type: SET_PAGES_QUANTITY, length })
+export let toggleSearchbar = () => ({ type: TOGGLE_SEARCHBAR })
 
 export default productsReducer

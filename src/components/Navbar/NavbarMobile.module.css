@@ -5,6 +5,7 @@
   height: 50px;
   background-color: #303030;
   position: fixed;
+  z-index: 1;
 }
 .navMobile .dropdown {
   overflow: hidden;
@@ -53,8 +54,13 @@
 .navMobile .dropdown .dropdownContent a:hover {
   background-color: #ddd;
 }
+.navMobile .logoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .navMobile .logoWrapper .logo {
-  width: 50px;
+  width: 40px;
 }
 .navMobile .functionalityGroup {
   display: flex;
@@ -67,6 +73,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .navMobile .functionalityGroup .searchWrapper:hover {
   background-color: #252525;

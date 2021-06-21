@@ -18,8 +18,7 @@
 }
 
 @mixin heightPreference {
-  min-height: 54px;
-  height: 6vh;
+  height: 50px;
 }
 
 .navDesktop {
@@ -30,6 +29,7 @@
   background-color: #303030;
   grid-template-areas: "logo navigation";
   grid-template-columns: 7% 93%;
+  z-index: 1;
   .logo {
     max-width: 40px;
     max-height: 40px;
