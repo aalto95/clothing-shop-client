@@ -19,28 +19,30 @@ const NavbarDesktop = (props) => {
                     <li><NavLink to='/'>ESSENTIALS</NavLink></li>
                     <li><NavLink to='/'>PARTNER WITH US</NavLink></li>
                 </ul>
-                {
-                    props.isLogged
-                    ? <div onClick={props.logout} className={styles.logButton}>LOGOUT</div>
-                    : <NavLink to='/login' className={styles.logButton}>LOGIN</NavLink>
-                }
-                <NavLink to='/cart' className={styles.cartIcon}>
-                    <img
-                        src={CartIcon}
-                        alt="cart-icon"
-                    />
-                    <p>{props.cartSize}</p>
-                </NavLink>
-                {
-                    props.isAdmin &&
-                    <NavLink to='/admin'>
+                <div className={styles.interactionGroup}>
+                    {
+                        props.isLogged
+                            ? <div onClick={props.logout} className={styles.logButton}>LOGOUT</div>
+                            : <NavLink to='/login' className={styles.logButton}>LOGIN</NavLink>
+                    }
+                    <NavLink to='/cart' className={styles.cartIcon}>
                         <img
-                            className={styles.gearIcon}
-                            src={GearIcon}
-                            alt="gear-icon"
+                            src={CartIcon}
+                            alt="cart-icon"
                         />
+                        <p>{props.cartSize}</p>
                     </NavLink>
-                }
+                    {
+                        props.isAdmin &&
+                        <NavLink to='/admin' className={styles.gearWrapper}>
+                            <img
+                                className={styles.gearIcon}
+                                src={GearIcon}
+                                alt="gear-icon"
+                            />
+                        </NavLink>
+                    }
+                </div>
             </div>
         </nav>
     )

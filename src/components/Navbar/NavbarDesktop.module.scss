@@ -14,8 +14,8 @@
   .desktopNavbar {
     grid-area: desktopNavbar;
     display: grid;
-    grid-template-areas: "navList login cart gear";
-    grid-template-columns: 80% 10% 5% 5%;
+    grid-template-areas: "navList interactionGroup";
+    grid-template-columns: 70% 30%;
     align-items: center;
     .navigationList {
       display: flex;
@@ -25,17 +25,34 @@
         list-style: none;
       }
     }
-    .logButton {
-      grid-area: login;
-      cursor: pointer;
-    }
-    .cartIcon {
-      width: 40px;
-      display: flex;
+    .interactionGroup {
+      display: grid;
       justify-content: center;
       align-items: center;
-      img {
-        padding: 5px;
+      grid-area: interactionGroup;
+      grid-template-columns: 100px 100px 100px;
+      grid-template-areas: 'login cart gear';
+      .logButton {
+        grid-area: login;
+        cursor: pointer;
+        text-align: left;
+      }
+      .cartIcon {
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: cart;
+        img {
+          padding: 5px;
+        }
+      }
+      .gearWrapper {
+        display: flex;
+        .gearIcon {
+          width: 30px;
+          grid-area: gear;
+        }
       }
     }
   }

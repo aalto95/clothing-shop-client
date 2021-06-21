@@ -15,8 +15,8 @@
 .navDesktop .desktopNavbar {
   grid-area: desktopNavbar;
   display: grid;
-  grid-template-areas: "navList login cart gear";
-  grid-template-columns: 80% 10% 5% 5%;
+  grid-template-areas: "navList interactionGroup";
+  grid-template-columns: 70% 30%;
   align-items: center;
 }
 .navDesktop .desktopNavbar .navigationList {
@@ -27,18 +27,35 @@
   margin: 10px;
   list-style: none;
 }
-.navDesktop .desktopNavbar .logButton {
+.navDesktop .desktopNavbar .interactionGroup {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-area: interactionGroup;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-areas: "login cart gear";
+}
+.navDesktop .desktopNavbar .interactionGroup .logButton {
   grid-area: login;
   cursor: pointer;
+  text-align: left;
 }
-.navDesktop .desktopNavbar .cartIcon {
+.navDesktop .desktopNavbar .interactionGroup .cartIcon {
   width: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-area: cart;
 }
-.navDesktop .desktopNavbar .cartIcon img {
+.navDesktop .desktopNavbar .interactionGroup .cartIcon img {
   padding: 5px;
+}
+.navDesktop .desktopNavbar .interactionGroup .gearWrapper {
+  display: flex;
+}
+.navDesktop .desktopNavbar .interactionGroup .gearWrapper .gearIcon {
+  width: 30px;
+  grid-area: gear;
 }
 
 @media screen and (max-width: 800px) {
