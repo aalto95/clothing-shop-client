@@ -37,7 +37,10 @@ const NavbarDesktop = (props) => {
                     </div>
                 </div>
             </nav>
-            {props.isSearchbarToggled && <Searchbar />}
+            <Searchbar
+                toggleIsFetching={props.toggleIsFetching}
+                isFetching={props.isFetching}
+            />
         </>
 
     )
