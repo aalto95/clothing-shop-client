@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import NavbarDesktop from "./NavbarDesktop";
 import {logout} from "../../redux/login-reducer";
 import NavbarMobile from "./NavbarMobile";
-import {toggleIsFetching, toggleSearchbar} from "../../redux/products-reducer";
+import {onSearchFieldChange, toggleIsFetching, toggleSearchbar} from "../../redux/products-reducer";
 
 const NavbarContainer = (props) => {
     return (
@@ -17,6 +17,7 @@ const NavbarContainer = (props) => {
                 toggleSearchbar={props.toggleSearchbar}
                 isFetching={props.isFetching}
                 toggleIsFetching={props.toggleIsFetching}
+                onSearchFieldChange={props.onSearchFieldChange}
             />
             <NavbarMobile
                 cart={props.cart}
@@ -47,7 +48,8 @@ let mapStateToProps = state => {
 let mapDispatchToProps = {
     logout,
     toggleSearchbar,
-    toggleIsFetching
+    toggleIsFetching,
+    onSearchFieldChange
 }
 
 

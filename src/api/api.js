@@ -18,8 +18,14 @@ export const productsAPI = {
             })
     },
     postProduct: (name, price, img, type) => {
-        return instance.post(``, {
+        return instance.post('', {
             name, price, img, type
         })
+    },
+    searchProducts: (input) => {
+        return instance.get(`?search=${input}`)
+            .then(response => {
+                return response.data
+            })
     }
 }

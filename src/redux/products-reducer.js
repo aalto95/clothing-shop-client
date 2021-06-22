@@ -9,6 +9,7 @@ const SHOW_PREVIOUS_PAGE = 'SHOW-PREVIOUS-PAGE'
 const SHOW_NEXT_PAGE = 'SHOW-NEXT-PAGE'
 const SET_PAGES_QUANTITY = 'SET-PAGES-QUANTITY'
 const TOGGLE_SEARCHBAR = 'TOGGLE-SEARCHBAR'
+const ON_SEARCH_FIELD_CHANGE = 'ON-SEARCH-FIELD-CHANGE'
 
 let initialState = {
     groceries: [],
@@ -18,7 +19,8 @@ let initialState = {
     currentPage: 1,
     pageLength: 8,
     pagesQuantity: null,
-    isSearchbarToggled: false
+    isSearchbarToggled: false,
+    searchField: ''
 }
 
 const productsReducer = (state = initialState, action) => {
@@ -105,6 +107,11 @@ const productsReducer = (state = initialState, action) => {
                 ...state,
                 isSearchbarToggled: !state.isSearchbarToggled
             }
+        case ON_SEARCH_FIELD_CHANGE:
+            return {
+                ...state,
+                searchField: action.searchField
+            }
         default:
             return state
     }
@@ -121,5 +128,6 @@ export let showPreviousPage = () => ({ type: SHOW_PREVIOUS_PAGE })
 export let showNextPage = () => ({ type: SHOW_NEXT_PAGE })
 export let setPagesQuantity = (length) => ({ type: SET_PAGES_QUANTITY, length })
 export let toggleSearchbar = () => ({ type: TOGGLE_SEARCHBAR })
+export let onSearchFieldChange = (e) => ({ type: ON_SEARCH_FIELD_CHANGE, searchField: e.target.value })
 
 export default productsReducer

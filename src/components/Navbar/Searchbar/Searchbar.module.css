@@ -1,26 +1,5 @@
-.inputField {
-  width: 50vw;
-  height: inherit;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #DDD;
-}
-
 .hidden {
-  top: 0;
-  width: 100vw;
-  height: 50px;
-  position: fixed;
-  animation: slide-up 1s;
-  background-color: #FFF;
-  border-bottom: 1px solid #DDD;
-}
-.hidden .inputField {
-  width: 50vw;
-  height: inherit;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #DDD;
+  display: none;
 }
 
 .active {
@@ -47,14 +26,6 @@
   }
   100% {
     top: 50px;
-  }
-}
-@keyframes slide-up {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: 0;
   }
 }
 
