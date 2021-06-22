@@ -22,8 +22,8 @@ export const productsAPI = {
             name, price, img, type
         })
     },
-    searchProducts: (input) => {
-        return instance.get(`?filter=${input}`)
+    searchProducts: (input, currentPage = 1, pageSize = 8) => {
+        return instance.get(`?filter=${input}&p=${currentPage}&l=${pageSize}`)
             .then(response => {
                 return response.data
             })
