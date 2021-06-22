@@ -1,12 +1,12 @@
 import styles from './NavbarDesktop.module.css'
 import CartIcon from './../../assets/images/shopping-cart.svg'
 import SearchIcon from './../../assets/images/search.svg'
+import CloseIcon from './../../assets/images/close.svg'
 import UserIcon from './../../assets/images/auth.svg'
 import LogoIcon from './../../assets/images/logo.png'
 import {NavLink} from "react-router-dom";
 import React from "react";
 import Searchbar from "./Searchbar/Searchbar";
-
 
 const NavbarDesktop = (props) => {
     return (
@@ -22,7 +22,7 @@ const NavbarDesktop = (props) => {
                     </ul>
                     <div className={styles.interactionGroup}>
                         <span className={styles.searchIcon} onClick={props.toggleSearchbar}>
-                            <img src={SearchIcon} alt=""/>
+                            <img src={props.isSearchbarToggled ? CloseIcon : SearchIcon} alt=""/>
                         </span>
                         <NavLink to='/login' className={styles.logButton}>
                             <img src={UserIcon} alt=""/>
@@ -38,8 +38,7 @@ const NavbarDesktop = (props) => {
                 </div>
             </nav>
             <Searchbar
-                toggleIsFetching={props.toggleIsFetching}
-                isFetching={props.isFetching}
+                isSearchbarToggled={props.isSearchbarToggled}
             />
         </>
 

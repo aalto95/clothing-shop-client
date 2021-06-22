@@ -3,6 +3,7 @@ import NavIcon from './../../assets/images/menu.svg'
 import LogoIcon from './../../assets/images/logo.png'
 import SearchIcon from './../../assets/images/search.svg'
 import CartIcon from './../../assets/images/shopping-cart.svg'
+import CloseIcon from './../../assets/images/close.svg'
 import {NavLink} from "react-router-dom";
 import React from "react";
 import Searchbar from "./Searchbar/Searchbar";
@@ -27,7 +28,7 @@ const NavbarMobile = (props) => {
                 </NavLink>
                 <div className={styles.functionalityGroup}>
                     <div className={styles.searchWrapper} onClick={props.toggleSearchbar}>
-                        <img src={SearchIcon} alt=""/>
+                        <img src={props.isSearchbarToggled ? CloseIcon : SearchIcon} alt=""/>
                     </div>
                     <NavLink to='/cart' className={styles.cartWrapper}>
                         <img src={CartIcon} alt=""/>

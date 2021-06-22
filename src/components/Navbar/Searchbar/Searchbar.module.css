@@ -1,18 +1,42 @@
-.searchbar {
-  width: 100vw;
-  height: 50px;
-  background-color: #FFF;
-  transform: translateY(50px);
-  position: fixed;
-  z-index: 0;
-  border-bottom: 1px solid #DDD;
-}
-.searchbar .inputField {
+.inputField {
   width: 50vw;
   height: inherit;
   border: none;
   outline: none;
   border-bottom: 1px solid #DDD;
+}
+
+.hidden {
+  display: none;
+}
+
+.active {
+  display: block;
+  width: 100vw;
+  height: 50px;
+  top: 50px;
+  background-color: #FFF;
+  animation: slide-down 1s;
+  position: fixed;
+  z-index: 0;
+  border-bottom: 1px solid #DDD;
+}
+
+@keyframes slide-down {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 50px;
+  }
+}
+@keyframes slide-up {
+  0% {
+    top: 50px;
+  }
+  100% {
+    top: 0;
+  }
 }
 
 /*# sourceMappingURL=Searchbar.module.css.map */
