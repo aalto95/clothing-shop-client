@@ -28,6 +28,7 @@ const Cart = (props) => {
 
     let totalPrice = () => {
         let subTotal = 0
+        // eslint-disable-next-line array-callback-return
         props.cart.map(product => {
             subTotal += (product.price * product.quantity)
         })
@@ -44,7 +45,7 @@ const Cart = (props) => {
             <div className={styles.cart}>
                 {props.cart.map((product, i) =>
                     <div key={i} className={styles.product}>
-                        <img src={product.img} className={styles.productImg}/>
+                        <img src={product.img} className={styles.productImg} alt="product-img"/>
                         <p className={styles.productName}>{product.name} x {product.quantity} = <b>{product.price * product.quantity}$</b></p>
                         <div className={styles.buttonGroup}>
                             <button className={styles.quantityButton} onClick={() => onAdd(i)}>+</button>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styles from './Searchbar.module.css'
 import {Redirect} from "react-router-dom";
 

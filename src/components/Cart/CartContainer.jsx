@@ -1,4 +1,3 @@
-import s from './Cart.module.css'
 import {connect} from "react-redux";
 import Cart from "./Cart";
 import {

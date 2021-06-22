@@ -1,0 +1,30 @@
+.hidden {
+  display: none;
+}
+
+.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  background-color: #3d50ab;
+  width: 100vw;
+  height: 50px;
+  top: 0;
+  animation: slide-down 2s;
+  position: fixed;
+}
+
+@keyframes slide-down {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 50px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+/*# sourceMappingURL=AddedToCartPopup.module.css.map */

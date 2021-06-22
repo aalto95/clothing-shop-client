@@ -7,12 +7,13 @@ import LogoIcon from './../../assets/images/logo.png'
 import {NavLink} from "react-router-dom";
 import React from "react";
 import Searchbar from "./Searchbar/Searchbar";
+import AddedToCartPopup from "./AddedToCartPopup/AddedToCartPopup";
 
 const NavbarDesktop = (props) => {
     return (
         <>
             <nav className={styles.navDesktop}>
-                <NavLink to='/'><img src={LogoIcon} className={styles.logo}/></NavLink>
+                <NavLink to='/'><img src={LogoIcon} className={styles.logo} alt="logo-icon"/></NavLink>
                 <div className={styles.desktopNavbar}>
                     <ul className={styles.navigationList}>
                         <li><NavLink to='/'>MARKET</NavLink></li>
@@ -22,16 +23,13 @@ const NavbarDesktop = (props) => {
                     </ul>
                     <div className={styles.interactionGroup}>
                         <span className={styles.searchIcon} onClick={props.toggleSearchbar}>
-                            <img src={props.isSearchbarToggled ? CloseIcon : SearchIcon} alt=""/>
+                            <img src={props.isSearchbarToggled ? CloseIcon : SearchIcon} alt="close-icon"/>
                         </span>
                         <NavLink to='/login' className={styles.logButton}>
-                            <img src={UserIcon} alt=""/>
+                            <img src={UserIcon} alt="user-icon"/>
                         </NavLink>
                         <NavLink to='/cart' className={styles.cartIcon}>
-                            <img
-                                src={CartIcon}
-                                alt="cart-icon"
-                            />
+                            <img src={CartIcon} alt="cart-icon"/>
                             <p>{props.cartSize}</p>
                         </NavLink>
                     </div>
@@ -40,6 +38,7 @@ const NavbarDesktop = (props) => {
             <Searchbar
                 isSearchbarToggled={props.isSearchbarToggled}
             />
+            <AddedToCartPopup cartSize={props.cartSize}/>
         </>
 
     )

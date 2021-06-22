@@ -6,7 +6,7 @@ const StartingPage = (props) => {
             <div>
                 <p className={styles.mainMessage}>brand new drinks</p>
             </div>
-            <a href="#">
+            <a href="/">
                 <div>
                     <p className={styles.mainMessage}>SHOP NOW</p>
                 </div>
