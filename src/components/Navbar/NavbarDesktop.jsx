@@ -39,6 +39,8 @@ const NavbarDesktop = (props) => {
                 isSearchbarToggled={props.isSearchbarToggled}
                 toggleIsFetching={props.toggleIsFetching}
                 onSearchFieldChange={props.onSearchFieldChange}
+                searchField={props.searchField}
+                setProducts={props.setProducts}
             />
             <AddedToCartPopup cartSize={props.cartSize}/>
         </>

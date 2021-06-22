@@ -32,8 +32,6 @@ const Products = (props) => {
         style={{backgroundImage: `url(${grocery.img})`}}
     />)
 
-
-
     return (
         <>
             <h1 className={styles.label}>Most popular products</h1>

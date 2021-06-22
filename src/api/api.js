@@ -23,7 +23,7 @@ export const productsAPI = {
         })
     },
     searchProducts: (input) => {
-        return instance.get(`?search=${input}`)
+        return instance.get(`?filter=${input}`)
             .then(response => {
                 return response.data
             })
