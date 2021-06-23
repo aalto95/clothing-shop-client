@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   min-height: 80vh;
+  padding: 100px 0 50px 0;
 }
 .cart .product {
   min-width: 50%;
@@ -35,7 +36,10 @@
   cursor: pointer;
 }
 
-.checkoutButton {
+.checkoutGroup {
+  margin-top: 20px;
+}
+.checkoutGroup .checkoutButton {
   min-width: 100px;
   min-height: 30px;
   border-radius: 30px;

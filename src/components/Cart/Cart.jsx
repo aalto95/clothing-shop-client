@@ -55,8 +55,10 @@ const Cart = (props) => {
 
                     </div>
                 )}
-                Subtotal: <b>{totalPrice()}$</b>
-                <button className={styles.checkoutButton} onClick={onCheckout}>Checkout</button>
+                <div className={styles.checkoutGroup}>
+                    <p>Subtotal: <b>{totalPrice()}$</b></p>
+                    <button className={styles.checkoutButton} onClick={onCheckout}>Checkout</button>
+                </div>
             </div>
         )
     }

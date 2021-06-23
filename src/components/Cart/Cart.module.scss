@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   min-height: 80vh;
+  padding: 100px 0 50px 0;
   .product {
     min-width: 50%;
     display: flex;
@@ -37,13 +38,16 @@
   }
 }
 
-.checkoutButton {
-  min-width: 100px;
-  min-height: 30px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  background-color: #ddd;
+.checkoutGroup {
+  margin-top: 20px;
+  .checkoutButton {
+    min-width: 100px;
+    min-height: 30px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: #ddd;
+  }
 }
 
 .emptyCart {
