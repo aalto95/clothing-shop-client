@@ -6,24 +6,44 @@ const StartingPage = (props) => {
         <>
             <div className={styles.startingImage}>
                 <div>
-                    <p className={styles.mainMessage}>brand new drinks</p>
+                    <h1 className={styles.mainMessage}>Stussy Summer 21</h1>
                 </div>
-                <a href="/">
+                <NavLink to='/search'>
                     <div>
-                        <p className={styles.mainMessage}>SHOP NOW</p>
+                        <p className={styles.mainMessage}>BROWSE</p>
                     </div>
-                </a>
+                </NavLink>
             </div>
-            <h1>For Men</h1>
-            <div className={styles.images}>
-                <NavLink to='/footwear' className={styles.footwear} />
-                <NavLink to='/pants' className={styles.pants} />
-                <NavLink to='/hoodies' className={styles.hoodie} />
-                <NavLink to='/shirts' className={styles.shirt} />
-                <NavLink to='/jackets' className={styles.jacket} />
-                <NavLink to='/jackets' className={styles.jacket} />
+
+            <div className={styles.genders}>
+                <NavLink to='/men' className={styles.men}>
+                    <p className={styles.menText}>MEN</p>
+                </NavLink>
+                <NavLink to='/women' className={styles.women}>
+                    <p className={styles.womenText}>WOMEN</p>
+                </NavLink>
             </div>
-            <h1>For Women</h1>
+
+            <div className={styles.clothesCategories}>
+                <NavLink to='/footwear' className={styles.footwear}>
+                    <p>FOOTWEAR</p>
+                </NavLink>
+                <NavLink to='/pants' className={styles.pants}>
+                    <p>PANTS</p>
+                </NavLink>
+                <NavLink to='/hoodies' className={styles.hoodie}>
+                    <p>HOODIES</p>
+                </NavLink>
+                <NavLink to='/shirts' className={styles.shirt}>
+                    <p>SHIRTS</p>
+                </NavLink>
+                <NavLink to='/jackets' className={styles.jacket}>
+                    <p>JACKETS</p>
+                </NavLink>
+                <NavLink to='/headgear' className={styles.headgear}>
+                    <p>HEADGEAR</p>
+                </NavLink>
+            </div>
         </>
     )
 }

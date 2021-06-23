@@ -4,8 +4,7 @@ import styles from './Footer.module.css'
 const Footer = () => {
     return (
         <footer className={styles.footer}>
-            <h1>Grocery Store</h1>
-            <p>Designed and built by <a href="https://github.com/y2k01">Pavlov Stanislav</a></p>
+            <h1>Garment Store</h1>
         </footer>
     )
 }

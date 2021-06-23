@@ -1,9 +1,10 @@
+@import './../../App.css';
 .startingImage {
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("https://dg6qn11ynnp6a.cloudfront.net/wp-content/uploads/2021/02/17161734/430527996.zaddy_.s.canned.cocktails.png");
+  background-image: url("./../../assets/images/collection.jpg");
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,46 +21,103 @@
 .startingImage .mainMessage {
   margin: 10px;
   font-weight: 700;
-  font-size: 0.8rem;
-  color: #E1DB7B;
+  color: #FFF;
 }
 
-.images {
+.genders {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
-.images a {
+.genders a {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 40vw;
+  flex-basis: 40%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  margin: 10px 5px 10px 5px;
+}
+.genders a p {
+  display: none;
+}
+.genders a:hover p {
+  display: block;
+  margin: 20px;
+  font-weight: 700;
+  padding: 10px;
+  color: #FFF;
+}
+.genders a:hover .menText {
+  background-color: #3d50ab;
+}
+.genders a:hover .womenText {
+  background-color: #a58faa;
+}
+.genders .men {
+  background-image: url("./../../assets/images/men.jpeg");
+}
+.genders .women {
+  background-image: url("./../../assets/images/women.jpeg");
+}
+
+.clothesCategories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.clothesCategories a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 20vw;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
 }
-.images .footwear {
+.clothesCategories a p {
+  display: none;
+}
+.clothesCategories a:hover {
+  opacity: 0.7;
+}
+.clothesCategories a:hover p {
+  display: block;
+  font-weight: 700;
+  background-color: #FFF;
+  padding: 5px;
+}
+.clothesCategories .footwear {
   background-image: url("./../../assets/images/footwear.jpg");
 }
-.images .pants {
+.clothesCategories .pants {
   background-image: url("./../../assets/images/pants.jpg");
 }
-.images .hoodie {
+.clothesCategories .hoodie {
   background-image: url("./../../assets/images/hoodie.jpg");
 }
-.images .shirt {
+.clothesCategories .shirt {
   background-image: url("./../../assets/images/shirt.jpg");
 }
-.images .jacket {
+.clothesCategories .jacket {
   background-image: url("./../../assets/images/jacket.jpg");
+}
+.clothesCategories .headgear {
+  background-image: url("./../../assets/images/headwear.jpg");
 }
 
 @media screen and (max-width: 800px) {
-  .images a {
-    flex-basis: 33.3333333333%;
+  .clothesCategories a {
+    flex-basis: 26.6666666667%;
   }
 }
 @media screen and (min-width: 801px) {
-  .images a {
-    flex-basis: 16.6666666667%;
+  .clothesCategories a {
+    flex-basis: 13.3333333333%;
   }
 }
 

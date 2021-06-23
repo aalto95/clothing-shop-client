@@ -1,18 +1,24 @@
+@import './../../App.css';
+
 $footwear: url('./../../assets/images/footwear.jpg');
 $pants: url('./../../assets/images/pants.jpg');
 $hoodie: url('./../../assets/images/hoodie.jpg');
 $shirt: url('./../../assets/images/shirt.jpg');
 $jacket: url('./../../assets/images/jacket.jpg');
-$flex-basis-desktop: 100% / 6;
-$flex-basis-mobile: 100% / 3;
+$headgear: url('./../../assets/images/headwear.jpg');
+$collection: url('./../../assets/images/collection.jpg');
+$men: url('./../../assets/images/men.jpeg');
+$women: url('./../../assets/images/women.jpeg');
+
+$flex-basis-desktop: 80% / 6;
+$flex-basis-mobile: 80% / 3;
 
 .startingImage {
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("https://dg6qn11ynnp6a.cloudfront.net/wp-content/uploads/2021/02/17161734/430527996.zaddy_.s.canned.cocktails.png");
-
+  background-image: $collection;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,21 +38,77 @@ $flex-basis-mobile: 100% / 3;
   .mainMessage {
     margin: 10px;
     font-weight: 700;
-    font-size: 0.8rem;
-    color: #E1DB7B;
+    color: #FFF;
   }
 }
 
-.images {
+.genders {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   a {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 40vw;
+    flex-basis: 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    margin: 10px 5px 10px 5px;
+    p {
+      display: none;
+    }
+    &:hover {
+      p {
+        display: block;
+        margin: 20px;
+        font-weight: 700;
+        padding: 10px;
+        color: #FFF;
+      }
+      .menText {
+        background-color: #3d50ab;
+      }
+      .womenText {
+        background-color: #a58faa;
+      }
+    }
+  }
+  .men {
+    background-image: $men;
+  }
+  .women {
+    background-image: $women;
+  }
+}
+
+.clothesCategories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 20vw;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    p {
+      display: none;
+    }
+    &:hover {
+      opacity: .7;
+      p {
+        display: block;
+        font-weight: 700;
+        background-color: #FFF;
+        padding: 5px;
+      }
+    }
   }
   .footwear {
     background-image: $footwear;
@@ -63,10 +125,13 @@ $flex-basis-mobile: 100% / 3;
   .jacket {
     background-image: $jacket;
   }
+  .headgear {
+    background-image: $headgear;
+  }
 }
 
 @media screen and (max-width: 800px) {
-  .images {
+  .clothesCategories {
     a {
       flex-basis: $flex-basis-mobile;
     }
@@ -74,7 +139,7 @@ $flex-basis-mobile: 100% / 3;
 }
 
 @media screen and (min-width: 801px) {
-  .images {
+  .clothesCategories {
     a {
       flex-basis: $flex-basis-desktop;
     }

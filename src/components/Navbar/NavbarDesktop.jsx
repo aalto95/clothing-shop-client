@@ -16,10 +16,11 @@ const NavbarDesktop = (props) => {
                 <NavLink to='/'><img src={LogoIcon} className={styles.logo} alt="logo-icon"/></NavLink>
                 <div className={styles.desktopNavbar}>
                     <ul className={styles.navigationList}>
-                        <li><NavLink to='/'>MARKET</NavLink></li>
-                        <li><NavLink to='/food'>FOOD</NavLink></li>
-                        <li><NavLink to='/'>ESSENTIALS</NavLink></li>
-                        <li><NavLink to='/'>PARTNER WITH US</NavLink></li>
+                        <li><NavLink to='/new-items'>NEW ITEMS</NavLink></li>
+                        <li><NavLink to='/men'>MEN</NavLink></li>
+                        <li><NavLink to='/women'>WOMEN</NavLink></li>
+                        <li><NavLink to='/brands'>BRANDS</NavLink></li>
+                        <li><NavLink to='/sale'>SALE</NavLink></li>
                     </ul>
                     <div className={styles.interactionGroup}>
                         <span className={styles.searchIcon} onClick={props.toggleSearchbar}>
