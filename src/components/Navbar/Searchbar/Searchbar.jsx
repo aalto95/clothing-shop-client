@@ -11,8 +11,10 @@ const Searchbar = (props) => {
     }
     let searchProducts = () => {
         props.toggleIsSearching(true)
+        console.log(props.isSearching)
         productsAPI.searchProducts(props.searchField)
             .then(response => {
+                console.log(props.isSearching)
                 props.setProducts(response)
                 props.toggleIsSearching(false)
             })

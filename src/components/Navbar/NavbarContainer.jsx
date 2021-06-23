@@ -42,6 +42,8 @@ const NavbarContainer = (props) => {
                 onSearchFieldChange={props.onSearchFieldChange}
                 searchField={props.searchField}
                 setProducts={props.setProducts}
+                isSearching={props.isSearching}
+                toggleIsSearching={props.toggleIsSearching}
             />
         </>
     )

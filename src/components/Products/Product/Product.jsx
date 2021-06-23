@@ -21,7 +21,7 @@ const Product = (props) => {
             <p>{showGender()}</p>
             <div
                 className={styles.addToCart}
-                onClick={ props.onAddToCartClick }
+                onClick={ () => props.onAddToCartClick() }
             >
                 <button
                     className={styles.onAddToCart}

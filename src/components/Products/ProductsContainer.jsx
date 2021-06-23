@@ -43,8 +43,8 @@ const ProductsContainer = (props) => {
     useEffect(getPagesQuantity, [])
     useEffect(getProducts, [])
 
-    return <>
-        {<Products
+    return (
+        <Products
             groceries={props.groceries}
             cart={props.cart}
             isFetching={props.isFetching}
@@ -55,8 +55,8 @@ const ProductsContainer = (props) => {
             previousPage={previousPage}
             nextPage={nextPage}
             pagesQuantity={props.pagesQuantity}
-        />}
-    </>
+        />
+    )
 }
 
 let mapStateToProps = state => {

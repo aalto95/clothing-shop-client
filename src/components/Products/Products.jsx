@@ -9,7 +9,7 @@ const Products = (props) => {
         let index = 0
 
         for (let j = 0; j < props.cart.length; j++) {
-            if (props.groceries[id].name === props.cart[j].name) {
+            if (props.groceries[id].title === props.cart[j].title) {
                 alreadyInCart = true
                 index = j
             }
@@ -22,14 +22,13 @@ const Products = (props) => {
     }
 
     let productElements = props.groceries.map((item, i) => <Product
-        productid={item.id}
         key={item.id}
         price={item.price}
-        onAddToCartClick = { () => { addToCart(i) }}
-        sex={item.sex}
+        onAddToCartClick = { () => {addToCart(i) }}
         brand={item.brand}
         title={item.title}
         style={{backgroundImage: `url(${item.img_small})`}}
+        sex={item.sex}
     />)
 
     return (

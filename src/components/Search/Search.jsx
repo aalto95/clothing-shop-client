@@ -12,13 +12,13 @@ const Search = (props) => {
             <div className={styles.searchPage}>
                 <p>There are {props.groceries.length} matches</p>
                 {
-                    props.isSearching
+                    !props.isSearching
                     ? <Products
                         groceries={props.groceries}
                         cart={props.cart}
                         addToCart={props.addToCart}
                         addOne={props.addOne}
-                        pageQuantity={props.pagesQuantity}
+                        pagesQuantity={props.pagesQuantity}
                         currentPage={props.currentPage}
                         previousPage={props.previousPage}
                         nextPage={props.nextPage}

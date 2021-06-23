@@ -27,7 +27,7 @@ const NavbarMobile = (props) => {
                     </button>
                     <div className={styles.dropdownContent}>
                         <NavLink to='/new-items'>NEW ITEMS</NavLink>
-                        <NavLink to='/search/men' oonClick={() => {searchByField('sex', 'm')}}>MEN</NavLink>
+                        <NavLink to='/search/men' onClick={() => {searchByField('sex', 'm')}}>MEN</NavLink>
                         <NavLink to='/search/women' onClick={() => {searchByField('sex', 'f')}}>WOMEN</NavLink>
                         <NavLink to='/search/brands'>BRANDS</NavLink>
                         <NavLink to='/search/sale' >SALE</NavLink>
