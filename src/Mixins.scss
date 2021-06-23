@@ -1,0 +1,32 @@
+$base-size: 50px;
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin navColor {
+  color: #969696;
+}
+
+@mixin darkenOnHover {
+  &:hover {
+    background-color: #252525;
+  }
+}
+
+@mixin gridCenter {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin heightPreference {
+  height: 50px;
+}
+
+@mixin navElemMobile {
+  width: $base-size;
+  height: 100%;
+}

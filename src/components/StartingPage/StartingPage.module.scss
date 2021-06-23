@@ -1,4 +1,4 @@
-@import './../../App.css';
+@import '../../Mixins';
 
 $footwear: url('./../../assets/images/footwear.jpg');
 $pants: url('./../../assets/images/pants.jpg');
@@ -14,20 +14,16 @@ $flex-basis-desktop: 80% / 6;
 $flex-basis-mobile: 80% / 3;
 
 .startingImage {
+  @include flexCenter;
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-image: $collection;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
 
   div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter;
 
     background-color: #335694;
 
@@ -43,9 +39,7 @@ $flex-basis-mobile: 80% / 3;
 }
 
 .genders {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
   flex-wrap: wrap;
   a {
     display: flex;

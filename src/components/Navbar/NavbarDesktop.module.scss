@@ -1,25 +1,4 @@
-@mixin navColor {
-  color: #969696;
-}
-
-@mixin flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &:hover {
-    background-color: #252525;
-  }
-}
-
-@mixin gridCenter {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-}
-
-@mixin heightPreference {
-  height: 50px;
-}
+@import '../../Mixins';
 
 .navDesktop {
   @include gridCenter;
@@ -49,6 +28,7 @@
         a {
           @include navColor;
           @include flexCenter;
+          @include darkenOnHover;
           @include heightPreference;
           padding: 10px;
         }
@@ -64,6 +44,7 @@
       .searchIcon {
         @include flexCenter;
         @include heightPreference;
+        @include darkenOnHover;
         grid-area: search;
         cursor: pointer;
         img {
@@ -75,6 +56,7 @@
         @include flexCenter;
         @include navColor;
         @include heightPreference;
+        @include darkenOnHover;
         grid-area: auth;
         cursor: pointer;
         text-align: left;
@@ -82,6 +64,7 @@
       .cartIcon {
         @include flexCenter;
         @include heightPreference;
+        @include darkenOnHover;
         grid-area: cart;
         img {
           padding: 5px;

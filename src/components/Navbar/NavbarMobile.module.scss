@@ -1,18 +1,6 @@
+@import '../../Mixins';
+
 $base-size: 50px;
-
-@mixin navElem {
-  width: $base-size;
-  height: 100%;
-  &:hover {
-    background-color: #252525;
-  }
-}
-
-@mixin flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .navMobile {
   display: flex;
@@ -40,7 +28,8 @@ $base-size: 50px;
       margin: 0; /* Important for vertical align on mobile phones */
       height: $base-size;
       .navIcon {
-        @include navElem;
+        @include navElemMobile;
+        @include darkenOnHover;
         margin-right: $base-size;
       }
     }
@@ -78,16 +67,18 @@ $base-size: 50px;
   .functionalityGroup {
     @include flexCenter;
     .searchWrapper {
-      @include navElem;
+      @include navElemMobile;
       @include flexCenter;
+      @include darkenOnHover;
       cursor: pointer;
       img {
         width: 20px;
       }
     }
     .cartWrapper {
-      @include navElem;
+      @include navElemMobile;
       @include flexCenter;
+      @include darkenOnHover;
       p {
         color: #DDDDDD;
         margin: 5px;
