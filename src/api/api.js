@@ -23,7 +23,13 @@ export const productsAPI = {
         })
     },
     searchProducts: (input, currentPage = 1, pageSize = 50) => {
-        return instance.get(`?filter=${input}&p=${currentPage}&l=${pageSize}`)
+        return instance.get(`?search=${input}&p=${currentPage}&l=${pageSize}`)
+            .then(response => {
+                return response.data
+            })
+    },
+    searchByField: (field, input, currentPage = 1, pageSize = 50) => {
+        return instance.get(`?${field}=${input}&p=${currentPage}&l=${pageSize}`)
             .then(response => {
                 return response.data
             })

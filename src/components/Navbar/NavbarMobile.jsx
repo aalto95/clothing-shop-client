@@ -7,8 +7,16 @@ import CloseIcon from '../../assets/icons/close.svg'
 import {NavLink} from "react-router-dom";
 import React from "react";
 import Searchbar from "./Searchbar/Searchbar";
+import {productsAPI} from "../../api/api";
 
 const NavbarMobile = (props) => {
+    let searchProducts = () => {
+        productsAPI.searchProducts(props.searchField)
+            .then(response => {
+                props.setProducts(response)
+            })
+    }
+
     return (
         <>
             <nav className={styles.navMobile}>
@@ -17,10 +25,11 @@ const NavbarMobile = (props) => {
                         <img src={NavIcon} className={styles.navIcon} alt="nav-icon"/>
                     </button>
                     <div className={styles.dropdownContent}>
-                        <NavLink to='/'>MARKET</NavLink>
-                        <NavLink to='/food'>FOOD</NavLink>
-                        <NavLink to='/'>ESSENTIALS</NavLink>
-                        <NavLink to='/'>PARTNER WITH US</NavLink>
+                        <NavLink to='/new-items'>NEW ITEMS</NavLink>
+                        <NavLink to='/search/men' onClick={() => {searchProducts('men')}}>MEN</NavLink>
+                        <NavLink to='/search/women' onClick={() => {searchProducts('women')}}>WOMEN</NavLink>
+                        <NavLink to='/search/brands'>BRANDS</NavLink>
+                        <NavLink to='/search/sale' >SALE</NavLink>
                     </div>
                 </div>
                 <NavLink to='/' className={styles.logoWrapper}>
