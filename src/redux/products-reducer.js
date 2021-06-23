@@ -128,6 +128,6 @@ export let showPreviousPage = () => ({ type: SHOW_PREVIOUS_PAGE })
 export let showNextPage = () => ({ type: SHOW_NEXT_PAGE })
 export let setPagesQuantity = (length) => ({ type: SET_PAGES_QUANTITY, length })
 export let toggleSearchbar = () => ({ type: TOGGLE_SEARCHBAR })
-export let onSearchFieldChange = (e) => ({ type: ON_SEARCH_FIELD_CHANGE, searchField: e.target.value })
+export let onSearchFieldChange = (searchField) => ({ type: ON_SEARCH_FIELD_CHANGE, searchField })
 
 export default productsReducer

@@ -4,7 +4,7 @@ import Products from "../Products/Products";
 
 const Search = (props) => {
 
-    useEffect(props.toggleSearchbar, [])
+    useEffect(() => props.toggleSearchbar, [props.toggleSearchbar])
 
     return (
         <>
@@ -19,7 +19,6 @@ const Search = (props) => {
                     currentPage={props.currentPage}
                     previousPage={props.previousPage}
                     nextPage={props.nextPage}
-
                 />
             </div>
         </>

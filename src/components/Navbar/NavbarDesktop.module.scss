@@ -25,12 +25,36 @@
       li {
         list-style: none;
         display: flex;
-        a {
+        .navElem {
           @include navColor;
           @include flexCenter;
           @include darkenOnHover;
           @include heightPreference;
           padding: 10px;
+        }
+      }
+      span {
+        display: none;
+      }
+      .men, .women, .brands {
+        &:hover {
+          .menDropDown {
+            transform: translateY(50px);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            text-align: left;
+            background-color: #FFF;
+            padding: 10px;
+          }
+        }
+      }
+      .women {
+        &:hover {
+          .womenDropDown {
+            display: block;
+            position: absolute;
+          }
         }
       }
     }

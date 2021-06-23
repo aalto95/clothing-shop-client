@@ -2,24 +2,14 @@
   background-color: #2d2d2d;
   color: #000;
   height: 20vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 .footer h1 {
   margin: 20px;
   color: #FFF;
-}
-.footer p {
-  border-top: 3px solid #DDD;
-  padding-top: 30px;
-  width: 80vw;
-  color: #DDD;
-}
-.footer p a {
-  font-weight: 700;
-  color: #a58faa;
 }
 
 /*# sourceMappingURL=Footer.module.css.map */

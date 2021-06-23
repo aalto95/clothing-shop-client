@@ -18,6 +18,9 @@ const Searchbar = (props) => {
                 setSearch(false)
             })
     }
+    let onSearchFieldChange = (e) => {
+        props.onSearchFieldChange(e.target.value)
+    }
     return (
         <div>
             <div className={props.isSearchbarToggled ? styles.active : styles.hidden}>
@@ -25,7 +28,7 @@ const Searchbar = (props) => {
                     type="text"
                     className={styles.inputField}
                     placeholder="SEARCH PRODUCTS"
-                    onChange={props.onSearchFieldChange}
+                    onChange={onSearchFieldChange}
                     value={props.searchField}
                     onKeyUp={checkKey}
                 />

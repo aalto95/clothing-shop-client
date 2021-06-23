@@ -1,7 +1,16 @@
 import styles from './StartingPage.module.css'
 import {NavLink} from "react-router-dom";
+import {productsAPI} from "../../api/api";
 
 const StartingPage = (props) => {
+
+    let searchProducts = (input) => {
+        productsAPI.searchProducts(input)
+            .then(response => {
+                props.setProducts(response)
+            })
+    }
+
     return (
         <>
             <div className={styles.startingImage}>
@@ -16,31 +25,31 @@ const StartingPage = (props) => {
             </div>
 
             <div className={styles.genders}>
-                <NavLink to='/men' className={styles.men}>
+                <NavLink to='/search/men' className={styles.men}>
                     <p className={styles.menText}>MEN</p>
                 </NavLink>
-                <NavLink to='/women' className={styles.women}>
+                <NavLink to='/search/women' className={styles.women}>
                     <p className={styles.womenText}>WOMEN</p>
                 </NavLink>
             </div>
 
             <div className={styles.clothesCategories}>
-                <NavLink to='/footwear' className={styles.footwear}>
+                <NavLink to='/search/footwear' className={styles.footwear} onClick={() => searchProducts('shoes')}>
                     <p>FOOTWEAR</p>
                 </NavLink>
-                <NavLink to='/pants' className={styles.pants}>
+                <NavLink to='/search/pants' className={styles.pants} onClick={() => searchProducts('pants')}>
                     <p>PANTS</p>
                 </NavLink>
-                <NavLink to='/hoodies' className={styles.hoodie}>
+                <NavLink to='/search/hoodies' className={styles.hoodie} onClick={() => searchProducts('hoodie')}>
                     <p>HOODIES</p>
                 </NavLink>
-                <NavLink to='/shirts' className={styles.shirt}>
+                <NavLink to='/search/shirts' className={styles.shirt} onClick={() => searchProducts('shirt')}>
                     <p>SHIRTS</p>
                 </NavLink>
-                <NavLink to='/jackets' className={styles.jacket}>
+                <NavLink to='/search/jackets' className={styles.jacket} onClick={() => searchProducts('jacket')}>
                     <p>JACKETS</p>
                 </NavLink>
-                <NavLink to='/headgear' className={styles.headgear}>
+                <NavLink to='/search/headgear' className={styles.headgear} onClick={() => searchProducts('headgear')}>
                     <p>HEADGEAR</p>
                 </NavLink>
             </div>

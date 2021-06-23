@@ -31,7 +31,7 @@
   list-style: none;
   display: flex;
 }
-.navDesktop .desktopNavbar .navigationList li a {
+.navDesktop .desktopNavbar .navigationList li .navElem {
   color: #969696;
   display: flex;
   justify-content: center;
@@ -39,8 +39,24 @@
   height: 50px;
   padding: 10px;
 }
-.navDesktop .desktopNavbar .navigationList li a:hover {
+.navDesktop .desktopNavbar .navigationList li .navElem:hover {
   background-color: #252525;
+}
+.navDesktop .desktopNavbar .navigationList span {
+  display: none;
+}
+.navDesktop .desktopNavbar .navigationList .men:hover .menDropDown, .navDesktop .desktopNavbar .navigationList .women:hover .menDropDown, .navDesktop .desktopNavbar .navigationList .brands:hover .menDropDown {
+  transform: translateY(50px);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  text-align: left;
+  background-color: #FFF;
+  padding: 10px;
+}
+.navDesktop .desktopNavbar .navigationList .women:hover .womenDropDown {
+  display: block;
+  position: absolute;
 }
 .navDesktop .desktopNavbar .interactionGroup {
   display: grid;

@@ -21,15 +21,15 @@ const Products = (props) => {
         }
     }
 
-    let productElements = props.groceries.map((grocery, i) => <Product
-        productid={grocery.id}
-        key={grocery.id}
-        price={grocery.price}
+    let productElements = props.groceries.map((item, i) => <Product
+        productid={item.id}
+        key={item.id}
+        price={item.price}
         onAddToCartClick = { () => {
             addToCart(i)
         } }
-        name={grocery.name}
-        style={{backgroundImage: `url(${grocery.img})`}}
+        title={item.title}
+        style={{backgroundImage: `url(${item.img_small})`}}
     />)
 
     return (

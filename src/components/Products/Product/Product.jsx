@@ -9,7 +9,7 @@ const Product = (props) => {
                 style={props.style}
             >
             </div>
-            <p>{props.name} <b>{props.price}$</b></p>
+            <p>{props.title} <b>{props.price}$</b></p>
             <div
                 className={styles.addToCart}
                 onClick={ props.onAddToCartClick }

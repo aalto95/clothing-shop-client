@@ -16,11 +16,41 @@ const NavbarDesktop = (props) => {
                 <NavLink to='/'><img src={LogoIcon} className={styles.logo} alt="logo-icon"/></NavLink>
                 <div className={styles.desktopNavbar}>
                     <ul className={styles.navigationList}>
-                        <li><NavLink to='/new-items'>NEW ITEMS</NavLink></li>
-                        <li><NavLink to='/men'>MEN</NavLink></li>
-                        <li><NavLink to='/women'>WOMEN</NavLink></li>
-                        <li><NavLink to='/brands'>BRANDS</NavLink></li>
-                        <li><NavLink to='/sale'>SALE</NavLink></li>
+                        <li><NavLink to='/new-items' className={styles.navElem}>NEW ITEMS</NavLink></li>
+                        <li className={styles.men}>
+                            <NavLink to='/men' className={styles.navElem}>MEN</NavLink>
+                            <span className={styles.menDropDown}>
+                                <NavLink to='/men/shoes'>shoes</NavLink>
+                                <NavLink to='/men/shirts'>shirts</NavLink>
+                                <NavLink to='/men/hoodies'>hoodies</NavLink>
+                                <NavLink to='/men/jackets'>jackets</NavLink>
+                                <NavLink to='/men/socks'>socks</NavLink>
+                                <NavLink to='/men/headgear'>headgear</NavLink>
+                                <NavLink to='/men/underwear'>underwear</NavLink>
+                            </span>
+                        </li>
+                        <li className={styles.women}>
+                            <NavLink to='/women' className={styles.navElem}>WOMEN</NavLink>
+                            <span className={styles.menDropDown}>
+                                <NavLink to='/men/shoes'>shoes</NavLink>
+                                <NavLink to='/men/shirts'>shirts</NavLink>
+                                <NavLink to='/men/hoodies'>hoodies</NavLink>
+                                <NavLink to='/men/jackets'>jackets</NavLink>
+                                <NavLink to='/men/socks'>socks</NavLink>
+                                <NavLink to='/men/headgear'>headgear</NavLink>
+                                <NavLink to='/men/underwear'>underwear</NavLink>
+                            </span>
+                        </li>
+                        <li className={styles.brands}>
+                            <NavLink to='/brands' className={styles.navElem}>BRANDS</NavLink>
+                            <span className={styles.menDropDown}>
+                                <NavLink to='/men/nike'>nike</NavLink>
+                                <NavLink to='/men/adidas'>adidas</NavLink>
+                                <NavLink to='/men/reebok'>reebok</NavLink>
+                                <NavLink to='/men/carhartt'>carhartt</NavLink>
+                            </span>
+                        </li>
+                        <li><NavLink to='/sale' className={styles.navElem}>SALE</NavLink></li>
                     </ul>
                     <div className={styles.interactionGroup}>
                         <span className={styles.searchIcon} onClick={props.toggleSearchbar}>
