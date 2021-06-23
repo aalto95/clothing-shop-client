@@ -10,8 +10,9 @@ import Searchbar from "./Searchbar/Searchbar";
 import {productsAPI} from "../../api/api";
 
 const NavbarMobile = (props) => {
-    let searchProducts = () => {
-        productsAPI.searchProducts(props.searchField)
+
+    let searchByField = (field, input) => {
+        productsAPI.searchByField(field, input)
             .then(response => {
                 props.setProducts(response)
             })
@@ -26,8 +27,8 @@ const NavbarMobile = (props) => {
                     </button>
                     <div className={styles.dropdownContent}>
                         <NavLink to='/new-items'>NEW ITEMS</NavLink>
-                        <NavLink to='/search/men' onClick={() => {searchProducts('men')}}>MEN</NavLink>
-                        <NavLink to='/search/women' onClick={() => {searchProducts('women')}}>WOMEN</NavLink>
+                        <NavLink to='/search/men' oonClick={() => {searchByField('sex', 'm')}}>MEN</NavLink>
+                        <NavLink to='/search/women' onClick={() => {searchByField('sex', 'f')}}>WOMEN</NavLink>
                         <NavLink to='/search/brands'>BRANDS</NavLink>
                         <NavLink to='/search/sale' >SALE</NavLink>
                     </div>

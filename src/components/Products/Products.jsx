@@ -28,6 +28,7 @@ const Products = (props) => {
         onAddToCartClick = { () => {
             addToCart(i)
         } }
+        brand={item.brand}
         title={item.title}
         style={{backgroundImage: `url(${item.img_small})`}}
     />)

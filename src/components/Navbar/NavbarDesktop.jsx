@@ -11,12 +11,6 @@ import AddedToCartPopup from "./AddedToCartPopup/AddedToCartPopup";
 import {productsAPI} from "../../api/api";
 
 const NavbarDesktop = (props) => {
-    let searchProducts = (input) => {
-        productsAPI.searchProducts(input)
-            .then(response => {
-                props.setProducts(response)
-            })
-    }
     let searchByField = (field, input) => {
         productsAPI.searchByField(field, input)
             .then(response => {
@@ -31,7 +25,7 @@ const NavbarDesktop = (props) => {
                     <ul className={styles.navigationList}>
                         <li><NavLink to='/new-items' className={styles.navElem}>NEW ITEMS</NavLink></li>
                         <li className={styles.men}>
-                            <NavLink to='search/men' className={styles.navElem} onClick={() => {searchByField('sex', 'm')}}>MEN</NavLink>
+                            <NavLink to='search/' className={styles.navElem} onClick={() => {searchByField('sex', 'm')}}>MEN</NavLink>
                             {/*<span className={styles.menDropDown}>*/}
                             {/*    <NavLink to='search/men/shoes' onClick={() => {searchProducts('shoes')}}>shoes</NavLink>*/}
                             {/*    <NavLink to='search/men/shirts' onClick={() => {searchProducts('shirts')}}>shirts</NavLink>*/}
@@ -43,7 +37,7 @@ const NavbarDesktop = (props) => {
                             {/*</span>*/}
                         </li>
                         <li className={styles.women}>
-                            <NavLink to='search/women' className={styles.navElem} onClick={() => {searchByField('sex', 'f')}}>WOMEN</NavLink>
+                            <NavLink to='search/' className={styles.navElem} onClick={() => {searchByField('sex', 'f')}}>WOMEN</NavLink>
                             {/*<span className={styles.menDropDown}>*/}
                             {/*    <NavLink to='/men/shoes'>shoes</NavLink>*/}
                             {/*    <NavLink to='/men/shirts'>shirts</NavLink>*/}
@@ -55,12 +49,12 @@ const NavbarDesktop = (props) => {
                             {/*</span>*/}
                         </li>
                         <li className={styles.brands}>
-                            <NavLink to='/brands' className={styles.navElem}>BRANDS</NavLink>
+                            <NavLink to='/search' className={styles.navElem}>BRANDS</NavLink>
                             <span className={styles.menDropDown}>
-                                <NavLink to='/search/nike' onClick={() => {searchByField('brand', 'nike')}}>nike</NavLink>
-                                <NavLink to='/search/adidas' onClick={() => {searchByField('brand', 'adidas')}}>adidas</NavLink>
-                                <NavLink to='/search/reebok' onClick={() => {searchByField('brand', 'reebok')}}>reebok</NavLink>
-                                <NavLink to='/search/carhartt' onClick={() => {searchByField('brand', 'carhartt')}}>carhartt</NavLink>
+                                <NavLink to='/search/' onClick={() => {searchByField('brand', 'nike')}}>nike</NavLink>
+                                <NavLink to='/search/' onClick={() => {searchByField('brand', 'adidas')}}>adidas</NavLink>
+                                <NavLink to='/search/' onClick={() => {searchByField('brand', 'reebok')}}>reebok</NavLink>
+                                <NavLink to='/search/' onClick={() => {searchByField('brand', 'carhartt')}}>carhartt</NavLink>
                             </span>
                         </li>
                         <li><NavLink to='/sale' className={styles.navElem}>SALE</NavLink></li>
