@@ -1,7 +1,7 @@
 import Products from "./Products";
 import {connect} from "react-redux";
 import {
-    addToCart,
+     addToCart,
     setProducts,
     toggleIsFetching,
     addOne,

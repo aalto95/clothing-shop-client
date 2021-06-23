@@ -1,3 +1,11 @@
+$footwear: url('./../../assets/images/footwear.jpg');
+$pants: url('./../../assets/images/pants.jpg');
+$hoodie: url('./../../assets/images/hoodie.jpg');
+$shirt: url('./../../assets/images/shirt.jpg');
+$jacket: url('./../../assets/images/jacket.jpg');
+$flex-basis-desktop: 100% / 6;
+$flex-basis-mobile: 100% / 3;
+
 .startingImage {
   height: 100vh;
   background-size: cover;
@@ -27,5 +35,48 @@
     font-size: 0.8rem;
     color: #E1DB7B;
   }
+}
 
+.images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  a {
+    height: 20vw;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .footwear {
+    background-image: $footwear;
+  }
+  .pants {
+    background-image: $pants;
+  }
+  .hoodie {
+    background-image: $hoodie;
+  }
+  .shirt {
+    background-image: $shirt;
+  }
+  .jacket {
+    background-image: $jacket;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .images {
+    a {
+      flex-basis: $flex-basis-mobile;
+    }
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .images {
+    a {
+      flex-basis: $flex-basis-desktop;
+    }
+  }
 }

@@ -15,6 +15,11 @@ const Search = (props) => {
                     cart={props.cart}
                     addToCart={props.addToCart}
                     addOne={props.addOne}
+                    pageQuantity={props.pagesQuantity}
+                    currentPage={props.currentPage}
+                    previousPage={props.previousPage}
+                    nextPage={props.nextPage}
+
                 />
             </div>
         </>

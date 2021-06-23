@@ -22,7 +22,7 @@ export const productsAPI = {
             name, price, img, type
         })
     },
-    searchProducts: (input, currentPage = 1, pageSize = 8) => {
+    searchProducts: (input, currentPage = 1, pageSize = 50) => {
         return instance.get(`?filter=${input}&p=${currentPage}&l=${pageSize}`)
             .then(response => {
                 return response.data

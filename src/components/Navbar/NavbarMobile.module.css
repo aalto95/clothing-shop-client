@@ -91,6 +91,10 @@
 .navMobile .functionalityGroup .cartWrapper:hover {
   background-color: #252525;
 }
+.navMobile .functionalityGroup .cartWrapper p {
+  color: #DDDDDD;
+  margin: 5px;
+}
 
 @media screen and (min-width: 800px) {
   .navMobile {

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './Cart.module.css'
-import deleteIcon from './../../assets/images/delete.svg'
+import deleteIcon from '../../assets/icons/delete.svg'
 import {ReactSVG} from "react-svg";
 
 const Cart = (props) => {

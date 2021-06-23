@@ -24,4 +24,43 @@
   color: #E1DB7B;
 }
 
+.images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.images a {
+  height: 20vw;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.images .footwear {
+  background-image: url("./../../assets/images/footwear.jpg");
+}
+.images .pants {
+  background-image: url("./../../assets/images/pants.jpg");
+}
+.images .hoodie {
+  background-image: url("./../../assets/images/hoodie.jpg");
+}
+.images .shirt {
+  background-image: url("./../../assets/images/shirt.jpg");
+}
+.images .jacket {
+  background-image: url("./../../assets/images/jacket.jpg");
+}
+
+@media screen and (max-width: 800px) {
+  .images a {
+    flex-basis: 33.3333333333%;
+  }
+}
+@media screen and (min-width: 801px) {
+  .images a {
+    flex-basis: 16.6666666667%;
+  }
+}
+
 /*# sourceMappingURL=StartingPage.module.css.map */

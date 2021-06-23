@@ -88,6 +88,10 @@ $base-size: 50px;
     .cartWrapper {
       @include navElem;
       @include flexCenter;
+      p {
+        color: #DDDDDD;
+        margin: 5px;
+      }
     }
   }
 }
