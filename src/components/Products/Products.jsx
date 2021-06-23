@@ -25,9 +25,8 @@ const Products = (props) => {
         productid={item.id}
         key={item.id}
         price={item.price}
-        onAddToCartClick = { () => {
-            addToCart(i)
-        } }
+        onAddToCartClick = { () => { addToCart(i) }}
+        sex={item.sex}
         brand={item.brand}
         title={item.title}
         style={{backgroundImage: `url(${item.img_small})`}}
