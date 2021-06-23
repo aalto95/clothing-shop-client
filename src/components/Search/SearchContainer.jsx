@@ -1,6 +1,13 @@
 import {connect} from "react-redux";
 import Search from "./Search";
-import {addOne, addToCart, setProducts, toggleIsFetching, toggleSearchbar} from "../../redux/products-reducer";
+import {
+    addOne,
+    addToCart,
+    setProducts,
+    toggleIsFetching,
+    toggleIsSearching,
+    toggleSearchbar
+} from "../../redux/products-reducer";
 
 const SearchContainer = (props) => {
     return (
@@ -13,6 +20,8 @@ const SearchContainer = (props) => {
             cart={props.cart}
             addToCart={props.addToCart}
             addOne={props.addOne}
+            toggleIsSearching={props.toggleIsSearching}
+            isSearching={props.isSearching}
         />
     )
 }
@@ -22,7 +31,8 @@ let mapStateToProps = state => {
         searchField: state.productsPage.searchField,
         isFetching: state.productsPage.isFetching,
         groceries: state.productsPage.groceries,
-        cart: state.productsPage.cart
+        cart: state.productsPage.cart,
+        isSearching: state.productsPage.isSearching
     }
 }
 
@@ -31,7 +41,8 @@ let mapDispatchToProps = {
     setProducts,
     addToCart,
     toggleSearchbar,
-    addOne
+    addOne,
+    toggleIsSearching
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (SearchContainer)

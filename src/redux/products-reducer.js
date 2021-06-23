@@ -10,10 +10,12 @@ const SHOW_NEXT_PAGE = 'SHOW-NEXT-PAGE'
 const SET_PAGES_QUANTITY = 'SET-PAGES-QUANTITY'
 const TOGGLE_SEARCHBAR = 'TOGGLE-SEARCHBAR'
 const ON_SEARCH_FIELD_CHANGE = 'ON-SEARCH-FIELD-CHANGE'
+const TOGGLE_IS_SEARCHING = 'TOGGLE-IS-SEARCHING'
 
 let initialState = {
     groceries: [],
     isFetching: false,
+    isSearching: false,
     cart: [],
     cartSize: 0,
     currentPage: 1,
@@ -112,6 +114,11 @@ const productsReducer = (state = initialState, action) => {
                 ...state,
                 searchField: action.searchField
             }
+        case TOGGLE_IS_SEARCHING:
+            return {
+                ...state,
+                isSearching: action.isSearching
+            }
         default:
             return state
     }
@@ -129,5 +136,6 @@ export let showNextPage = () => ({ type: SHOW_NEXT_PAGE })
 export let setPagesQuantity = (length) => ({ type: SET_PAGES_QUANTITY, length })
 export let toggleSearchbar = () => ({ type: TOGGLE_SEARCHBAR })
 export let onSearchFieldChange = (searchField) => ({ type: ON_SEARCH_FIELD_CHANGE, searchField })
+export let toggleIsSearching = (isSearching) => ({ type: TOGGLE_IS_SEARCHING, isSearching })
 
 export default productsReducer

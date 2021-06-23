@@ -9,6 +9,7 @@ import React from "react";
 import Searchbar from "./Searchbar/Searchbar";
 import AddedToCartPopup from "./AddedToCartPopup/AddedToCartPopup";
 import {productsAPI} from "../../api/api";
+import SearchbarContainer from "./Searchbar/SearchbarContainer";
 
 const NavbarDesktop = (props) => {
     let searchByField = (field, input) => {
@@ -74,6 +75,8 @@ const NavbarDesktop = (props) => {
                 </div>
             </nav>
             <Searchbar
+                isSearching={props.isSearching}
+                toggleIsSearching={props.toggleIsSearching}
                 isSearchbarToggled={props.isSearchbarToggled}
                 toggleIsFetching={props.toggleIsFetching}
                 onSearchFieldChange={props.onSearchFieldChange}
