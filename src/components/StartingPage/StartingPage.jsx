@@ -15,7 +15,7 @@ const StartingPage = (props) => {
         <>
             <div className={styles.startingImage}>
                 <div>
-                    <h1 className={styles.mainMessage}>Stussy Summer 21</h1>
+                    <h1 className={styles.mainMessage}>Summer 21</h1>
                 </div>
                 <NavLink to='/search'>
                     <div>
