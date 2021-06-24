@@ -1,24 +1,15 @@
 import React, {useState} from "react";
 import styles from './Searchbar.module.css'
-import {Redirect} from "react-router-dom";
+import {Redirect, useLocation} from "react-router-dom";
 import {productsAPI} from "../../../api/api";
 
 const Searchbar = (props) => {
     let checkKey = (e) => {
         if (e.key === 'Enter') {
-            searchProducts()
+            props.toggleIsSearching(true)
         }
     }
-    let searchProducts = () => {
-        props.toggleIsSearching(true)
-        console.log(props.isSearching)
-        productsAPI.searchProducts(props.searchField)
-            .then(response => {
-                console.log(props.isSearching)
-                props.setProducts(response)
-                props.toggleIsSearching(false)
-            })
-    }
+
     let onSearchFieldChange = (e) => {
         props.onSearchFieldChange(e.target.value)
     }
@@ -33,7 +24,7 @@ const Searchbar = (props) => {
                     value={props.searchField}
                     onKeyUp={checkKey}
                 />
-                {props.isSearching && <Redirect to='/search'/>}
+                {props.isSearching && <Redirect to={'/search/' + props.searchField}/>}
             </div>
         </div>
     )

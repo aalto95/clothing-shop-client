@@ -1,11 +1,21 @@
 import styles from './Search.module.css';
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Products from "../Products/Products";
 import Preloader from "../Preloader/Preloader";
+import {useLocation} from "react-router-dom";
+import {productsAPI} from "../../api/api";
 
 const Search = (props) => {
 
-    useEffect(() => props.toggleSearchbar, [props.toggleSearchbar])
+    let searchRequest = useLocation().pathname.replace('/search/', '')
+
+    if (props.isSearching) {
+        productsAPI.searchProducts(searchRequest)
+            .then(response => {
+                props.setProducts(response)
+                props.toggleIsSearching(false)
+            })
+    }
 
     return (
         <>

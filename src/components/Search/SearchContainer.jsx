@@ -22,6 +22,7 @@ const SearchContainer = (props) => {
             addOne={props.addOne}
             toggleIsSearching={props.toggleIsSearching}
             isSearching={props.isSearching}
+            setProducts={props.setProducts}
         />
     )
 }
