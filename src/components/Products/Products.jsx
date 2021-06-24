@@ -9,7 +9,7 @@ const Products = (props) => {
         let index = 0
 
         for (let j = 0; j < props.cart.length; j++) {
-            if (props.groceries[id].title === props.cart[j].title) {
+            if (props.items[id].title === props.cart[j].title) {
                 alreadyInCart = true
                 index = j
             }
@@ -21,7 +21,7 @@ const Products = (props) => {
         }
     }
 
-    let productElements = props.groceries.map((item, i) => <Product
+    let productElements = props.items.map((item, i) => <Product
         key={item.id}
         price={item.price}
         onAddToCartClick = { () => {addToCart(i) }}

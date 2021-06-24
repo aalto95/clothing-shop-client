@@ -46,7 +46,7 @@ const Cart = (props) => {
                 {props.cart.map((product, i) =>
                     <div key={i} className={styles.product}>
                         <img src={product.img_small} className={styles.productImg} alt="product-img"/>
-                        <p className={styles.productName}>{product.title} x {product.quantity} = <b>{product.price * product.quantity}$</b></p>
+                        <p className={styles.productName}>{product.brand} {product.title} x {product.quantity} = <b>{product.price * product.quantity}$</b></p>
                         <div className={styles.buttonGroup}>
                             <button className={styles.quantityButton} onClick={() => onAdd(i)}>+</button>
                             <button className={styles.quantityButton} onClick={() => onSubtract(i)}>-</button>

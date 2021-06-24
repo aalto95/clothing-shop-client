@@ -8,7 +8,7 @@ import {
 
 let mapStateToProps = state => {
     return {
-        groceries: state.productsPage.groceries,
+        items: state.productsPage.items,
         cart: state.productsPage.cart
     }
 }

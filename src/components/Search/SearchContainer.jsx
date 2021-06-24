@@ -15,7 +15,7 @@ const SearchContainer = (props) => {
             searchField={props.searchField}
             toggleIsFetching={props.toggleIsFetching}
             isFetching={props.isFetching}
-            groceries={props.groceries}
+            items={props.items}
             toggleSearchbar={props.toggleSearchbar}
             cart={props.cart}
             addToCart={props.addToCart}
@@ -30,7 +30,7 @@ let mapStateToProps = state => {
     return {
         searchField: state.productsPage.searchField,
         isFetching: state.productsPage.isFetching,
-        groceries: state.productsPage.groceries,
+        items: state.productsPage.items,
         cart: state.productsPage.cart,
         isSearching: state.productsPage.isSearching
     }

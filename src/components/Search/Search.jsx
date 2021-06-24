@@ -10,11 +10,11 @@ const Search = (props) => {
     return (
         <>
             <div className={styles.searchPage}>
-                <p>There are {props.groceries.length} matches</p>
+                <p>There are {props.items.length} matches</p>
                 {
                     !props.isSearching
                     ? <Products
-                        groceries={props.groceries}
+                        items={props.items}
                         cart={props.cart}
                         addToCart={props.addToCart}
                         addOne={props.addOne}

@@ -13,7 +13,7 @@ const ON_SEARCH_FIELD_CHANGE = 'ON-SEARCH-FIELD-CHANGE'
 const TOGGLE_IS_SEARCHING = 'TOGGLE-IS-SEARCHING'
 
 let initialState = {
-    groceries: [],
+    items: [],
     isFetching: false,
     isSearching: false,
     cart: [],
@@ -31,14 +31,14 @@ const productsReducer = (state = initialState, action) => {
     switch(action.type) {
         case SET_PRODUCTS:
             return {
-                ...state, groceries: action.groceries
+                ...state, items: action.items
             }
 
         case ADD_TO_CART:
             newCartSize = state.cartSize + 1
             return {
                 ...state,
-                ...state.cart.push(Object.assign(state.groceries[action.id], {quantity: 1}, {cartId: state.cart.length})),
+                ...state.cart.push(Object.assign(state.items[action.id], {quantity: 1}, {cartId: state.cart.length})),
                 cartSize: newCartSize
             }
 
@@ -124,7 +124,7 @@ const productsReducer = (state = initialState, action) => {
     }
 }
 
-export let setProducts = (groceries) => ({ type: SET_PRODUCTS, groceries })
+export let setProducts = (items) => ({ type: SET_PRODUCTS, items })
 export let toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching })
 export let addToCart = (id) => ({ type: ADD_TO_CART, id })
 export let addOne = (id) => ({ type: ADD_ONE, id })
