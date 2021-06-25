@@ -11,6 +11,7 @@ const SET_PAGES_QUANTITY = 'SET-PAGES-QUANTITY'
 const TOGGLE_SEARCHBAR = 'TOGGLE-SEARCHBAR'
 const ON_SEARCH_FIELD_CHANGE = 'ON-SEARCH-FIELD-CHANGE'
 const TOGGLE_IS_SEARCHING = 'TOGGLE-IS-SEARCHING'
+const TOGGLE_IS_REDIRECTING = 'TOGGLE-IS-REDIRECTING'
 
 let initialState = {
     items: [],
@@ -22,7 +23,8 @@ let initialState = {
     pageLength: 8,
     pagesQuantity: null,
     isSearchbarToggled: false,
-    searchField: ''
+    searchField: '',
+    isRedirecting: false
 }
 
 const productsReducer = (state = initialState, action) => {
@@ -119,6 +121,11 @@ const productsReducer = (state = initialState, action) => {
                 ...state,
                 isSearching: action.isSearching
             }
+        case TOGGLE_IS_REDIRECTING:
+            return {
+                ...state,
+                isRedirecting: action.isRedirecting
+            }
         default:
             return state
     }
@@ -137,5 +144,6 @@ export let setPagesQuantity = (length) => ({ type: SET_PAGES_QUANTITY, length })
 export let toggleSearchbar = () => ({ type: TOGGLE_SEARCHBAR })
 export let onSearchFieldChange = (searchField) => ({ type: ON_SEARCH_FIELD_CHANGE, searchField })
 export let toggleIsSearching = (isSearching) => ({ type: TOGGLE_IS_SEARCHING, isSearching })
+export let toggleIsRedirecting = (isRedirecting) => ({ type: TOGGLE_IS_REDIRECTING, isRedirecting })
 
 export default productsReducer

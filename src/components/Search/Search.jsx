@@ -1,21 +1,22 @@
 import styles from './Search.module.css';
-import {useEffect, useState} from "react";
 import Products from "../Products/Products";
 import Preloader from "../Preloader/Preloader";
-import {useLocation} from "react-router-dom";
 import {productsAPI} from "../../api/api";
+import {useEffect} from "react";
 
 const Search = (props) => {
-
-    let searchRequest = useLocation().pathname.replace('/search/', '')
-
-    if (props.isSearching) {
-        productsAPI.searchProducts(searchRequest)
+    let startSearch = () => {
+        props.toggleIsRedirecting(false)
+        props.toggleIsSearching(true)
+        productsAPI.searchProducts(props.searchString)
             .then(response => {
                 props.setProducts(response)
                 props.toggleIsSearching(false)
+                props.onSearchFieldChange('')
             })
     }
+
+    useEffect(startSearch, [props.searchString])
 
     return (
         <>

@@ -34,22 +34,22 @@ const StartingPage = (props) => {
             </div>
 
             <div className={styles.clothesCategories}>
-                <NavLink to='/search/' className={styles.footwear} onClick={() => {searchByField('type', 'footwear')}}>
+                <NavLink to='/search/footwear' className={styles.footwear}>
                     <p>FOOTWEAR</p>
                 </NavLink>
-                <NavLink to='/search/' className={styles.pants} onClick={() => {searchByField('type', 'pants')}}>
+                <NavLink to='/search/pants' className={styles.pants}>
                     <p>PANTS</p>
                 </NavLink>
-                <NavLink to='/search/' className={styles.hoodie} onClick={() => {searchByField('type', 'hoodie')}}>
+                <NavLink to='/search/hoodie' className={styles.hoodie}>
                     <p>HOODIES</p>
                 </NavLink>
-                <NavLink to='/search/' className={styles.shirt} onClick={() => {searchByField('type', 'shirt')}}>
+                <NavLink to='/search/shirt' className={styles.shirt}>
                     <p>SHIRTS</p>
                 </NavLink>
-                <NavLink to='/search/' className={styles.jacket} onClick={() => {searchByField('type', 'jacket')}}>
+                <NavLink to='/search/jacket' className={styles.jacket}>
                     <p>JACKETS</p>
                 </NavLink>
-                <NavLink to='/search/' className={styles.headgear} onClick={() => {searchByField('type', 'headgear')}}>
+                <NavLink to='/search/headgear' className={styles.headgear}>
                     <p>HEADGEAR</p>
                 </NavLink>
             </div>

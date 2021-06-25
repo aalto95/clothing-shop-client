@@ -2,28 +2,18 @@ import {connect} from "react-redux";
 import Search from "./Search";
 import {
     addOne,
-    addToCart,
+    addToCart, onSearchFieldChange,
     setProducts,
-    toggleIsFetching,
+    toggleIsFetching, toggleIsRedirecting,
     toggleIsSearching,
     toggleSearchbar
 } from "../../redux/products-reducer";
+import {withRouter} from 'react-router-dom'
 
 const SearchContainer = (props) => {
+    let searchString = props.match.params.string
     return (
-        <Search
-            searchField={props.searchField}
-            toggleIsFetching={props.toggleIsFetching}
-            isFetching={props.isFetching}
-            items={props.items}
-            toggleSearchbar={props.toggleSearchbar}
-            cart={props.cart}
-            addToCart={props.addToCart}
-            addOne={props.addOne}
-            toggleIsSearching={props.toggleIsSearching}
-            isSearching={props.isSearching}
-            setProducts={props.setProducts}
-        />
+        <Search {...props} searchString={searchString}/>
     )
 }
 
@@ -33,7 +23,7 @@ let mapStateToProps = state => {
         isFetching: state.productsPage.isFetching,
         items: state.productsPage.items,
         cart: state.productsPage.cart,
-        isSearching: state.productsPage.isSearching
+        isSearching: state.productsPage.isSearching,
     }
 }
 
@@ -43,7 +33,11 @@ let mapDispatchToProps = {
     addToCart,
     toggleSearchbar,
     addOne,
-    toggleIsSearching
+    toggleIsSearching,
+    onSearchFieldChange,
+    toggleIsRedirecting
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (SearchContainer)
+let withUrlDataContainerComponent = withRouter(SearchContainer)
+
+export default connect(mapStateToProps, mapDispatchToProps) (withUrlDataContainerComponent)

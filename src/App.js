@@ -15,7 +15,7 @@ function App() {
                    render={ () => <NavbarContainer /> }/>
             <Route exact path="/"
                    render={ () => <StartingPageContainer /> }/>
-            <Route path="/search"
+            <Route path="/search/:string?"
                    render={ () => <SearchContainer /> }/>
             <Route path="/cart"
                    render={ () => <CartContainer /> }/>

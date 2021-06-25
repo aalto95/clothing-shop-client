@@ -51,10 +51,10 @@ const NavbarDesktop = (props) => {
                         <li className={styles.brands}>
                             <NavLink to='/search' className={styles.navElem}>BRANDS</NavLink>
                             <span className={styles.menDropDown}>
-                                <NavLink to='/search' onClick={() => {searchByField('brand', 'nike')}}>nike</NavLink>
-                                <NavLink to='/search' onClick={() => {searchByField('brand', 'adidas')}}>adidas</NavLink>
-                                <NavLink to='/search' onClick={() => {searchByField('brand', 'reebok')}}>reebok</NavLink>
-                                <NavLink to='/search' onClick={() => {searchByField('brand', 'carhartt')}}>carhartt</NavLink>
+                                <NavLink to='/search/nike'>nike</NavLink>
+                                <NavLink to='/search/grind london'>grind london</NavLink>
+                                <NavLink to='/search/polar'>polar</NavLink>
+                                <NavLink to='/search/carhartt'>carhartt</NavLink>
                             </span>
                         </li>
                         <li><NavLink to='/sale' className={styles.navElem}>SALE</NavLink></li>
@@ -73,15 +73,7 @@ const NavbarDesktop = (props) => {
                     </div>
                 </div>
             </nav>
-            <Searchbar
-                isSearching={props.isSearching}
-                toggleIsSearching={props.toggleIsSearching}
-                isSearchbarToggled={props.isSearchbarToggled}
-                toggleIsFetching={props.toggleIsFetching}
-                onSearchFieldChange={props.onSearchFieldChange}
-                searchField={props.searchField}
-                setProducts={props.setProducts}
-            />
+            <Searchbar {...props}/>
             <AddedToCartPopup cartSize={props.cartSize}/>
         </>
 

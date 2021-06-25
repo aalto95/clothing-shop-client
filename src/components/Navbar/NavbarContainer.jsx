@@ -7,44 +7,15 @@ import {
     setProducts,
     toggleIsFetching,
     toggleIsSearching,
-    toggleSearchbar
+    toggleSearchbar,
+    toggleIsRedirecting
 } from "../../redux/products-reducer";
 
 const NavbarContainer = (props) => {
     return (
         <>
-            <NavbarDesktop
-                cart={props.cart}
-                isLogged={props.isLogged}
-                isAdmin={props.isAdmin}
-                cartSize={props.cartSize}
-                logout={props.logout}
-                isSearchbarToggled={props.isSearchbarToggled}
-                toggleSearchbar={props.toggleSearchbar}
-                isFetching={props.isFetching}
-                toggleIsFetching={props.toggleIsFetching}
-                onSearchFieldChange={props.onSearchFieldChange}
-                searchField={props.searchField}
-                setProducts={props.setProducts}
-                isSearching={props.isSearching}
-                toggleIsSearching={props.toggleIsSearching}
-            />
-            <NavbarMobile
-                cart={props.cart}
-                isLogged={props.isLogged}
-                isAdmin={props.isAdmin}
-                cartSize={props.cartSize}
-                logout={props.logout}
-                isSearchbarToggled={props.isSearchbarToggled}
-                toggleSearchbar={props.toggleSearchbar}
-                isFetching={props.isFetching}
-                toggleIsFetching={props.toggleIsFetching}
-                onSearchFieldChange={props.onSearchFieldChange}
-                searchField={props.searchField}
-                setProducts={props.setProducts}
-                isSearching={props.isSearching}
-                toggleIsSearching={props.toggleIsSearching}
-            />
+            <NavbarDesktop {...props}/>
+            <NavbarMobile {...props}/>
         </>
     )
 }
@@ -58,7 +29,8 @@ let mapStateToProps = state => {
         isSearchbarToggled: state.productsPage.isSearchbarToggled,
         isFetching: state.productsPage.isFetching,
         searchField: state.productsPage.searchField,
-        isSearching: state.productsPage.isSearching
+        isSearching: state.productsPage.isSearching,
+        isRedirecting: state.productsPage.isRedirecting
     }
 }
 
@@ -68,9 +40,8 @@ let mapDispatchToProps = {
     toggleIsFetching,
     onSearchFieldChange,
     setProducts,
-    toggleIsSearching
+    toggleIsSearching,
+    toggleIsRedirecting
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps) (NavbarContainer)
