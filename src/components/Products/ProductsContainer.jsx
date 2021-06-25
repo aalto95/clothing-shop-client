@@ -2,8 +2,6 @@ import Products from "./Products";
 import {connect} from "react-redux";
 import {
     addToCart,
-    setProducts,
-    toggleIsFetching,
     addOne,
     showPreviousPage,
     showNextPage, getPagesQuantity, getProducts
@@ -29,7 +27,6 @@ const ProductsContainer = (props) => {
     return (
         <Products
             {...props}
-            addOne={props.addOne}
             nextPage={nextPage}
             previousPage={previousPage}
         />

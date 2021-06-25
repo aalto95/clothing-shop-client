@@ -2,11 +2,12 @@ import './App.css';
 import {Route} from 'react-router-dom'
 import CartPageContainer from "./components/CartPage/CartPageContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
-import LoginContainer from "./components/LoginPage/LoginPageContainer";
-import AdminContainer from "./components/AdminPage/AdminPageContainer";
+import LoginPageContainer from "./components/LoginPage/LoginPageContainer";
+import AdminPageContainer from "./components/AdminPage/AdminPageContainer";
 import Footer from "./components/Footer/Footer";
-import SearchContainer from "./components/SearchPage/SearchPageContainer";
+import SearchPageContainer from "./components/SearchPage/SearchPageContainer";
 import StartingPageContainer from "./components/HomePage/HomePageContainer";
+import ItemPageContainer from "./components/ItemPage/ItemPageContainer";
 
 function App() {
   return (
@@ -16,13 +17,15 @@ function App() {
             <Route exact path="/"
                    render={ () => <StartingPageContainer /> }/>
             <Route path="/search/:string?"
-                   render={ () => <SearchContainer /> }/>
+                   render={ () => <SearchPageContainer /> }/>
+            <Route path="/items/:itemId?"
+                   render={ () => <ItemPageContainer /> }/>
             <Route path="/cart"
                    render={ () => <CartPageContainer /> }/>
             <Route path="/login"
-                   render={ () => <LoginContainer /> }/>
+                   render={ () => <LoginPageContainer /> }/>
             <Route path="/admin"
-                   render={ () => <AdminContainer/> }/>
+                   render={ () => <AdminPageContainer/> }/>
             <Route path="/"
                    render={ () => <Footer/> }/>
     </div>

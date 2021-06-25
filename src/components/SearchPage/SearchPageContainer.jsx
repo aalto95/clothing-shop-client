@@ -14,7 +14,7 @@ const SearchPageContainer = (props) => {
     let searchString = props.match.params.string
     useEffect(() => props.startSearch(searchString), [searchString])
     return (
-        <SearchPage {...props} searchString={searchString}/>
+        <SearchPage {...props}/>
     )
 }
 

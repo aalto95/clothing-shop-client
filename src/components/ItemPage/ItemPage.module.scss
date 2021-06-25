@@ -1,0 +1,15 @@
+.itemPage {
+  padding-top: 50px;
+  height: 80vh;
+  .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .itemImage {
+      width: 500px;
+    }
+    .infoBlock {
+      text-align: left;
+    }
+  }
+}

@@ -22,6 +22,7 @@ const Products = (props) => {
     }
 
     let productElements = props.items.map((item, i) => <Product
+        id={item.id}
         key={item.id}
         price={item.price}
         onAddToCartClick = { () => {addToCart(i) }}

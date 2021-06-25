@@ -14,6 +14,7 @@ const TOGGLE_SEARCHBAR = 'TOGGLE-SEARCHBAR'
 const ON_SEARCH_FIELD_CHANGE = 'ON-SEARCH-FIELD-CHANGE'
 const TOGGLE_IS_SEARCHING = 'TOGGLE-IS-SEARCHING'
 const TOGGLE_IS_REDIRECTING = 'TOGGLE-IS-REDIRECTING'
+const SET_SPECIFIC_ITEM = 'SET_SPECIFIC_ITEM'
 
 let initialState = {
     items: [],
@@ -26,7 +27,8 @@ let initialState = {
     pagesQuantity: null,
     isSearchbarToggled: false,
     searchField: '',
-    isRedirecting: false
+    isRedirecting: false,
+    specificItem: {}
 }
 
 const productsReducer = (state = initialState, action) => {
@@ -128,6 +130,11 @@ const productsReducer = (state = initialState, action) => {
                 ...state,
                 isRedirecting: action.isRedirecting
             }
+        case SET_SPECIFIC_ITEM:
+            return {
+                ...state,
+                specificItem: action.item
+            }
         default:
             return state
     }
@@ -147,6 +154,7 @@ export let toggleSearchbar = () => ({ type: TOGGLE_SEARCHBAR })
 export let onSearchFieldChange = (searchField) => ({ type: ON_SEARCH_FIELD_CHANGE, searchField })
 export let toggleIsSearching = (isSearching) => ({ type: TOGGLE_IS_SEARCHING, isSearching })
 export let toggleIsRedirecting = (isRedirecting) => ({ type: TOGGLE_IS_REDIRECTING, isRedirecting })
+export let setSpecificItem = (item) => ({ type: SET_SPECIFIC_ITEM, item })
 
 export const getPagesQuantity = (dispatch) => {
      productsAPI.getPagesQuantity()
@@ -166,15 +174,26 @@ export const getProducts = (page, pageLength) => {
     }
 }
 
-export const startSearch = (searchString) => {
+export const startSearch = (searchString, page, pageLength) => {
     return (dispatch) => {
         dispatch(toggleIsRedirecting(false))
         dispatch(toggleIsSearching(true))
-        productsAPI.searchProducts(searchString)
+        productsAPI.searchProducts(searchString, page, pageLength)
             .then(response => {
                 dispatch(setProducts(response))
                 dispatch(toggleIsSearching(false))
                 dispatch(onSearchFieldChange(''))
+            })
+    }
+}
+
+export const getSpecificItem = (id) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true))
+        productsAPI.getSpecificItem(id)
+            .then(response => {
+                dispatch(setSpecificItem(response))
+                dispatch(toggleIsFetching(false))
             })
     }
 }

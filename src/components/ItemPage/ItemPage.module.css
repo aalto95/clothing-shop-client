@@ -1,0 +1,17 @@
+.itemPage {
+  padding-top: 50px;
+  height: 80vh;
+}
+.itemPage .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.itemPage .item .itemImage {
+  width: 500px;
+}
+.itemPage .item .infoBlock {
+  text-align: left;
+}
+
+/*# sourceMappingURL=ItemPage.module.css.map */

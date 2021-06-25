@@ -37,4 +37,25 @@
   margin-left: 5px;
 }
 
+@media screen and (min-width: 1201px) {
+  .productWrap {
+    flex-basis: 25%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .productWrap {
+    flex-basis: 33%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .productWrap {
+    flex-basis: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .productWrap {
+    flex-basis: 100%;
+  }
+}
+
 /*# sourceMappingURL=Product.module.css.map */

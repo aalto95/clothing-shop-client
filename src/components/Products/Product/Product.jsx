@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 const Product = (props) => {
     return (
         <div className={styles.productWrap}>
-            <NavLink to='/items/'>
+            <NavLink to={'/items/' + props.id}>
                 <div
                     className={styles.productImage}
                     style={props.style}

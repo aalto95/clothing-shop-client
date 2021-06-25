@@ -48,4 +48,10 @@ export const productsAPI = {
                 })
         }
     },
+    getSpecificItem: (id) => {
+        return instance.get(`/${id}`)
+            .then(response => {
+                return response.data
+            })
+    }
 }
