@@ -11,8 +11,8 @@ import {withRouter} from 'react-router-dom'
 import {useEffect} from "react";
 
 const SearchContainer = (props) => {
-    useEffect(startSearch, [props.searchString])
     let searchString = props.match.params.string
+    useEffect(() => props.startSearch(searchString), [searchString])
     return (
         <Search {...props} searchString={searchString}/>
     )

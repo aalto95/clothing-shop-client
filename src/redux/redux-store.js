@@ -1,7 +1,8 @@
 import productsReducer from "./products-reducer";
-import {combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import loginReducer from "./login-reducer";
 import adminReducer from "./admin-reducer";
+import thunkMiddleware from 'redux-thunk'
 
 let reducers = combineReducers({
     productsPage: productsReducer,
@@ -9,7 +10,7 @@ let reducers = combineReducers({
     adminPage: adminReducer
 })
 
-let store = createStore(reducers)
+let store = createStore(reducers, applyMiddleware(thunkMiddleware))
 window.store = store
 
 export default store
