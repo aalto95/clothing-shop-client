@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import Search from "./Search";
+import SearchPage from "./SearchPage";
 import {
     addOne,
     addToCart,
@@ -10,11 +10,11 @@ import {
 import {withRouter} from 'react-router-dom'
 import {useEffect} from "react";
 
-const SearchContainer = (props) => {
+const SearchPageContainer = (props) => {
     let searchString = props.match.params.string
     useEffect(() => props.startSearch(searchString), [searchString])
     return (
-        <Search {...props} searchString={searchString}/>
+        <SearchPage {...props} searchString={searchString}/>
     )
 }
 
@@ -36,6 +36,6 @@ let mapDispatchToProps = {
     startSearch
 }
 
-let withUrlDataContainerComponent = withRouter(SearchContainer)
+let withUrlDataContainerComponent = withRouter(SearchPageContainer)
 
 export default connect(mapStateToProps, mapDispatchToProps) (withUrlDataContainerComponent)

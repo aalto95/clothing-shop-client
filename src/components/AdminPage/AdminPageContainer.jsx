@@ -1,5 +1,5 @@
 import React from "react";
-import Admin from "./Admin";
+import AdminPage from "./AdminPage";
 import {connect} from "react-redux";
 import {
     nullifyFields,
@@ -8,9 +8,9 @@ import {
     onProductPriceChange, onProductTypeChange
 } from "../../redux/admin-reducer";
 
-const AdminContainer = (props) => {
+const AdminPageContainer = (props) => {
     return (
-        <Admin
+        <AdminPage
             isLogged={props.isLogged}
             name={props.name}
             price={props.price}
@@ -43,4 +43,4 @@ let mapDispatchToProps = {
     nullifyFields
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (AdminContainer)
+export default connect(mapStateToProps, mapDispatchToProps) (AdminPageContainer)

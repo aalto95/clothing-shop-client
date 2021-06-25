@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import Cart from "./Cart";
+import CartPage from "./CartPage";
 import {
     addOne,
     checkout,
@@ -13,11 +13,11 @@ let mapStateToProps = state => {
     }
 }
 
-const CartContainer = connect(mapStateToProps, {
+const CartPageContainer = connect(mapStateToProps, {
     addOne,
     subtractOne,
     checkout,
     removeFromCart
-}) (Cart)
+}) (CartPage)
 
-export default CartContainer
+export default CartPageContainer

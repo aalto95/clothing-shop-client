@@ -1,7 +1,7 @@
-import styles from './StartingPage.module.css'
+import styles from './HomePage.module.css'
 import {NavLink} from "react-router-dom";
 
-const StartingPage = (props) => {
+const HomePage = (props) => {
 
     return (
         <>
@@ -49,4 +49,4 @@ const StartingPage = (props) => {
     )
 }
 
-export default StartingPage
+export default HomePage

@@ -1,9 +1,9 @@
 import React from "react";
-import styles from './Cart.module.css'
+import styles from './CartPage.module.css'
 import deleteIcon from '../../assets/icons/delete.svg'
 import {ReactSVG} from "react-svg";
 
-const Cart = (props) => {
+const CartPage = (props) => {
 
     const forceUpdate: () => void = React.useState()[1].bind(null, {})
 
@@ -69,4 +69,4 @@ const Cart = (props) => {
     )
 }
 
-export default Cart
+export default CartPage

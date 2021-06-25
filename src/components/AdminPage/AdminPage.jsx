@@ -1,8 +1,8 @@
-import styles from './Admin.module.css'
+import styles from './AdminPage.module.css'
 import React from "react";
 import {productsAPI} from "../../api/api";
 
-const Admin = (props) => {
+const AdminPage = (props) => {
     if (props.isLogged) {
 
         let pushProductToDatabase = (e) => {
@@ -35,4 +35,4 @@ const Admin = (props) => {
     )
 }
 
-export default Admin
+export default AdminPage

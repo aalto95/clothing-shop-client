@@ -1,12 +1,12 @@
 import './App.css';
 import {Route} from 'react-router-dom'
-import CartContainer from "./components/Cart/CartContainer";
+import CartPageContainer from "./components/CartPage/CartPageContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
-import LoginContainer from "./components/Login/LoginContainer";
-import AdminContainer from "./components/Admin/AdminContainer";
+import LoginContainer from "./components/LoginPage/LoginPageContainer";
+import AdminContainer from "./components/AdminPage/AdminPageContainer";
 import Footer from "./components/Footer/Footer";
-import SearchContainer from "./components/Search/SearchContainer";
-import StartingPageContainer from "./components/StartingPage/StartingPageContainer";
+import SearchContainer from "./components/SearchPage/SearchPageContainer";
+import StartingPageContainer from "./components/HomePage/HomePageContainer";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
             <Route path="/search/:string?"
                    render={ () => <SearchContainer /> }/>
             <Route path="/cart"
-                   render={ () => <CartContainer /> }/>
+                   render={ () => <CartPageContainer /> }/>
             <Route path="/login"
                    render={ () => <LoginContainer /> }/>
             <Route path="/admin"

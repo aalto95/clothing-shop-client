@@ -1,0 +1,40 @@
+.productWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+.productWrap .productImage {
+  display: flex;
+  min-height: 200px;
+  min-width: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px;
+}
+.productWrap .addToCart {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  width: 100px;
+}
+.productWrap .addToCart button {
+  border: none;
+  min-width: 100px;
+  min-height: 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: #ddd;
+}
+.productWrap .addToCart .onAddToCart:active {
+  transition-duration: 0.1s;
+  background-color: #a58faa;
+}
+.productWrap .addToCart .cartIcon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+/*# sourceMappingURL=Product.module.css.map */

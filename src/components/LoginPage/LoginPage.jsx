@@ -1,9 +1,9 @@
-import styles from './Login.module.css'
+import styles from './LoginPage.module.css'
 import React from "react";
 import {NavLink, Redirect} from "react-router-dom";
 
 
-const Login = (props) => {
+const LoginPage = (props) => {
     let onFormSubmit = (e) => {
         e.preventDefault()
         setTimeout(props.onFormSubmit, 500)
@@ -20,11 +20,11 @@ const Login = (props) => {
                    <input type="text" name="username" onChange={props.onLoginChange} value={props.login}/>
                    <label htmlFor="password">PASSWORD:</label>
                    <input type="text" name="password" onChange={props.onPasswordChange} value={props.password}/>
-                   <input type="submit" className={styles.submitBtn} value="Login" disabled={!props.password && !props.login}/>
+                   <input type="submit" className={styles.submitBtn} value="LoginPage" disabled={!props.password && !props.login}/>
                </form>
            </div>
        </div>
     )
 }
 
-export default Login
+export default LoginPage

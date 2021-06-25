@@ -1,12 +1,12 @@
 import React from "react";
-import Login from "./Login";
+import LoginPage from "./LoginPage";
 import {connect} from "react-redux";
 import {onFormSubmit, onLoginChange, onPasswordChange} from "../../redux/login-reducer";
 
-const LoginContainer = (props) => {
+const LoginPageContainer = (props) => {
 
     return (
-        <Login
+        <LoginPage
             onFormSubmit={props.onFormSubmit}
             onLoginChange={props.onLoginChange}
             onPasswordChange={props.onPasswordChange}
@@ -31,4 +31,4 @@ let mapDispatchToProps = {
     onFormSubmit
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (LoginContainer)
+export default connect(mapStateToProps, mapDispatchToProps) (LoginPageContainer)

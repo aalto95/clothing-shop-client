@@ -1,10 +1,10 @@
-import StartingPage from "./StartingPage";
+import HomePage from "./HomePage";
 import {connect} from "react-redux";
 import {onSearchFieldChange, setProducts} from "../../redux/products-reducer";
 
-const StartingPageContainer = (props) => {
+const HomePageContainer = (props) => {
     return (
-        <StartingPage {...props}/>
+        <HomePage {...props}/>
     )
 }
 
@@ -19,4 +19,4 @@ let mapDispatchToProps = {
     setProducts
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (StartingPageContainer)
+export default connect(mapStateToProps, mapDispatchToProps) (HomePageContainer)

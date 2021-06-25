@@ -1,11 +1,11 @@
 <svg width="12px" height="16px" viewBox="0 0 12 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
-	<title>Cart</title>
+	<title>CartPage</title>
 	<desc>Created with Sketch.</desc>
 	<defs>
 		<path d="M6.27973956,5.61328761e-13 C7.67854453,5.61328761e-13 8.89619057,1.18988922 8.99945068,2.65801277 L9.02,2.962 L12,2.96202532 L12,15.6 L0,15.6 L0,2.96202532 L2.979,2.962 L3.00054932,2.65801277 C3.10379933,1.19003285 4.31903624,5.61328761e-13 5.72026044,5.61328761e-13 L6.27973956,5.61328761e-13 Z M6.23600935,0.962025316 L5.76399065,0.962025316 C4.83100019,0.962025316 4.01151213,2.01844119 3.94270833,2.96202532 L8.05729167,2.96202532 C7.98853931,2.01923937 7.16777054,0.962025316 6.23600935,0.962025316 Z" id="path-2"></path>
 	</defs>
-	<g id="Cart" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+	<g id="CartPage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 		<g id="cart">
 			<mask id="mask-2" fill="white">
 				<use xlink:href="#path-2"></use>
