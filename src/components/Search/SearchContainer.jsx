@@ -2,15 +2,16 @@ import {connect} from "react-redux";
 import Search from "./Search";
 import {
     addOne,
-    addToCart, onSearchFieldChange,
-    setProducts,
-    toggleIsFetching, toggleIsRedirecting,
-    toggleIsSearching,
+    addToCart,
+    startSearch,
+    toggleIsFetching,
     toggleSearchbar
 } from "../../redux/products-reducer";
 import {withRouter} from 'react-router-dom'
+import {useEffect} from "react";
 
 const SearchContainer = (props) => {
+    useEffect(startSearch, [props.searchString])
     let searchString = props.match.params.string
     return (
         <Search {...props} searchString={searchString}/>
@@ -29,13 +30,10 @@ let mapStateToProps = state => {
 
 let mapDispatchToProps = {
     toggleIsFetching,
-    setProducts,
     addToCart,
     toggleSearchbar,
     addOne,
-    toggleIsSearching,
-    onSearchFieldChange,
-    toggleIsRedirecting
+    startSearch
 }
 
 let withUrlDataContainerComponent = withRouter(SearchContainer)

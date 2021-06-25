@@ -41,7 +41,7 @@ const Products = (props) => {
             {/*<div className={styles.pagination}>*/}
             {/*    <button disabled={props.currentPage === 1} onClick={props.previousPage}>&#8592;</button>*/}
             {/*    <span className={styles.currentPage}>{props.currentPage}</span>*/}
-            {/*    <button disabled={props.currentPage === props.pageQuantity} onClick={props.nextPage}>&#8594;</button>*/}
+            {/*    <button disabled={props.currentPage === props.pagesQuantity} onClick={props.nextPage}>&#8594;</button>*/}
             {/*</div>*/}
         </>
     )

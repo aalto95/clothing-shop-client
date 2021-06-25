@@ -4,10 +4,7 @@ import {onSearchFieldChange, setProducts} from "../../redux/products-reducer";
 
 const StartingPageContainer = (props) => {
     return (
-        <StartingPage
-            searchField={props.searchField}
-            setProducts={props.setProducts}
-        />
+        <StartingPage {...props}/>
     )
 }
 

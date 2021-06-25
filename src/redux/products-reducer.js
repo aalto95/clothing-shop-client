@@ -1,3 +1,5 @@
+import {productsAPI} from "../api/api";
+
 const SET_PRODUCTS = 'SET-PRODUCTS'
 const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING'
 const ADD_TO_CART = 'ADD-TO-CART'
@@ -145,5 +147,36 @@ export let toggleSearchbar = () => ({ type: TOGGLE_SEARCHBAR })
 export let onSearchFieldChange = (searchField) => ({ type: ON_SEARCH_FIELD_CHANGE, searchField })
 export let toggleIsSearching = (isSearching) => ({ type: TOGGLE_IS_SEARCHING, isSearching })
 export let toggleIsRedirecting = (isRedirecting) => ({ type: TOGGLE_IS_REDIRECTING, isRedirecting })
+
+export const getPagesQuantity = (dispatch) => {
+     productsAPI.getPagesQuantity()
+        .then(response => {
+            dispatch(setPagesQuantity(response))
+        })
+}
+
+export const getProducts = (page, pageLength) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true))
+        productsAPI.getProducts(page, pageLength)
+            .then(response => {
+                dispatch(toggleIsFetching(false))
+                dispatch(setProducts(response))
+            })
+    }
+}
+
+export const startSearch = (searchString) => {
+    return (dispatch) => {
+        dispatch(toggleIsRedirecting(false))
+        dispatch(toggleIsSearching(true))
+        productsAPI.searchProducts(searchString)
+            .then(response => {
+                dispatch(setProducts(response))
+                dispatch(toggleIsSearching(false))
+                dispatch(onSearchFieldChange(''))
+            })
+    }
+}
 
 export default productsReducer

@@ -21,7 +21,6 @@ const NavbarMobile = (props) => {
                         <NavLink to='/new-items'>NEW ITEMS</NavLink>
                         <NavLink to='/search/men'>MEN</NavLink>
                         <NavLink to='/search/women'>WOMEN</NavLink>
-                        <NavLink to='/search/brands'>BRANDS</NavLink>
                         <NavLink to='/search/sale'>SALE</NavLink>
                     </div>
                 </div>
