@@ -31,6 +31,7 @@
           @include darkenOnHover;
           @include heightPreference;
           padding: 10px;
+          cursor: pointer;
         }
       }
       span {

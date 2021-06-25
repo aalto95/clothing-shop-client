@@ -1,15 +1,6 @@
 import styles from './../Products.module.css'
 
 const Product = (props) => {
-    let showGender = () => {
-        if (props.sex === 'm') {
-            return 'male'
-        }
-        else if (props.sex === 'f') {
-            return 'female'
-        }
-        else return 'unisex'
-    }
     return (
         <div className={styles.productWrap}>
             <div
@@ -18,7 +9,6 @@ const Product = (props) => {
             >
             </div>
             <p> {props.brand} {props.title} <b>{props.price}$</b></p>
-            <p>{showGender()}</p>
             <div
                 className={styles.addToCart}
                 onClick={ () => props.onAddToCartClick() }

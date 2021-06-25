@@ -1,15 +1,7 @@
 import styles from './StartingPage.module.css'
 import {NavLink} from "react-router-dom";
-import {productsAPI} from "../../api/api";
 
 const StartingPage = (props) => {
-
-    let searchByField = (field, input) => {
-        productsAPI.searchByField(field, input)
-            .then(response => {
-                props.setProducts(response)
-            })
-    }
 
     return (
         <>
@@ -25,10 +17,10 @@ const StartingPage = (props) => {
             </div>
 
             <div className={styles.genders}>
-                <NavLink to='/search/' className={styles.men} onClick={() => {searchByField('sex', 'm')}}>
+                <NavLink to='/search/men' className={styles.men}>
                     <p className={styles.menText}>MEN</p>
                 </NavLink>
-                <NavLink to='/search/' className={styles.women} onClick={() => {searchByField('sex', 'f')}}>
+                <NavLink to='/search/women' className={styles.women}>
                     <p className={styles.womenText}>WOMEN</p>
                 </NavLink>
             </div>

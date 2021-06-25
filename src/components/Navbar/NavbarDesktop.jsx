@@ -8,15 +8,8 @@ import {NavLink} from "react-router-dom";
 import React from "react";
 import Searchbar from "./Searchbar/Searchbar";
 import AddedToCartPopup from "./AddedToCartPopup/AddedToCartPopup";
-import {productsAPI} from "../../api/api";
 
 const NavbarDesktop = (props) => {
-    let searchByField = (field, input) => {
-        productsAPI.searchByField(field, input)
-            .then(response => {
-                props.setProducts(response)
-            })
-    }
     return (
         <>
             <nav className={styles.navDesktop}>
@@ -25,31 +18,13 @@ const NavbarDesktop = (props) => {
                     <ul className={styles.navigationList}>
                         <li><NavLink to='/new-items' className={styles.navElem}>NEW ITEMS</NavLink></li>
                         <li className={styles.men}>
-                            <NavLink to='search' className={styles.navElem} onClick={() => {searchByField('sex', 'm')}}>MEN</NavLink>
-                            {/*<span className={styles.menDropDown}>*/}
-                            {/*    <NavLink to='search/men/shoes' onClick={() => {searchProducts('shoes')}}>shoes</NavLink>*/}
-                            {/*    <NavLink to='search/men/shirts' onClick={() => {searchProducts('shirts')}}>shirts</NavLink>*/}
-                            {/*    <NavLink to='search/men/hoodies' onClick={() => {searchProducts('hoodies')}}>hoodies</NavLink>*/}
-                            {/*    <NavLink to='search/men/jackets' onClick={() => {searchProducts('jackets')}}>jackets</NavLink>*/}
-                            {/*    <NavLink to='search/men/socks' onClick={() => {searchProducts('socks')}}>socks</NavLink>*/}
-                            {/*    <NavLink to='search/men/headgear' onClick={() => {searchProducts('headgear')}}>headgear</NavLink>*/}
-                            {/*    <NavLink to='search/men/underwear' onClick={() => {searchProducts('underwear')}}>underwear</NavLink>*/}
-                            {/*</span>*/}
+                            <NavLink to='/search/men' className={styles.navElem}>MEN</NavLink>
                         </li>
                         <li className={styles.women}>
-                            <NavLink to='search' className={styles.navElem} onClick={() => {searchByField('sex', 'f')}}>WOMEN</NavLink>
-                            {/*<span className={styles.menDropDown}>*/}
-                            {/*    <NavLink to='/men/shoes'>shoes</NavLink>*/}
-                            {/*    <NavLink to='/men/shirts'>shirts</NavLink>*/}
-                            {/*    <NavLink to='/men/hoodies'>hoodies</NavLink>*/}
-                            {/*    <NavLink to='/men/jackets'>jackets</NavLink>*/}
-                            {/*    <NavLink to='/men/socks'>socks</NavLink>*/}
-                            {/*    <NavLink to='/men/headgear'>headgear</NavLink>*/}
-                            {/*    <NavLink to='/men/underwear'>underwear</NavLink>*/}
-                            {/*</span>*/}
+                            <NavLink to='/search/women' className={styles.navElem}>WOMEN</NavLink>
                         </li>
                         <li className={styles.brands}>
-                            <NavLink to='/search' className={styles.navElem}>BRANDS</NavLink>
+                            <p className={styles.navElem}>BRANDS</p>
                             <span className={styles.menDropDown}>
                                 <NavLink to='/search/nike'>nike</NavLink>
                                 <NavLink to='/search/grind london'>grind london</NavLink>

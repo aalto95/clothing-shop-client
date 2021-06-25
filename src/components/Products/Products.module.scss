@@ -10,10 +10,15 @@
     justify-content: flex-start;
     width: 80vw;
     .productWrap {
-
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
       .productImage {
         display: flex;
         min-height: 200px;
+        min-width: 200px;
         background-repeat: no-repeat;
         background-position: center;
         background-size: 200px;
@@ -23,7 +28,7 @@
         display: flex;
         justify-content: center;
         cursor: pointer;
-        padding: 10px;
+        width: 100px;
 
         button {
           border: none;

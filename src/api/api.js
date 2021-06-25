@@ -22,16 +22,30 @@ export const productsAPI = {
             name, price, img, type
         })
     },
-    searchProducts: (input, currentPage = 1, pageSize = 50) => {
-        return instance.get(`?search=${input}&p=${currentPage}&l=${pageSize}`)
-            .then(response => {
-                return response.data
-            })
-    },
     searchByField: (field, input, currentPage = 1, pageSize = 50) => {
         return instance.get(`?${field}=${input}&p=${currentPage}&l=${pageSize}`)
             .then(response => {
                 return response.data
             })
-    }
+    },
+    searchProducts: (input, currentPage = 1, pageSize = 50) => {
+        if (input === 'men') {
+            return instance.get(`?sex=m&p=${currentPage}&l=${pageSize}`)
+                .then(response => {
+                    return response.data
+                })
+        }
+        else if (input === 'women') {
+            return instance.get(`?sex=f&p=${currentPage}&l=${pageSize}`)
+                .then(response => {
+                    return response.data
+                })
+        }
+        else {
+            return instance.get(`?search=${input}&p=${currentPage}&l=${pageSize}`)
+                .then(response => {
+                    return response.data
+                })
+        }
+    },
 }

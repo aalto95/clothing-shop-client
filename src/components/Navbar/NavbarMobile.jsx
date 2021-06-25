@@ -7,16 +7,8 @@ import CloseIcon from '../../assets/icons/close.svg'
 import {NavLink} from "react-router-dom";
 import React from "react";
 import Searchbar from "./Searchbar/Searchbar";
-import {productsAPI} from "../../api/api";
 
 const NavbarMobile = (props) => {
-
-    let searchByField = (field, input) => {
-        productsAPI.searchByField(field, input)
-            .then(response => {
-                props.setProducts(response)
-            })
-    }
 
     return (
         <>
@@ -27,10 +19,10 @@ const NavbarMobile = (props) => {
                     </button>
                     <div className={styles.dropdownContent}>
                         <NavLink to='/new-items'>NEW ITEMS</NavLink>
-                        <NavLink to='/search/men' onClick={() => {searchByField('sex', 'm')}}>MEN</NavLink>
-                        <NavLink to='/search/women' onClick={() => {searchByField('sex', 'f')}}>WOMEN</NavLink>
+                        <NavLink to='/search/men'>MEN</NavLink>
+                        <NavLink to='/search/women'>WOMEN</NavLink>
                         <NavLink to='/search/brands'>BRANDS</NavLink>
-                        <NavLink to='/search/sale' >SALE</NavLink>
+                        <NavLink to='/search/sale'>SALE</NavLink>
                     </div>
                 </div>
                 <NavLink to='/' className={styles.logoWrapper}>
@@ -38,7 +30,7 @@ const NavbarMobile = (props) => {
                 </NavLink>
                 <div className={styles.functionalityGroup}>
                     <div className={styles.searchWrapper} onClick={props.toggleSearchbar}>
-                        <img src={props.isSearchbarToggled ? CloseIcon : SearchIcon} alt=""/>
+                        <img src={props.isSearchbarToggled ? CloseIcon : SearchIcon} alt="search-icon"/>
                     </div>
                     <NavLink to='/cart' className={styles.cartWrapper}>
                         <img src={CartIcon} alt="cart-icon"/>
