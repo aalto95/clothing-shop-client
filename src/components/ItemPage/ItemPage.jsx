@@ -15,16 +15,16 @@ const ItemPage = (props) => {
             {
                 !props.isFetching
                     ? <div className={styles.item}>
-                        <img src={props.specificItem.img_big} alt="item-img" className={styles.itemImage}/>
+                        <img src={item.img_big} alt="item-img" className={styles.itemImage}/>
                         <div className={styles.infoBlock}>
-                            <p>Brand: {item.brand}</p>
-                            <p>Title: {item.title}</p>
-                            <p>Color: {item.color}</p>
-                            <p>Price: {item.price}$</p>
-                            <p>Select Size:</p>
+                            <h2>{item.brand}</h2>
+                            <p>{item.color} {item.title}</p>
+                            <h5>Select Size:</h5>
                             <select name="sizes">
                                 {options}
                             </select>
+                            <h2>{item.price}$</h2>
+                            <button className={styles.addToCart} onClick={props.addToCart}>Add To Cart</button>
                         </div>
                     </div>
                     : <Preloader/>

@@ -44,7 +44,7 @@ const productsReducer = (state = initialState, action) => {
             newCartSize = state.cartSize + 1
             return {
                 ...state,
-                ...state.cart.push(Object.assign(state.items[action.id], {quantity: 1}, {cartId: state.cart.length})),
+                ...state.cart.push(Object.assign(state.specificItem, {quantity: 1}, {cartId: state.cart.length})),
                 cartSize: newCartSize
             }
 

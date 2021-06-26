@@ -18,10 +18,10 @@ const NavbarMobile = (props) => {
                         <img src={NavIcon} className={styles.navIcon} alt="nav-icon"/>
                     </button>
                     <div className={styles.dropdownContent}>
-                        <NavLink to='/new-items'>NEW ITEMS</NavLink>
+                        <NavLink to='/'>NEW ITEMS</NavLink>
                         <NavLink to='/search/men'>MEN</NavLink>
                         <NavLink to='/search/women'>WOMEN</NavLink>
-                        <NavLink to='/search/sale'>SALE</NavLink>
+                        <NavLink to='/'>SALE</NavLink>
                     </div>
                 </div>
                 <NavLink to='/' className={styles.logoWrapper}>

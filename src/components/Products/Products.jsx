@@ -3,33 +3,15 @@ import Product from "./Product/Product";
 
 const Products = (props) => {
 
-    let addToCart = (id) => {
-
-        let alreadyInCart = false
-        let index = 0
-
-        for (let j = 0; j < props.cart.length; j++) {
-            if (props.items[id].title === props.cart[j].title) {
-                alreadyInCart = true
-                index = j
-            }
-        }
-        if (alreadyInCart) {
-            props.addOne(index)
-        } else {
-            props.addToCart(id)
-        }
-    }
-
     let productElements = props.items.map((item, i) => <Product
         id={item.id}
         key={item.id}
         price={item.price}
-        onAddToCartClick = { () => {addToCart(i) }}
         brand={item.brand}
         title={item.title}
         style={{backgroundImage: `url(${item.img_small})`}}
         sex={item.sex}
+        color={item.color}
     />)
 
     return (

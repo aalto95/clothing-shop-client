@@ -1,17 +1,61 @@
 .itemPage {
-  padding-top: 50px;
-  height: 80vh;
+  padding: 50px 0 50px 0;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .itemPage .item {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.itemPage .item .itemImage {
-  width: 500px;
-}
 .itemPage .item .infoBlock {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
   text-align: left;
+}
+.itemPage .item .infoBlock p {
+  color: #878787;
+  font-weight: 700;
+}
+.itemPage .item .infoBlock select {
+  padding: 10px;
+}
+.itemPage .item .infoBlock .addToCart {
+  border: none;
+  background-color: #767676;
+  height: 50px;
+  color: #FFF;
+  cursor: pointer;
+}
+.itemPage .item .infoBlock .addToCart:hover {
+  background-color: #252525;
+  transition: background-color 0.5s;
+}
+
+@media screen and (max-width: 800px) {
+  .item {
+    flex-direction: column;
+  }
+
+  .itemImage {
+    width: 70vw;
+  }
+
+  .infoBlock {
+    width: 70vw;
+  }
+}
+@media screen and (min-width: 801px) {
+  .itemImage {
+    width: 20vw;
+  }
+
+  .infoBlock {
+    width: 30vw;
+  }
 }
 
 /*# sourceMappingURL=ItemPage.module.css.map */

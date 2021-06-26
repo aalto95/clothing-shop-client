@@ -16,7 +16,7 @@ const NavbarDesktop = (props) => {
                 <NavLink to='/'><img src={LogoIcon} className={styles.logo} alt="logo-icon"/></NavLink>
                 <div className={styles.desktopNavbar}>
                     <ul className={styles.navigationList}>
-                        <li><NavLink to='/new-items' className={styles.navElem}>NEW ITEMS</NavLink></li>
+                        <li><NavLink to='/' className={styles.navElem}>NEW ITEMS</NavLink></li>
                         <li className={styles.men}>
                             <NavLink to='/search/men' className={styles.navElem}>MEN</NavLink>
                         </li>
@@ -32,7 +32,7 @@ const NavbarDesktop = (props) => {
                                 <NavLink to='/search/carhartt'>carhartt</NavLink>
                             </span>
                         </li>
-                        <li><NavLink to='/sale' className={styles.navElem}>SALE</NavLink></li>
+                        <li><NavLink to='/' className={styles.navElem}>SALE</NavLink></li>
                     </ul>
                     <div className={styles.interactionGroup}>
                         <span className={styles.searchIcon} onClick={props.toggleSearchbar}>
