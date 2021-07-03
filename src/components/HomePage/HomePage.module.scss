@@ -89,7 +89,6 @@ $flex-basis-mobile: 80% / 2;
     align-items: center;
     height: 20vw;
     background-repeat: no-repeat;
-    background-size: 50%;
     background-position: center;
     p {
       display: none;
@@ -128,6 +127,7 @@ $flex-basis-mobile: 80% / 2;
   .clothesCategories {
     a {
       flex-basis: $flex-basis-mobile;
+      background-size: 50%;
     }
   }
 }
@@ -136,6 +136,7 @@ $flex-basis-mobile: 80% / 2;
   .clothesCategories {
     a {
       flex-basis: $flex-basis-desktop;
+      background-size: 100%;
     }
   }
 }
