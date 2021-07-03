@@ -1,13 +1,53 @@
+@import '../../Mixins';
+
 .footer {
   background-color: #2d2d2d;
-  color: #000;
-  height: 20vh;
+  color: #fff;
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
+  flex-direction: column;
   h1 {
     margin: 20px;
     color: #FFF;
+  }
+  ul {
+    list-style: none;
+    @include flexCenter;
+    li {
+      margin: 5px;
+    }
+  }
+  .socialNetworks {
+    img {
+      width: 30px;
+      margin: 10px;
+    }
+  }
+  a {
+    color: #FFF;
+    font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .footer {
+
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .footer {
+  }
+}
+
+@media screen and (min-height: 700px) {
+  .footer {
+    height: 20vh;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .footer {
+    height: 30vh;
   }
 }

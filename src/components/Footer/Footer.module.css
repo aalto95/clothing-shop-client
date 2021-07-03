@@ -1,15 +1,43 @@
 .footer {
   background-color: #2d2d2d;
-  color: #000;
-  height: 20vh;
+  color: #fff;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .footer h1 {
   margin: 20px;
   color: #FFF;
+}
+.footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer ul li {
+  margin: 5px;
+}
+.footer .socialNetworks img {
+  width: 30px;
+  margin: 10px;
+}
+.footer a {
+  color: #FFF;
+  font-weight: 700;
+}
+
+@media screen and (min-height: 700px) {
+  .footer {
+    height: 20vh;
+  }
+}
+@media screen and (max-height: 700px) {
+  .footer {
+    height: 30vh;
+  }
 }
 
 /*# sourceMappingURL=Footer.module.css.map */

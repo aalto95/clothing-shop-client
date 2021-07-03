@@ -75,7 +75,7 @@
   align-items: center;
   height: 20vw;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 50%;
   background-position: center;
 }
 .clothesCategories a p {
@@ -111,7 +111,7 @@
 
 @media screen and (max-width: 800px) {
   .clothesCategories a {
-    flex-basis: 26.6666666667%;
+    flex-basis: 40%;
   }
 }
 @media screen and (min-width: 801px) {

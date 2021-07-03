@@ -11,7 +11,7 @@ $men: url('./../../assets/images/men.jpeg');
 $women: url('./../../assets/images/women.jpeg');
 
 $flex-basis-desktop: 80% / 6;
-$flex-basis-mobile: 80% / 3;
+$flex-basis-mobile: 80% / 2;
 
 .startingImage {
   @include flexCenter;
@@ -89,7 +89,7 @@ $flex-basis-mobile: 80% / 3;
     align-items: center;
     height: 20vw;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 50%;
     background-position: center;
     p {
       display: none;
