@@ -163,39 +163,27 @@ export const getPagesQuantity = (dispatch) => {
         })
 }
 
-export const getProducts = (page, pageLength) => {
-    return (dispatch) => {
-        dispatch(toggleIsFetching(true))
-        productsAPI.getProducts(page, pageLength)
-            .then(response => {
-                dispatch(toggleIsFetching(false))
-                dispatch(setProducts(response))
-            })
-    }
+export const getProducts = (page, pageLength) => async (dispatch) => {
+    dispatch(toggleIsFetching(true))
+    let response = await productsAPI.getProducts(page, pageLength)
+    dispatch(toggleIsFetching(false))
+    dispatch(setProducts(response))
 }
 
-export const startSearch = (searchString, page, pageLength) => {
-    return (dispatch) => {
-        dispatch(toggleIsRedirecting(false))
-        dispatch(toggleIsSearching(true))
-        productsAPI.searchProducts(searchString, page, pageLength)
-            .then(response => {
-                dispatch(setProducts(response))
-                dispatch(toggleIsSearching(false))
-                dispatch(onSearchFieldChange(''))
-            })
-    }
+export const startSearch = (searchString, page, pageLength) => async (dispatch) => {
+    dispatch(toggleIsRedirecting(false))
+    dispatch(toggleIsSearching(true))
+    let response = await productsAPI.searchProducts(searchString, page, pageLength)
+    dispatch(setProducts(response))
+    dispatch(toggleIsSearching(false))
+    dispatch(onSearchFieldChange(''))
 }
 
-export const getSpecificItem = (id) => {
-    return (dispatch) => {
-        dispatch(toggleIsFetching(true))
-        productsAPI.getSpecificItem(id)
-            .then(response => {
-                dispatch(setSpecificItem(response))
-                dispatch(toggleIsFetching(false))
-            })
-    }
+export const getSpecificItem = (id) => async (dispatch) => {
+    dispatch(toggleIsFetching(true))
+    let response = await productsAPI.getSpecificItem(id)
+    dispatch(setSpecificItem(response))
+    dispatch(toggleIsFetching(false))
 }
 
 export default productsReducer

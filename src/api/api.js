@@ -22,12 +22,6 @@ export const productsAPI = {
             name, price, img, type
         })
     },
-    searchByField: (field, input, currentPage = 1, pageSize = 50) => {
-        return instance.get(`?${field}=${input}&p=${currentPage}&l=${pageSize}`)
-            .then(response => {
-                return response.data
-            })
-    },
     searchProducts: (input, currentPage = 1, pageSize = 50) => {
         if (input === 'men') {
             return instance.get(`?sex=m&p=${currentPage}&l=${pageSize}`)
