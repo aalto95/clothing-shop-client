@@ -1,3 +1,10 @@
+.wrapper {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .ldsDualRing {
     display: inline-block;
     width: 80px;

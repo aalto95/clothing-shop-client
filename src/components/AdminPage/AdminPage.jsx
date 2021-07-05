@@ -1,38 +1,46 @@
 import styles from './AdminPage.module.css'
 import React from "react";
-import {productsAPI} from "../../api/api";
+import Error403 from "../Error403/Error403";
+import Preloader from "../Preloader/Preloader";
 
 const AdminPage = (props) => {
-    if (props.isLogged) {
 
-        let pushProductToDatabase = (e) => {
-            e.preventDefault()
-            productsAPI.postProduct(props.name, props.price, props.imageURL, props.type)
-                .then(response => {
-                    console.log(response)
-                    props.nullifyFields()
-                })
-        }
-        return (
-            <section className={styles.adminPage}>
-                <p>add product to database</p>
-                <form action="" className={styles.addProductForm} onSubmit={pushProductToDatabase}>
-                    <input type="text" name="name" placeholder="title" className={styles.inputField} onChange={props.onProductNameChange} value={props.name}/>
-                    <input type="text" name="price" placeholder="price" className={styles.inputField} onChange={props.onProductPriceChange} value={props.price}/>
-                    <input type="text" name="image" placeholder="image URL" className={styles.inputField} onChange={props.onProductImageURLChange} value={props.imageURL}/>
-                    <input type="text" name="type" placeholder="product type" className={styles.inputField} onChange={props.onProductTypeChange} value={props.productType}/>
-                    <input type="submit" value="POST" className={styles.postButton}/>
-                </form>
-            </section>
-        )
+    let renderTable = () => {
+        return props.items.map(item => {
+            return (
+                <tr key={item.id}>
+                    <td>{item.id}</td>
+                    <td>{item.title}</td>
+                    <td>{item.type}</td>
+                    <td>{item.brand}</td>
+                    <td>{item.color}</td>
+                    <td>{item.sex}</td>
+                </tr>
+            )
+        })
     }
+
+    if (!props.isAdmin) return <Error403 />
+    if (props.isFetching) return <Preloader />
+
     return (
-        <div className={styles.errorPage}>
-            <h1>403</h1>
-            <h2>FORBIDDEN</h2>
-            <p>access to this resource is denied!</p>
-        </div>
+        <section className={styles.adminPage}>
+            <table>
+                <tbody>
+                <tr className={styles.firstRow}>
+                    <td>id</td>
+                    <td>title</td>
+                    <td>type</td>
+                    <td>brand</td>
+                    <td>color</td>
+                    <td>sex</td>
+                </tr>
+                {renderTable()}
+                </tbody>
+            </table>
+        </section>
     )
+
 }
 
 export default AdminPage

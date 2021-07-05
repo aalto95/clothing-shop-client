@@ -17,11 +17,6 @@ export const productsAPI = {
                 return response.data.length
             })
     },
-    postProduct: (name, price, img, type) => {
-        return instance.post('', {
-            name, price, img, type
-        })
-    },
     searchProducts: (input, currentPage = 1, pageSize = 50) => {
         if (input === 'men') {
             return instance.get(`?sex=m&p=${currentPage}&l=${pageSize}`)

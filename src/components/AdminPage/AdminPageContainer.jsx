@@ -1,46 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import AdminPage from "./AdminPage";
 import {connect} from "react-redux";
-import {
-    nullifyFields,
-    onProductImageURLChange,
-    onProductNameChange,
-    onProductPriceChange, onProductTypeChange
-} from "../../redux/admin-reducer";
+import {fetchAllItems} from "../../redux/admin-reducer";
 
 const AdminPageContainer = (props) => {
+    useEffect(props.fetchAllItems, [])
     return (
-        <AdminPage
-            isLogged={props.isLogged}
-            name={props.name}
-            price={props.price}
-            imageURL={props.imageURL}
-            productType={props.productType}
-            onProductNameChange={props.onProductNameChange}
-            onProductPriceChange={props.onProductPriceChange}
-            onProductImageURLChange={props.onProductImageURLChange}
-            onProductTypeChange={props.onProductTypeChange}
-            nullifyFields={props.nullifyFields}
-        />
+        <AdminPage {...props}/>
     )
 }
 
 let mapStateToProps = (state) => {
     return {
-        isLogged: state.loginPage.isLogged,
-        name: state.adminPage.name,
-        price: state.adminPage.price,
-        imageURL: state.adminPage.imageURL,
-        productType: state.adminPage.productType
+        isAdmin: state.loginPage.isAdmin,
+        items: state.adminPage.items,
+        isFetching: state.productsPage.isFetching
     }
 }
 
 let mapDispatchToProps = {
-    onProductNameChange,
-    onProductPriceChange,
-    onProductImageURLChange,
-    onProductTypeChange,
-    nullifyFields
+    fetchAllItems
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (AdminPageContainer)

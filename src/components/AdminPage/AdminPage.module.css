@@ -3,46 +3,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
-
-.addProductForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.adminPage table {
+  width: 90vw;
+  text-align: left;
 }
-.addProductForm .inputField {
-  width: 30vw;
-  height: 3vh;
-  margin: 10px;
+.adminPage table tbody .firstRow {
+  background-color: #767676;
+}
+.adminPage table tbody tr td {
   padding: 10px;
-  border-radius: 50px;
-  outline: none;
-  border: none;
+}
+.adminPage table tbody tr:nth-child(even) {
   background-color: #DDDDDD;
 }
-.addProductForm .postButton {
-  width: 10vw;
-  height: 3vh;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  background-color: #DDDDDD;
-}
-
-.errorPage {
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.errorPage h1 {
-  font-size: 100px;
-}
-.errorPage h2 {
-  margin: 20px;
+.adminPage table tbody tr:hover {
+  background-color: #3d50ab;
 }
 
 /*# sourceMappingURL=AdminPage.module.css.map */
