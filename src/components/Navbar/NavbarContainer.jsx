@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import NavbarDesktop from "./NavbarDesktop";
 import {logout} from "../../redux/login-reducer";
 import NavbarMobile from "./NavbarMobile";
-import {toggleSearchbar} from "../../redux/products-reducer";
+import {toggleSearchbar} from "../../redux/search-reducer";
 
 const NavbarContainer = (props) => {
     return (
@@ -16,7 +16,7 @@ const NavbarContainer = (props) => {
 let mapStateToProps = state => {
     return {
         cartSize: state.productsPage.cartSize,
-        isSearchbarToggled: state.productsPage.isSearchbarToggled,
+        isSearchbarToggled: state.search.isSearchbarToggled,
     }
 }
 

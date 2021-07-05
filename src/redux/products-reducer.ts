@@ -11,23 +11,17 @@ const SUBTRACT_ONE = 'SUBTRACT-ONE'
 const SHOW_PREVIOUS_PAGE = 'SHOW-PREVIOUS-PAGE'
 const SHOW_NEXT_PAGE = 'SHOW-NEXT-PAGE'
 const SET_PAGES_QUANTITY = 'SET-PAGES-QUANTITY'
-const TOGGLE_SEARCHBAR = 'TOGGLE-SEARCHBAR'
-const ON_SEARCH_FIELD_CHANGE = 'ON-SEARCH-FIELD-CHANGE'
-const TOGGLE_IS_SEARCHING = 'TOGGLE-IS-SEARCHING'
 const TOGGLE_IS_REDIRECTING = 'TOGGLE-IS-REDIRECTING'
 const SET_SPECIFIC_ITEM = 'SET_SPECIFIC_ITEM'
 
 let initialState = {
     items: [] as Array<ItemType>,
     isFetching: false as boolean,
-    isSearching: false as boolean,
     cart: [] as any,
     cartSize: 0 as number,
     currentPage: 1 as number,
     pageLength: 8 as number,
     pagesQuantity: null as number | null,
-    isSearchbarToggled: false as boolean,
-    searchField: null as string | null,
     isRedirecting: false as boolean,
     specificItem: {}
 }
@@ -120,22 +114,6 @@ const productsReducer = (state = initialState, action : any) : InitialStateType 
                 ...state,
                 pagesQuantity: Math.ceil(action.length / state.pageLength)
             }
-
-        case TOGGLE_SEARCHBAR:
-            return {
-                ...state,
-                isSearchbarToggled: !state.isSearchbarToggled
-            }
-        case ON_SEARCH_FIELD_CHANGE:
-            return {
-                ...state,
-                searchField: action.searchField
-            }
-        case TOGGLE_IS_SEARCHING:
-            return {
-                ...state,
-                isSearching: action.isSearching
-            }
         case TOGGLE_IS_REDIRECTING:
             return {
                 ...state,
@@ -153,7 +131,7 @@ const productsReducer = (state = initialState, action : any) : InitialStateType 
 
 export let setProducts = (items : Array<ItemType>) => ({ type: SET_PRODUCTS, items })
 export let toggleIsFetching = (isFetching : boolean) => ({ type: TOGGLE_IS_FETCHING, isFetching })
-export let toggleIsSearching = (isSearching : boolean)  => ({ type: TOGGLE_IS_SEARCHING, isSearching })
+
 export let toggleIsRedirecting = (isRedirecting : boolean) => ({ type: TOGGLE_IS_REDIRECTING, isRedirecting })
 export let addToCart = (id : number) => ({ type: ADD_TO_CART, id })
 export let removeFromCart = (id : number) => ({ type: REMOVE_FROM_CART, id })
@@ -163,8 +141,6 @@ export let checkout = ()  => ({ type: CHECKOUT })
 export let showPreviousPage = () => ({ type: SHOW_PREVIOUS_PAGE })
 export let showNextPage = () => ({ type: SHOW_NEXT_PAGE })
 export let setPagesQuantity = (length : number) => ({ type: SET_PAGES_QUANTITY, length })
-export let toggleSearchbar = () => ({ type: TOGGLE_SEARCHBAR })
-export let onSearchFieldChange = (searchField : string) => ({ type: ON_SEARCH_FIELD_CHANGE, searchField })
 export let setSpecificItem = (item : any) => ({ type: SET_SPECIFIC_ITEM, item })
 
 export const getPagesQuantity = (dispatch : any) => {
@@ -181,14 +157,7 @@ export const getProducts = (page : number, pageLength : number) => async (dispat
     dispatch(setProducts(response))
 }
 
-export const startSearch = (searchString : string, page : number, pageLength : number) => async (dispatch : any) => {
-    dispatch(toggleIsRedirecting(false))
-    dispatch(toggleIsSearching(true))
-    let response = await productsAPI.searchProducts(searchString, page, pageLength)
-    dispatch(setProducts(response))
-    dispatch(toggleIsSearching(false))
-    dispatch(onSearchFieldChange(''))
-}
+
 
 export const getSpecificItem = (id : number) => async (dispatch : any) => {
     dispatch(toggleIsFetching(true))

@@ -10,7 +10,7 @@ const HomePageContainer = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        searchField: state.productsPage.searchField
+
     }
 }
 

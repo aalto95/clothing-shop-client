@@ -1,7 +1,8 @@
 import React from "react";
 import Searchbar from "./Searchbar";
 import {connect} from "react-redux";
-import {onSearchFieldChange, toggleIsRedirecting} from "../../../redux/products-reducer";
+import {toggleIsRedirecting} from "../../../redux/products-reducer";
+import {onSearchFieldChange} from "../../../redux/search-reducer";
 
 const SearchbarContainer = (props) => {
     return (
@@ -12,8 +13,8 @@ const SearchbarContainer = (props) => {
 let mapStateToProps = (state) => {
     return {
         isRedirecting: state.productsPage.isRedirecting,
-        isSearchbarToggled: state.productsPage.isSearchbarToggled,
-        searchField: state.productsPage.searchField
+        isSearchbarToggled: state.search.isSearchbarToggled,
+        searchField: state.search.searchField
     }
 }
 

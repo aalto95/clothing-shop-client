@@ -1,8 +1,4 @@
-.hidden {
-  display: none;
-}
-
-.active {
+.searchbar {
   width: 100vw;
   height: 50px;
   top: 50px;
@@ -12,7 +8,7 @@
   z-index: 0;
   border-bottom: 1px solid #DDD;
 }
-.active .inputField {
+.searchbar .inputField {
   width: 50vw;
   height: inherit;
   border: none;

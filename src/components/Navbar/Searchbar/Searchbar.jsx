@@ -15,7 +15,7 @@ const Searchbar = (props) => {
 
     if (!props.isSearchbarToggled) return <></>
     return (
-        <div className={styles.active}>
+        <div className={styles.searchbar}>
             <input
                 type="text"
                 className={styles.inputField}

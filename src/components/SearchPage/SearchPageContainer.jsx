@@ -3,12 +3,11 @@ import SearchPage from "./SearchPage";
 import {
     addOne,
     addToCart,
-    startSearch,
     toggleIsFetching,
-    toggleSearchbar
 } from "../../redux/products-reducer";
 import {withRouter} from 'react-router-dom'
 import {useEffect} from "react";
+import {setSearchText, startSearch, toggleSearchbar} from "../../redux/search-reducer";
 
 const SearchPageContainer = (props) => {
     let searchString = props.match.params.string
@@ -20,11 +19,12 @@ const SearchPageContainer = (props) => {
 
 let mapStateToProps = state => {
     return {
-        searchField: state.productsPage.searchField,
         isFetching: state.productsPage.isFetching,
         items: state.productsPage.items,
         cart: state.productsPage.cart,
-        isSearching: state.productsPage.isSearching,
+        searchField: state.search.searchField,
+        isSearching: state.search.isSearching,
+        searchText: state.search.searchText
     }
 }
 
@@ -33,7 +33,8 @@ let mapDispatchToProps = {
     addToCart,
     toggleSearchbar,
     addOne,
-    startSearch
+    startSearch,
+    setSearchText
 }
 
 let withUrlDataContainerComponent = withRouter(SearchPageContainer)

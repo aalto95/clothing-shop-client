@@ -7,7 +7,7 @@ const SearchPage = (props) => {
     return (
         <>
             <div className={styles.searchPage}>
-                <p>There are {props.items.length} matches</p>
+                <p>{props.items.length} results for '{props.searchText}'</p>
                 {
                     !props.isSearching
                     ? <Products {...props}/>
