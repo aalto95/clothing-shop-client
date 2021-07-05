@@ -4,13 +4,15 @@ const ON_FORM_SUBMIT = 'ON-FORM-SUBMIT'
 const LOGOUT = 'LOGOUT'
 
 let initialState = {
-    login: '',
-    password: '',
-    isLogged: false,
-    isAdmin: null
+    login: null as string | null,
+    password: null as string | null,
+    isLogged: false as boolean,
+    isAdmin: false as boolean
 }
 
-const loginReducer = (state = initialState, action) => {
+export type InitialStateType = typeof initialState
+
+const loginReducer = (state = initialState, action : any) : InitialStateType => {
     switch(action.type) {
         case ON_LOGIN_CHANGE:
             return {
@@ -29,8 +31,8 @@ const loginReducer = (state = initialState, action) => {
                     ...state,
                     isLogged: true,
                     isAdmin: true,
-                    login: '',
-                    password: ''
+                    login: null,
+                    password: null
                 }
             }
             else if (state.login === 'user' && state.password === 'user') {
@@ -39,8 +41,8 @@ const loginReducer = (state = initialState, action) => {
                     ...state,
                     isLogged: true,
                     isAdmin: false,
-                    login: '',
-                    password: ''
+                    login: null,
+                    password: null
                 }
             }
             return {
@@ -50,16 +52,35 @@ const loginReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLogged: false,
-                isAdmin: null
+                isAdmin: false
             }
         default:
             return state
     }
 }
 
-export let onLoginChange = (e) => ({type: ON_LOGIN_CHANGE, login: e.target.value})
-export let onPasswordChange = (e) => ({type: ON_PASSWORD_CHANGE, password: e.target.value})
-export let onFormSubmit = (e) => ({type: ON_FORM_SUBMIT, e})
-export let logout = () => ({type: LOGOUT})
+type OnLoginChangeActionType = {
+    type: typeof ON_LOGIN_CHANGE
+    login: string
+}
+
+type OnPasswordChangeActionType = {
+    type: typeof ON_PASSWORD_CHANGE
+    password: string
+}
+
+type OnFormSubmitActionType = {
+    type: typeof ON_FORM_SUBMIT
+    e: any
+}
+
+type LogoutActionType = {
+    type: typeof LOGOUT
+}
+
+export let onLoginChange = (e : any) : OnLoginChangeActionType => ({type: ON_LOGIN_CHANGE, login: e.target.value})
+export let onPasswordChange = (e : any) : OnPasswordChangeActionType => ({type: ON_PASSWORD_CHANGE, password: e.target.value})
+export let onFormSubmit = (e : any) : OnFormSubmitActionType => ({type: ON_FORM_SUBMIT, e})
+export let logout = () : LogoutActionType => ({type: LOGOUT})
 
 export default loginReducer

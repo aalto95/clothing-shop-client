@@ -1,4 +1,5 @@
 import {productsAPI} from "../api/api";
+import {CartItemType, ItemType} from "../types/types";
 
 const SET_PRODUCTS = 'SET-PRODUCTS'
 const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING'
@@ -17,21 +18,23 @@ const TOGGLE_IS_REDIRECTING = 'TOGGLE-IS-REDIRECTING'
 const SET_SPECIFIC_ITEM = 'SET_SPECIFIC_ITEM'
 
 let initialState = {
-    items: [],
-    isFetching: false,
-    isSearching: false,
-    cart: [],
-    cartSize: 0,
-    currentPage: 1,
-    pageLength: 8,
-    pagesQuantity: null,
-    isSearchbarToggled: false,
-    searchField: '',
-    isRedirecting: false,
+    items: [] as Array<ItemType>,
+    isFetching: false as boolean,
+    isSearching: false as boolean,
+    cart: [] as any,
+    cartSize: 0 as number,
+    currentPage: 1 as number,
+    pageLength: 8 as number,
+    pagesQuantity: null as number | null,
+    isSearchbarToggled: false as boolean,
+    searchField: null as string | null,
+    isRedirecting: false as boolean,
     specificItem: {}
 }
 
-const productsReducer = (state = initialState, action) => {
+export type InitialStateType = typeof initialState
+
+const productsReducer = (state = initialState, action : any) : InitialStateType => {
 
     let newCartSize
     switch(action.type) {
@@ -42,9 +45,10 @@ const productsReducer = (state = initialState, action) => {
 
         case ADD_TO_CART:
             newCartSize = state.cartSize + 1
+            let cartItem = Object.assign(state.specificItem, {quantity: 1}, {cartId: state.cart.length})
             return {
                 ...state,
-                ...state.cart.push(Object.assign(state.specificItem, {quantity: 1}, {cartId: state.cart.length})),
+                ...state.cart.push(cartItem),
                 cartSize: newCartSize
             }
 
@@ -64,7 +68,7 @@ const productsReducer = (state = initialState, action) => {
             newCartSize = state.cartSize + 1
             return {
                 ...state,
-                cart: state.cart.map((item, i) => i === action.id
+                cart: state.cart.map((item : any, i : number) => i === action.id
                     ? {...item, quantity: item.quantity + 1}
                     : item),
                 cartSize: newCartSize
@@ -74,7 +78,7 @@ const productsReducer = (state = initialState, action) => {
             newCartSize = state.cartSize - 1
             return {
                 ...state,
-                cart: state.cart.map((item, i) => i === action.id
+                cart: state.cart.map((item : any, i : number) => i === action.id
                 ? {...item, quantity: item.quantity - 1}
                 : item),
                 cartSize: newCartSize,
@@ -85,13 +89,14 @@ const productsReducer = (state = initialState, action) => {
             let removedItem = state.cart.splice(action.id, 1)
             return {
                 ...state,
-                cart: state.cart.map((item) => item === removedItem
+                cart: state.cart.map((item : any) => item === removedItem
                     ? {}
                     : item),
                 cartSize: newCartSize
             }
 
         case SHOW_PREVIOUS_PAGE:
+            // @ts-ignore
             if (state.currentPage >= 2 && state.currentPage <= state.pagesQuantity) {
                 return {
                     ...state,
@@ -101,6 +106,7 @@ const productsReducer = (state = initialState, action) => {
             return state
 
         case SHOW_NEXT_PAGE:
+            // @ts-ignore
             if (state.currentPage < state.pagesQuantity) {
                 return {
                     ...state,
@@ -145,37 +151,37 @@ const productsReducer = (state = initialState, action) => {
     }
 }
 
-export let setProducts = (items) => ({ type: SET_PRODUCTS, items })
-export let toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching })
-export let addToCart = (id) => ({ type: ADD_TO_CART, id })
-export let addOne = (id) => ({ type: ADD_ONE, id })
-export let subtractOne = (id) => ({ type: SUBTRACT_ONE, id })
-export let checkout = () => ({ type: CHECKOUT })
-export let removeFromCart = (id) => ({ type: REMOVE_FROM_CART, id })
+export let setProducts = (items : Array<ItemType>) => ({ type: SET_PRODUCTS, items })
+export let toggleIsFetching = (isFetching : boolean) => ({ type: TOGGLE_IS_FETCHING, isFetching })
+export let toggleIsSearching = (isSearching : boolean)  => ({ type: TOGGLE_IS_SEARCHING, isSearching })
+export let toggleIsRedirecting = (isRedirecting : boolean) => ({ type: TOGGLE_IS_REDIRECTING, isRedirecting })
+export let addToCart = (id : number) => ({ type: ADD_TO_CART, id })
+export let removeFromCart = (id : number) => ({ type: REMOVE_FROM_CART, id })
+export let addOne = (id : number)  => ({ type: ADD_ONE, id })
+export let subtractOne = (id : number) => ({ type: SUBTRACT_ONE, id })
+export let checkout = ()  => ({ type: CHECKOUT })
 export let showPreviousPage = () => ({ type: SHOW_PREVIOUS_PAGE })
 export let showNextPage = () => ({ type: SHOW_NEXT_PAGE })
-export let setPagesQuantity = (length) => ({ type: SET_PAGES_QUANTITY, length })
+export let setPagesQuantity = (length : number) => ({ type: SET_PAGES_QUANTITY, length })
 export let toggleSearchbar = () => ({ type: TOGGLE_SEARCHBAR })
-export let onSearchFieldChange = (searchField) => ({ type: ON_SEARCH_FIELD_CHANGE, searchField })
-export let toggleIsSearching = (isSearching) => ({ type: TOGGLE_IS_SEARCHING, isSearching })
-export let toggleIsRedirecting = (isRedirecting) => ({ type: TOGGLE_IS_REDIRECTING, isRedirecting })
-export let setSpecificItem = (item) => ({ type: SET_SPECIFIC_ITEM, item })
+export let onSearchFieldChange = (searchField : string) => ({ type: ON_SEARCH_FIELD_CHANGE, searchField })
+export let setSpecificItem = (item : any) => ({ type: SET_SPECIFIC_ITEM, item })
 
-export const getPagesQuantity = (dispatch) => {
+export const getPagesQuantity = (dispatch : any) => {
      productsAPI.getPagesQuantity()
         .then(response => {
             dispatch(setPagesQuantity(response))
         })
 }
 
-export const getProducts = (page, pageLength) => async (dispatch) => {
+export const getProducts = (page : number, pageLength : number) => async (dispatch : any) => {
     dispatch(toggleIsFetching(true))
     let response = await productsAPI.getProducts(page, pageLength)
     dispatch(toggleIsFetching(false))
     dispatch(setProducts(response))
 }
 
-export const startSearch = (searchString, page, pageLength) => async (dispatch) => {
+export const startSearch = (searchString : string, page : number, pageLength : number) => async (dispatch : any) => {
     dispatch(toggleIsRedirecting(false))
     dispatch(toggleIsSearching(true))
     let response = await productsAPI.searchProducts(searchString, page, pageLength)
@@ -184,7 +190,7 @@ export const startSearch = (searchString, page, pageLength) => async (dispatch) 
     dispatch(onSearchFieldChange(''))
 }
 
-export const getSpecificItem = (id) => async (dispatch) => {
+export const getSpecificItem = (id : number) => async (dispatch : any) => {
     dispatch(toggleIsFetching(true))
     let response = await productsAPI.getSpecificItem(id)
     dispatch(setSpecificItem(response))

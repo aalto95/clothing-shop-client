@@ -1,15 +1,15 @@
 import './App.css';
-import React, {Suspense} from "react";
+import React, {Suspense, lazy} from "react";
 import {Route} from 'react-router-dom'
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import Footer from "./components/Footer/Footer";
 import Preloader from "./components/Preloader/Preloader";
-const SearchPageContainer = React.lazy(() => import("./components/SearchPage/SearchPageContainer"));
-const HomePageContainer = React.lazy(() => import("./components/HomePage/HomePageContainer"));
-const ItemPageContainer = React.lazy(() => import("./components/ItemPage/ItemPageContainer"));
-const LoginPageContainer = React.lazy(() => import("./components/LoginPage/LoginPageContainer"));
-const AdminPageContainer = React.lazy(() => import("./components/AdminPage/AdminPageContainer"));
-const CartPageContainer = React.lazy(() => import("./components/CartPage/CartPageContainer"));
+const SearchPageContainer = lazy(() => import("./components/SearchPage/SearchPageContainer"));
+const HomePageContainer = lazy(() => import("./components/HomePage/HomePageContainer"));
+const ItemPageContainer = lazy(() => import("./components/ItemPage/ItemPageContainer"));
+const LoginPageContainer = lazy(() => import("./components/LoginPage/LoginPageContainer"));
+const AdminPageContainer = lazy(() => import("./components/AdminPage/AdminPageContainer"));
+const CartPageContainer = lazy(() => import("./components/CartPage/CartPageContainer"));
 
 function App() {
   return (

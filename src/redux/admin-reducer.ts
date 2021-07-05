@@ -1,14 +1,16 @@
 import {productsAPI} from "../api/api";
 import {toggleIsFetching} from "./products-reducer";
+import {ItemType} from "../types/types";
 
-const FETCH_ALL_ITEMS = 'FETCH_ALL_ITEMS'
 const SET_ITEMS = 'SET_ITEMS'
 
 let initialState = {
-    items: null
+    items: [] as Array<ItemType>
 }
 
-const adminReducer = (state = initialState, action) => {
+export type InitialStateType = typeof initialState
+
+const adminReducer = (state = initialState, action : any) : InitialStateType => {
     switch(action.type) {
         case SET_ITEMS:
             return {
@@ -20,13 +22,18 @@ const adminReducer = (state = initialState, action) => {
     }
 }
 
-export let setItems = (items) => ({ type: SET_ITEMS, items})
+type SetItemsActionType = {
+    type: typeof SET_ITEMS
+    items: Array<ItemType>
+}
 
-export let fetchAllItems = () => async (dispatch) => {
+export let setItems = (items : Array<ItemType>) : SetItemsActionType => ({ type: SET_ITEMS, items})
+
+export let fetchAllItems = () => async (dispatch : any) => {
     dispatch(toggleIsFetching(true))
     let response = await productsAPI.getProducts()
-    dispatch(toggleIsFetching(false))
     dispatch(setItems(response))
+    dispatch(toggleIsFetching(false))
 }
 
 export default adminReducer
