@@ -1,35 +1,25 @@
 import React from "react";
 import Searchbar from "./Searchbar";
 import {connect} from "react-redux";
-import {onSearchFieldChange, setProducts, toggleIsFetching, toggleIsSearching} from "../../../redux/products-reducer";
+import {onSearchFieldChange, toggleIsRedirecting} from "../../../redux/products-reducer";
 
 const SearchbarContainer = (props) => {
     return (
-        <Searchbar
-            isSearching={props.isSearching}
-            toggleIsSearching={props.toggleIsSearching}
-            isSearchbarToggled={props.isSearchbarToggled}
-            toggleIsFetching={props.toggleIsFetching}
-            onSearchFieldChange={props.onSearchFieldChange}
-            searchField={props.searchField}
-            setProducts={props.setProducts}
-        />
+        <Searchbar {...props}/>
     )
 }
 
 let mapStateToProps = (state) => {
     return {
-        isSearching: state.productsPage.isSearching,
-        isSearchbarToggled: state.productsPage.isSearching,
-        searchField: state.productsPage.searchField,
+        isRedirecting: state.productsPage.isRedirecting,
+        isSearchbarToggled: state.productsPage.isSearchbarToggled,
+        searchField: state.productsPage.searchField
     }
 }
 
 let mapDispatchToProps = {
-    toggleIsSearching,
-    toggleIsFetching,
-    onSearchFieldChange,
-    setProducts
+    toggleIsRedirecting,
+    onSearchFieldChange
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (SearchbarContainer)

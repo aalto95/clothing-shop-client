@@ -6,7 +6,6 @@ import UserIcon from '../../assets/icons/auth.svg'
 import LogoIcon from '../../assets/icons/logo.png'
 import {NavLink} from "react-router-dom";
 import React from "react";
-import Searchbar from "./Searchbar/Searchbar";
 import AddedToCartPopup from "./AddedToCartPopup/AddedToCartPopup";
 
 const NavbarDesktop = (props) => {
@@ -48,7 +47,6 @@ const NavbarDesktop = (props) => {
                     </div>
                 </div>
             </nav>
-            <Searchbar {...props}/>
             <AddedToCartPopup cartSize={props.cartSize}/>
         </>
 

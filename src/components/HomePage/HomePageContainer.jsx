@@ -1,6 +1,6 @@
 import HomePage from "./HomePage";
 import {connect} from "react-redux";
-import {onSearchFieldChange, setProducts} from "../../redux/products-reducer";
+import {setProducts} from "../../redux/products-reducer";
 
 const HomePageContainer = (props) => {
     return (
@@ -15,7 +15,6 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = {
-    onSearchFieldChange,
     setProducts
 }
 

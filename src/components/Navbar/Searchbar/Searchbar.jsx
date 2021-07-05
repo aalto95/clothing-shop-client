@@ -13,19 +13,18 @@ const Searchbar = (props) => {
         props.onSearchFieldChange(e.target.value)
     }
 
+    if (!props.isSearchbarToggled) return <></>
     return (
-        <div>
-            <div className={props.isSearchbarToggled ? styles.active : styles.hidden}>
-                <input
-                    type="text"
-                    className={styles.inputField}
-                    placeholder="SEARCH PRODUCTS"
-                    onChange={onSearchFieldChange}
-                    value={props.searchField}
-                    onKeyUp={checkKey}
-                />
-                {props.isRedirecting && <Redirect to={'/search/' + props.searchField}/>}
-            </div>
+        <div className={styles.active}>
+            <input
+                type="text"
+                className={styles.inputField}
+                placeholder="SEARCH PRODUCTS"
+                onChange={onSearchFieldChange}
+                value={props.searchField}
+                onKeyUp={checkKey}
+            />
+            {props.isRedirecting && <Redirect to={'/search/' + props.searchField}/>}
         </div>
     )
 }

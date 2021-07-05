@@ -4,6 +4,7 @@ import {Route} from 'react-router-dom'
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import Footer from "./components/Footer/Footer";
 import Preloader from "./components/Preloader/Preloader";
+import SearchbarContainer from "./components/Navbar/Searchbar/SearchbarContainer";
 const SearchPageContainer = lazy(() => import("./components/SearchPage/SearchPageContainer"));
 const HomePageContainer = lazy(() => import("./components/HomePage/HomePageContainer"));
 const ItemPageContainer = lazy(() => import("./components/ItemPage/ItemPageContainer"));
@@ -16,6 +17,8 @@ function App() {
     <div className="App">
         <Route path="/"
                render={ () => <NavbarContainer /> }/>
+        <Route path="/"
+               render={ () => <SearchbarContainer />}/>
         <Suspense fallback={<Preloader />}>
             <Route exact path="/"
                    render={ () => <HomePageContainer /> }/>
