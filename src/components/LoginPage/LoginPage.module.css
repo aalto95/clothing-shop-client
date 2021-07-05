@@ -4,7 +4,6 @@
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  background-color: #EEE;
 }
 .loginComponent .formWrapper {
   display: flex;
@@ -12,8 +11,6 @@
   align-items: center;
   flex-direction: column;
   background-color: #FFF;
-  width: 35%;
-  height: 70%;
 }
 .loginComponent .formWrapper .loginForm {
   display: flex;
@@ -32,6 +29,7 @@
   height: 40px;
   padding: 10px;
   margin-bottom: 10px;
+  outline: none;
 }
 .loginComponent .formWrapper .loginForm .submitBtn {
   border: none;
