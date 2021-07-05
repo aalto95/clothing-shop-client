@@ -64,7 +64,9 @@ const productsReducer = (state = initialState, action) => {
             newCartSize = state.cartSize + 1
             return {
                 ...state,
-                ...state.cart[action.id].quantity += 1,
+                cart: state.cart.map((item, i) => i === action.id
+                    ? {...item, quantity: item.quantity + 1}
+                    : item),
                 cartSize: newCartSize
             }
 
@@ -72,18 +74,21 @@ const productsReducer = (state = initialState, action) => {
             newCartSize = state.cartSize - 1
             return {
                 ...state,
-                ...state.cart[action.id].quantity -= 1,
+                cart: state.cart.map((item, i) => i === action.id
+                ? {...item, quantity: item.quantity - 1}
+                : item),
                 cartSize: newCartSize,
-
             }
 
         case REMOVE_FROM_CART:
             newCartSize = state.cartSize - state.cart[action.id].quantity
+            let removedItem = state.cart.splice(action.id, 1)
             return {
                 ...state,
-                ...state.cart.splice(action.id, 1),
+                cart: state.cart.map((item) => item === removedItem
+                    ? {}
+                    : item),
                 cartSize: newCartSize
-
             }
 
         case SHOW_PREVIOUS_PAGE:

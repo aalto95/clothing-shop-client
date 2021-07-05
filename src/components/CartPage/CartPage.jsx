@@ -5,11 +5,8 @@ import {ReactSVG} from "react-svg";
 
 const CartPage = (props) => {
 
-    const forceUpdate: () => void = React.useState()[1].bind(null, {})
-
     let onAdd = (id) => {
         props.addOne(id)
-        forceUpdate()
     }
 
     let onSubtract = (id) => {
@@ -18,12 +15,10 @@ const CartPage = (props) => {
         } else {
             props.removeFromCart(id)
         }
-        forceUpdate()
     }
 
     let onCheckout = () => {
         props.checkout()
-        forceUpdate()
     }
 
     let totalPrice = () => {
@@ -37,7 +32,6 @@ const CartPage = (props) => {
 
     let onRemoveFromCart = (id) => {
         props.removeFromCart(id)
-        forceUpdate()
     }
 
     if (props.cart.length) {
