@@ -13,6 +13,18 @@
   min-height: 100vh;
 }
 
+@media screen and (min-height: 700px) {
+  .App {
+    padding-bottom: 20vh;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .App {
+    padding-bottom: 200px;
+  }
+}
+
 a {
   text-decoration: none;
   color: #000;

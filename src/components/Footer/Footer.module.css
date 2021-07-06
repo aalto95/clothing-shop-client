@@ -10,7 +10,6 @@
   bottom: 0;
 }
 .footer h1 {
-  margin: 20px;
   color: #FFF;
 }
 .footer ul {
@@ -38,7 +37,7 @@
 }
 @media screen and (max-height: 700px) {
   .footer {
-    height: 30vh;
+    height: 200px;
   }
 }
 

@@ -9,7 +9,7 @@
   position: absolute;
   bottom: 0;
   h1 {
-    margin: 20px;
+
     color: #FFF;
   }
   ul {
@@ -31,17 +31,6 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
-  .footer {
-
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  .footer {
-  }
-}
-
 @media screen and (min-height: 700px) {
   .footer {
     height: 20vh;
@@ -50,6 +39,6 @@
 
 @media screen and (max-height: 700px) {
   .footer {
-    height: 30vh;
+    height: 200px;
   }
 }
