@@ -1,7 +1,17 @@
 import styles from './Product.module.css'
 import {NavLink} from "react-router-dom";
+import React from "react";
 
-const Product = (props) => {
+type PropsType = {
+    id: number
+    price: number
+    brand: string
+    title: string
+    color: string
+    style: any
+}
+
+const Product : React.FC<PropsType> = (props) => {
     return (
         <div className={styles.productWrap}>
             <NavLink to={'/items/' + props.id}>

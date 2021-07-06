@@ -15,10 +15,12 @@ const CartPageContainer = lazy(() => import("./components/CartPage/CartPageConta
 function App() {
   return (
     <div className="App">
-        <Route path="/"
-               render={ () => <NavbarContainer /> }/>
-        <Route path="/"
-               render={ () => <SearchbarContainer />}/>
+        <Suspense fallback={<Preloader />}>
+            <Route path="/"
+                   render={ () => <NavbarContainer /> }/>
+            <Route path="/"
+                   render={ () => <SearchbarContainer />}/>
+        </Suspense>
         <Suspense fallback={<Preloader />}>
             <Route exact path="/"
                    render={ () => <HomePageContainer /> }/>
@@ -33,8 +35,10 @@ function App() {
             <Route path="/admin"
                    render={ () => <AdminPageContainer/> }/>
         </Suspense>
-        <Route path="/"
-               render={ () => <Footer/> }/>
+        <Suspense fallback={<Preloader />}>
+            <Route path="/"
+                   render={ () => <Footer/> }/>
+        </Suspense>
     </div>
   );
 }

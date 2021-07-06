@@ -10,7 +10,7 @@ const SearchPage = (props) => {
                 <p>{props.items.length} results for '{props.searchText}'</p>
                 {
                     !props.isSearching
-                    ? <Products {...props}/>
+                    ? <Products items={props.items}/>
                     : <Preloader />
                 }
             </div>

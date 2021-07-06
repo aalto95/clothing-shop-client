@@ -13,17 +13,4 @@
   width: 80vw;
 }
 
-.pagination {
-  margin: 50px;
-}
-.pagination button {
-  border: none;
-  background-color: #DDDDDD;
-  padding: 10px;
-  border-radius: 5px;
-}
-.pagination .currentPage {
-  margin: 10px;
-}
-
 /*# sourceMappingURL=Products.module.css.map */

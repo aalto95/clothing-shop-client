@@ -6,6 +6,8 @@
   width: 100vw;
   @include flexCenter;
   flex-direction: column;
+  position: absolute;
+  bottom: 0;
   h1 {
     margin: 20px;
     color: #FFF;
