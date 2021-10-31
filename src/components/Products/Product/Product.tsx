@@ -1,6 +1,7 @@
 import styles from './Product.module.css'
 import {NavLink} from "react-router-dom";
-import React from "react";
+import React, {useState} from "react";
+import ItemModal from "../../new/ItemModal";
 
 type PropsType = {
     id: number
@@ -12,15 +13,20 @@ type PropsType = {
 }
 
 const Product : React.FC<PropsType> = (props) => {
+    const [modalIsOpen, setIsOpen] = useState(false)
     return (
         <div className={styles.productWrap}>
-            <NavLink to={'/items/' + props.id}>
+            <ItemModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
+            {/*<NavLink to={'/items/' + props.id}>*/}
                 <div
                     className={styles.productImage}
                     style={props.style}
                 >
                 </div>
-            </NavLink>
+            {/*</NavLink>*/}
+            <button onClick={() => setIsOpen(true)}>
+                Open
+            </button>
             <p>{props.color} {props.brand} {props.title} <b>{props.price}$</b></p>
         </div>
     )

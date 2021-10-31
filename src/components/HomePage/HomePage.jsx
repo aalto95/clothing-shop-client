@@ -1,10 +1,12 @@
 import styles from './HomePage.module.css'
 import {NavLink} from "react-router-dom";
+import ItemModal from "../new/ItemModal";
 
 const HomePage = (props) => {
 
     return (
         <>
+            <ItemModal />
             <div className={styles.startingImage}>
                 <div>
                     <h1 className={styles.mainMessage}>Summer 21</h1>
