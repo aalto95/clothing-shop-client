@@ -1,6 +1,6 @@
-import styles from './LoginPage.module.css'
+import styles from './LoginPage.module.scss'
 import React from "react";
-import {NavLink, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 
 const LoginPage = (props) => {
