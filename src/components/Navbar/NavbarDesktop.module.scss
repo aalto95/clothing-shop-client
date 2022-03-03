@@ -1,8 +1,8 @@
-@use "./../../mixins.scss" as mixins;
+@import "./../../mixins.scss";
 
 .navDesktop {
-  @include mixins.gridCenter;
-  @include mixins.heightPreference;
+  @include gridCenter;
+  @include heightPreference;
   width: 100vw;
   position: fixed;
   background-color: #303030;
@@ -15,7 +15,7 @@
     grid-area: logo;
   }
   .desktopNavbar {
-    @include mixins.gridCenter;
+    @include gridCenter;
     grid-area: navigation;
     grid-template-areas: "navList interactionGroup";
     grid-template-columns: 70% 30%;
@@ -26,10 +26,10 @@
         list-style: none;
         display: flex;
         .navElem {
-          @include mixins.navColor;
-          @include mixins.flexCenter;
-          @include mixins.darkenOnHover;
-          @include mixins.heightPreference;
+          @include navColor;
+          @include flexCenter;
+          @include darkenOnHover;
+          @include heightPreference;
           padding: 10px;
           cursor: pointer;
         }
@@ -62,16 +62,16 @@
       }
     }
     .interactionGroup {
-      @include mixins.gridCenter;
-      @include mixins.heightPreference;
+      @include gridCenter;
+      @include heightPreference;
       grid-area: interactionGroup;
       grid-template-columns: 70px 70px 70px;
       grid-template-areas: "search auth cart";
       justify-content: flex-end;
       .searchIcon {
-        @include mixins.flexCenter;
-        @include mixins.heightPreference;
-        @include mixins.darkenOnHover;
+        @include flexCenter;
+        @include heightPreference;
+        @include darkenOnHover;
         grid-area: search;
         cursor: pointer;
         img {
@@ -80,24 +80,24 @@
         }
       }
       .logButton {
-        @include mixins.flexCenter;
-        @include mixins.navColor;
-        @include mixins.heightPreference;
-        @include mixins.darkenOnHover;
+        @include flexCenter;
+        @include navColor;
+        @include heightPreference;
+        @include darkenOnHover;
         grid-area: auth;
         cursor: pointer;
         text-align: left;
       }
       .cartIcon {
-        @include mixins.flexCenter;
-        @include mixins.heightPreference;
-        @include mixins.darkenOnHover;
+        @include flexCenter;
+        @include heightPreference;
+        @include darkenOnHover;
         grid-area: cart;
         img {
           padding: 5px;
         }
         p {
-          @include mixins.navColor;
+          @include navColor;
         }
       }
     }

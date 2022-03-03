@@ -1,4 +1,4 @@
-@use "./../../mixins.scss" as mixins;
+@import "./../../mixins.scss";
 
 $base-size: 50px;
 
@@ -28,8 +28,8 @@ $base-size: 50px;
       margin: 0; /* Important for vertical align on mobile phones */
       height: $base-size;
       .navIcon {
-        @include mixins.navElemMobile;
-        @include mixins.darkenOnHover;
+        @include navElemMobile;
+        @include darkenOnHover;
         margin-right: $base-size;
       }
     }
@@ -65,20 +65,20 @@ $base-size: 50px;
     }
   }
   .functionalityGroup {
-    @include mixins.flexCenter;
+    @include flexCenter;
     .searchWrapper {
-      @include mixins.navElemMobile;
-      @include mixins.flexCenter;
-      @include mixins.darkenOnHover;
+      @include navElemMobile;
+      @include flexCenter;
+      @include darkenOnHover;
       cursor: pointer;
       img {
         width: 20px;
       }
     }
     .cartWrapper {
-      @include mixins.navElemMobile;
-      @include mixins.flexCenter;
-      @include mixins.darkenOnHover;
+      @include navElemMobile;
+      @include flexCenter;
+      @include darkenOnHover;
       p {
         color: #dddddd;
         margin: 5px;
