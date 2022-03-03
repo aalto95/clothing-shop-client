@@ -1,4 +1,4 @@
-@import '../../Mixins';
+@use "src/mixins" as mixins;
 
 $base-size: 50px;
 
@@ -28,8 +28,8 @@ $base-size: 50px;
       margin: 0; /* Important for vertical align on mobile phones */
       height: $base-size;
       .navIcon {
-        @include navElemMobile;
-        @include darkenOnHover;
+        @include mixins.navElemMobile;
+        @include mixins.darkenOnHover;
         margin-right: $base-size;
       }
     }
@@ -39,7 +39,7 @@ $base-size: 50px;
       position: absolute;
       background-color: #f9f9f9;
       min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
       z-index: 1;
 
       a {
@@ -65,22 +65,22 @@ $base-size: 50px;
     }
   }
   .functionalityGroup {
-    @include flexCenter;
+    @include mixins.flexCenter;
     .searchWrapper {
-      @include navElemMobile;
-      @include flexCenter;
-      @include darkenOnHover;
+      @include mixins.navElemMobile;
+      @include mixins.flexCenter;
+      @include mixins.darkenOnHover;
       cursor: pointer;
       img {
         width: 20px;
       }
     }
     .cartWrapper {
-      @include navElemMobile;
-      @include flexCenter;
-      @include darkenOnHover;
+      @include mixins.navElemMobile;
+      @include mixins.flexCenter;
+      @include mixins.darkenOnHover;
       p {
-        color: #DDDDDD;
+        color: #dddddd;
         margin: 5px;
       }
     }
