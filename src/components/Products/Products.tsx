@@ -4,7 +4,8 @@ import {Item} from "../../models/types";
 import React from "react";
 
 type PropsType = {
-    items: Array<Item>
+    items: Item[]
+    searchText: string
 }
 
 const Products: React.FC<PropsType> = (props) => {
@@ -19,8 +20,11 @@ const Products: React.FC<PropsType> = (props) => {
         style={{backgroundImage: `url(${item.img_small})`}}
     />)
 
+    if (!props.items.length) return <h1>Nothing found</h1>
+
     return (
         <>
+            <p>{props.items.length} results for '{props.searchText}'</p>
             <div className={styles.wrapper}>
                 <div className={styles.productContainer}>
                     {productElements}

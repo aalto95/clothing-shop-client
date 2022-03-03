@@ -78,7 +78,7 @@ const appSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchItems.pending, (state, action) => {
+      .addCase(fetchItems.pending, (state) => {
         state.isSearching = true;
         state.isRedirecting = false;
       })
