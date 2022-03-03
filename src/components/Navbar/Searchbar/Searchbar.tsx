@@ -1,16 +1,25 @@
-import React from "react";
+import React from "react"
 import styles from './Searchbar.module.scss'
-import {Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom"
 
-const Searchbar = (props) => {
-    const checkKey = (e) => {
+interface Props {
+    searchField: string
+    isSearchbarToggled: boolean
+    isRedirecting: boolean
+    setSearchText: Function
+    toggleIsRedirecting: Function
+    onSearchFieldChange: Function
+}
+
+const Searchbar: React.FC<Props> = (props) => {
+    const checkKey = (e: React.KeyboardEvent): void => {
         if (e.key === 'Enter' && props.searchField) {
             props.setSearchText()
             props.toggleIsRedirecting(true)
         }
     }
 
-    const onSearchFieldChange = (e) => {
+    const onSearchFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         props.onSearchFieldChange(e.target.value)
     }
 

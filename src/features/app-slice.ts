@@ -15,8 +15,8 @@ interface ItemsState {
   searchField: string;
   isSearching: boolean;
   searchText: string;
-  login: string | null;
-  password: string | null;
+  login: string;
+  password: string;
   isLogged: boolean;
   isAdmin: boolean;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Error403.module.scss'
 
-const Error403 = (props) => {
+const Error403 = () => {
     return (
         <div className={styles.errorPage}>
             <h1>403</h1>

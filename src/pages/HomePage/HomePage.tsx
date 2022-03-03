@@ -1,7 +1,7 @@
 import styles from './HomePage.module.scss'
 import {NavLink} from "react-router-dom";
 
-const HomePage = (props) => {
+const HomePage = () => {
 
     return (
         <>

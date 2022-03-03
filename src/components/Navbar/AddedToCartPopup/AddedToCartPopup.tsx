@@ -1,7 +1,11 @@
 import React, {useEffect, useState} from "react";
 import styles from './AddedToCartPopup.module.scss'
 
-const AddedToCartPopup = (props) => {
+interface Props {
+    cartSize: number;
+}
+
+const AddedToCartPopup: React.FC<Props> = (props) => {
     const [cart, setCart] = useState(0)
     let useStateCondition = cart !== props.cartSize && props.cartSize !== 0
     let popupCondition = cart === props.cartSize && props.cartSize !== 0

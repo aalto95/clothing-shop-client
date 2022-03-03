@@ -3,7 +3,7 @@ import AdminPage from "./AdminPage";
 import {connect} from "react-redux";
 import {fetchAllItems} from "../../redux/admin-reducer";
 
-const AdminPageContainer = (props) => {
+const AdminPageContainer: React.FC = () => {
     useEffect(props.fetchAllItems, [])
     return (
         <AdminPage {...props}/>
