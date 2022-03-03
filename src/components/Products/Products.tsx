@@ -1,15 +1,15 @@
 import styles from './Products.module.scss'
 import Product from "./Product/Product";
-import {ItemType} from "../../types/types";
+import {Item} from "../../models/types";
 import React from "react";
 
 type PropsType = {
-    items: Array<ItemType>
+    items: Array<Item>
 }
 
-const Products : React.FC<PropsType> = (props) => {
+const Products: React.FC<PropsType> = (props) => {
 
-    let productElements = props.items.map((item, i) => <Product
+    const productElements = props.items.map((item, i) => <Product
         key={item.id}
         id={item.id}
         price={item.price}
