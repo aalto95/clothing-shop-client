@@ -1,4 +1,4 @@
-@use "/src/mixins" as mixins;
+@use "./../../mixins" as mixins;
 
 .navDesktop {
   @include mixins.gridCenter;
