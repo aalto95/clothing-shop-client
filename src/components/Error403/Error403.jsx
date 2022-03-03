@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './Error403.module.css'
+import styles from './Error403.module.scss'
 
 const Error403 = (props) => {
     return (

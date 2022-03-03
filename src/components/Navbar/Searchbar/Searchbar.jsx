@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './Searchbar.module.css'
+import styles from './Searchbar.module.scss'
 import {Redirect} from "react-router-dom";
 
 const Searchbar = (props) => {

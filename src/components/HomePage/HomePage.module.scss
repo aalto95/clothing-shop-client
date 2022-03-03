@@ -1,17 +1,18 @@
-@import '../../Mixins';
+@use "sass:math";
+@import "../../mixin_collection";
 
-$footwear: url('./../../assets/images/footwear.jpg');
-$pants: url('./../../assets/images/pants.jpg');
-$hoodie: url('./../../assets/images/hoodie.jpg');
-$shirt: url('./../../assets/images/shirt.jpg');
-$jacket: url('./../../assets/images/jacket.jpg');
-$headgear: url('./../../assets/images/headwear.jpg');
-$collection: url('./../../assets/images/collection.jpg');
-$men: url('./../../assets/images/men.jpeg');
-$women: url('./../../assets/images/women.jpeg');
+$footwear: url("./../../assets/images/footwear.jpg");
+$pants: url("./../../assets/images/pants.jpg");
+$hoodie: url("./../../assets/images/hoodie.jpg");
+$shirt: url("./../../assets/images/shirt.jpg");
+$jacket: url("./../../assets/images/jacket.jpg");
+$headgear: url("./../../assets/images/headwear.jpg");
+$collection: url("./../../assets/images/collection.jpg");
+$men: url("./../../assets/images/men.jpeg");
+$women: url("./../../assets/images/women.jpeg");
 
-$flex-basis-desktop: 80% / 6;
-$flex-basis-mobile: 80% / 2;
+$flex-basis-desktop: math.div(80%, 6);
+$flex-basis-mobile: math.div(80%, 2);
 
 .startingImage {
   @include flexCenter;
@@ -29,12 +30,11 @@ $flex-basis-mobile: 80% / 2;
 
     margin: 10px;
     padding: 0 1rem 0 1rem;
-
   }
   .mainMessage {
     margin: 10px;
     font-weight: 700;
-    color: #FFF;
+    color: #fff;
   }
 }
 
@@ -60,7 +60,7 @@ $flex-basis-mobile: 80% / 2;
         margin: 20px;
         font-weight: 700;
         padding: 10px;
-        color: #FFF;
+        color: #fff;
       }
       .menText {
         background-color: #3d50ab;
@@ -94,11 +94,11 @@ $flex-basis-mobile: 80% / 2;
       display: none;
     }
     &:hover {
-      opacity: .7;
+      opacity: 0.7;
       p {
         display: block;
         font-weight: 700;
-        background-color: #FFF;
+        background-color: #fff;
         padding: 5px;
       }
     }

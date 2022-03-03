@@ -1,4 +1,4 @@
-@import '../../Mixins';
+@import "../../mixin_collection";
 
 $base-size: 50px;
 
@@ -39,7 +39,7 @@ $base-size: 50px;
       position: absolute;
       background-color: #f9f9f9;
       min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
       z-index: 1;
 
       a {
@@ -80,7 +80,7 @@ $base-size: 50px;
       @include flexCenter;
       @include darkenOnHover;
       p {
-        color: #DDDDDD;
+        color: #dddddd;
         margin: 5px;
       }
     }

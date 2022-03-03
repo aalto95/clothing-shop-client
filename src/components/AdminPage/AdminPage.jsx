@@ -1,4 +1,4 @@
-import styles from './AdminPage.module.css'
+import styles from './AdminPage.module.scss'
 import React from "react";
 import Error403 from "../Error403/Error403";
 import Preloader from "../Preloader/Preloader";

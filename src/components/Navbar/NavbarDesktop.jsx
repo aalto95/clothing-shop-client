@@ -1,4 +1,4 @@
-import styles from './NavbarDesktop.module.css'
+import styles from './NavbarDesktop.module.scss'
 import CartIcon from '../../assets/icons/shopping-cart.svg'
 import SearchIcon from '../../assets/icons/search.svg'
 import CloseIcon from '../../assets/icons/close.svg'

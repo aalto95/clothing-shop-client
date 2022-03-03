@@ -1,4 +1,4 @@
-@import '../../Mixins';
+@import "../../mixin_collection";
 
 .navDesktop {
   @include gridCenter;
@@ -37,7 +37,9 @@
       span {
         display: none;
       }
-      .men, .women, .brands {
+      .men,
+      .women,
+      .brands {
         &:hover {
           .menDropDown {
             transform: translateY(50px);
@@ -45,7 +47,7 @@
             flex-direction: column;
             position: fixed;
             text-align: left;
-            background-color: #FFF;
+            background-color: #fff;
             padding: 10px;
           }
         }
@@ -64,7 +66,7 @@
       @include heightPreference;
       grid-area: interactionGroup;
       grid-template-columns: 70px 70px 70px;
-      grid-template-areas: 'search auth cart';
+      grid-template-areas: "search auth cart";
       justify-content: flex-end;
       .searchIcon {
         @include flexCenter;
@@ -95,7 +97,7 @@
           padding: 5px;
         }
         p {
-          @include navColor
+          @include navColor;
         }
       }
     }
@@ -108,7 +110,4 @@
   }
 }
 
-
-
 /* LoginPage container */
-

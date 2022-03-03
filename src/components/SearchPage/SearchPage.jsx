@@ -1,4 +1,4 @@
-import styles from './SearchPage.module.css';
+import styles from './SearchPage.module.scss';
 import Products from "../Products/Products";
 import Preloader from "../Preloader/Preloader";
 
