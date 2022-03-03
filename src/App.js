@@ -5,12 +5,12 @@ import NavbarContainer from "./components/Navbar/NavbarContainer";
 import Footer from "./components/Footer/Footer";
 import Preloader from "./components/Preloader/Preloader";
 import SearchbarContainer from "./components/Navbar/Searchbar/SearchbarContainer";
-const SearchPageContainer = lazy(() => import("./components/SearchPage/SearchPageContainer"));
-const HomePageContainer = lazy(() => import("./components/HomePage/HomePageContainer"));
-const ItemPageContainer = lazy(() => import("./components/ItemPage/ItemPageContainer"));
-const LoginPageContainer = lazy(() => import("./components/LoginPage/LoginPageContainer"));
-const AdminPageContainer = lazy(() => import("./components/AdminPage/AdminPageContainer"));
-const CartPageContainer = lazy(() => import("./components/CartPage/CartPageContainer"));
+const SearchPageContainer = lazy(() => import("./pages/SearchPage/SearchPageContainer"));
+const HomePageContainer = lazy(() => import("./pages/HomePage/HomePageContainer"));
+const ItemPageContainer = lazy(() => import("./pages/ItemPage/ItemPageContainer"));
+const LoginPageContainer = lazy(() => import("./pages/LoginPage/LoginPageContainer"));
+const AdminPageContainer = lazy(() => import("./pages/AdminPage/AdminPageContainer"));
+const CartPageContainer = lazy(() => import("./pages/CartPage/CartPageContainer"));
 
 function App() {
   return (

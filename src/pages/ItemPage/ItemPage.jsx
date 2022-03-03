@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './ItemPage.module.scss'
-import Preloader from "../Preloader/Preloader";
+import Preloader from "../../components/Preloader/Preloader";
 
 const ItemPage = (props) => {
     let item = props.specificItem
