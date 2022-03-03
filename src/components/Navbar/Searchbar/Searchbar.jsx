@@ -3,13 +3,14 @@ import styles from './Searchbar.module.scss'
 import {Redirect} from "react-router-dom";
 
 const Searchbar = (props) => {
-    let checkKey = (e) => {
+    const checkKey = (e) => {
         if (e.key === 'Enter' && props.searchField) {
+            props.setSearchText()
             props.toggleIsRedirecting(true)
         }
     }
 
-    let onSearchFieldChange = (e) => {
+    const onSearchFieldChange = (e) => {
         props.onSearchFieldChange(e.target.value)
     }
 

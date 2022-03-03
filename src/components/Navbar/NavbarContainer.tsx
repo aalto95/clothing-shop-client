@@ -1,12 +1,12 @@
 import NavbarDesktop from "./NavbarDesktop";
 import NavbarMobile from "./NavbarMobile";
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { searchbarToggled } from '../../features/search-slice'
-import { loggedOut } from '../../features/login-slice'
+import { searchbarToggled } from '../../features/app-slice'
+import { loggedOut } from '../../features/app-slice'
 
 const NavbarContainer = () => {
-    const cartSize = useAppSelector((state) => state.items.cartSize)
-    const isSearchbarToggled = useAppSelector((state) => state.search.isSearchbarToggled)
+    const cartSize = useAppSelector((state) => state.app.cartSize)
+    const isSearchbarToggled = useAppSelector((state) => state.app.isSearchbarToggled)
     const dispatch = useAppDispatch()
     const toggleSearchbar = () => {
         dispatch(searchbarToggled())

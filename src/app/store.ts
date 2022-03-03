@@ -1,16 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import adminReducer from "../features/admin-slice";
-import loginReducer from "../features/login-slice";
-import itemsReducer from "../features/items-slice";
-import searchReducer from "../features/search-slice";
+import appReducer from "../features/app-slice";
 import { apiSlice } from "../features/api/items-api-slice";
 
 export const store = configureStore({
   reducer: {
-    admin: adminReducer,
-    login: loginReducer,
-    items: itemsReducer,
-    search: searchReducer,
+    app: appReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {

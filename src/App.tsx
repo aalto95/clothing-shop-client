@@ -26,8 +26,6 @@ const CartPageContainer = lazy(
 );
 
 const App = () => {
-  const { data, isFetching, error, isSuccess } = useFetchItemsQuery();
-
   return (
     <div className="App">
       <Suspense fallback={<Preloader />}>
