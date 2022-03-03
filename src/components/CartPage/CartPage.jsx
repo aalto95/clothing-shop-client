@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './CartPage.module.css'
+import styles from './CartPage.module.scss'
 import deleteIcon from '../../assets/icons/delete.svg'
 import {ReactSVG} from "react-svg";
 

@@ -1,4 +1,4 @@
-import styles from './NavbarMobile.module.css'
+import styles from './NavbarMobile.module.scss'
 import NavIcon from '../../assets/icons/menu.svg'
 import LogoIcon from '../../assets/icons/logo.png'
 import SearchIcon from '../../assets/icons/search.svg'

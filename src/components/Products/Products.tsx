@@ -1,4 +1,4 @@
-import styles from './Products.module.css'
+import styles from './Products.module.scss'
 import Product from "./Product/Product";
 import {ItemType} from "../../types/types";
 import React from "react";

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import styles from './AddedToCartPopup.module.css'
+import styles from './AddedToCartPopup.module.scss'
 
 const AddedToCartPopup = (props) => {
     const [cart, setCart] = useState(0)

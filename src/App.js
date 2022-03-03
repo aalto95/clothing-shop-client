@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import React, {Suspense, lazy} from "react";
 import {Route} from 'react-router-dom'
 import NavbarContainer from "./components/Navbar/NavbarContainer";

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './ItemPage.module.css'
+import styles from './ItemPage.module.scss'
 import Preloader from "../Preloader/Preloader";
 
 const ItemPage = (props) => {

@@ -1,8 +1,8 @@
-@import '../../Mixins';
+@use "../../mixins" as mixins;
 
 .navDesktop {
-  @include gridCenter;
-  @include heightPreference;
+  @include mixins.gridCenter;
+  @include mixins.heightPreference;
   width: 100vw;
   position: fixed;
   background-color: #303030;
@@ -15,7 +15,7 @@
     grid-area: logo;
   }
   .desktopNavbar {
-    @include gridCenter;
+    @include mixins.gridCenter;
     grid-area: navigation;
     grid-template-areas: "navList interactionGroup";
     grid-template-columns: 70% 30%;
@@ -26,10 +26,10 @@
         list-style: none;
         display: flex;
         .navElem {
-          @include navColor;
-          @include flexCenter;
-          @include darkenOnHover;
-          @include heightPreference;
+          @include mixins.navColor;
+          @include mixins.flexCenter;
+          @include mixins.darkenOnHover;
+          @include mixins.heightPreference;
           padding: 10px;
           cursor: pointer;
         }
@@ -37,7 +37,9 @@
       span {
         display: none;
       }
-      .men, .women, .brands {
+      .men,
+      .women,
+      .brands {
         &:hover {
           .menDropDown {
             transform: translateY(50px);
@@ -45,7 +47,7 @@
             flex-direction: column;
             position: fixed;
             text-align: left;
-            background-color: #FFF;
+            background-color: #fff;
             padding: 10px;
           }
         }
@@ -60,16 +62,16 @@
       }
     }
     .interactionGroup {
-      @include gridCenter;
-      @include heightPreference;
+      @include mixins.gridCenter;
+      @include mixins.heightPreference;
       grid-area: interactionGroup;
       grid-template-columns: 70px 70px 70px;
-      grid-template-areas: 'search auth cart';
+      grid-template-areas: "search auth cart";
       justify-content: flex-end;
       .searchIcon {
-        @include flexCenter;
-        @include heightPreference;
-        @include darkenOnHover;
+        @include mixins.flexCenter;
+        @include mixins.heightPreference;
+        @include mixins.darkenOnHover;
         grid-area: search;
         cursor: pointer;
         img {
@@ -78,24 +80,24 @@
         }
       }
       .logButton {
-        @include flexCenter;
-        @include navColor;
-        @include heightPreference;
-        @include darkenOnHover;
+        @include mixins.flexCenter;
+        @include mixins.navColor;
+        @include mixins.heightPreference;
+        @include mixins.darkenOnHover;
         grid-area: auth;
         cursor: pointer;
         text-align: left;
       }
       .cartIcon {
-        @include flexCenter;
-        @include heightPreference;
-        @include darkenOnHover;
+        @include mixins.flexCenter;
+        @include mixins.heightPreference;
+        @include mixins.darkenOnHover;
         grid-area: cart;
         img {
           padding: 5px;
         }
         p {
-          @include navColor
+          @include mixins.navColor;
         }
       }
     }
@@ -108,7 +110,4 @@
   }
 }
 
-
-
 /* LoginPage container */
-

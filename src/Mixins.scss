@@ -4,13 +4,6 @@ $base-size: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #2d2d2d;
-  color: #fff;
-  width: 100vw;
-  @include flexCenter;
-  flex-direction: column;
-  position: absolute;
-  bottom: 0;
 }
 
 @mixin navColor {
