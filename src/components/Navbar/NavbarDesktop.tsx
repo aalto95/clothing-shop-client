@@ -5,10 +5,16 @@ import CloseIcon from '../../assets/icons/close.svg'
 import UserIcon from '../../assets/icons/auth.svg'
 import LogoIcon from '../../assets/icons/logo.png'
 import {NavLink} from "react-router-dom";
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import AddedToCartPopup from "./AddedToCartPopup/AddedToCartPopup";
 
-const NavbarDesktop = (props) => {
+interface Props {
+    toggleSearchbar: MouseEventHandler<HTMLSpanElement>;
+    isSearchbarToggled: boolean;
+    cartSize: number;
+}
+
+const NavbarDesktop: React.FC<Props> = (props) => {
     return (
         <>
             <nav className={styles.navDesktop}>

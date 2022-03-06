@@ -2,9 +2,17 @@ import styles from './LoginPage.module.scss'
 import React from "react";
 import {Redirect} from "react-router-dom";
 
+interface Props {
+    login: string;
+    password: string;
+    isLogged: boolean;
+    onLoginChange: React.ChangeEventHandler<HTMLInputElement>
+    onPasswordChange: React.ChangeEventHandler<HTMLInputElement>
+    onFormSubmit: Function
+}
 
-const LoginPage = (props) => {
-    let onFormSubmit = (e) => {
+const LoginPage: React.FC<Props> = (props) => {
+    let onFormSubmit = (e: React.FormEvent): void => {
         e.preventDefault()
         setTimeout(props.onFormSubmit, 500)
     }

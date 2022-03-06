@@ -5,10 +5,15 @@ import SearchIcon from '../../assets/icons/search.svg'
 import CartIcon from '../../assets/icons/shopping-cart.svg'
 import CloseIcon from '../../assets/icons/close.svg'
 import {NavLink} from "react-router-dom";
-import React from "react";
-import Searchbar from "./Searchbar/Searchbar";
+import React, { MouseEventHandler } from "react";
 
-const NavbarMobile = (props) => {
+interface Props {
+    toggleSearchbar: MouseEventHandler<HTMLSpanElement>;
+    isSearchbarToggled: boolean;
+    cartSize: number;
+}
+
+const NavbarMobile: React.FC<Props> = (props) => {
 
     return (
         <>
@@ -37,7 +42,7 @@ const NavbarMobile = (props) => {
                     </NavLink>
                 </div>
             </nav>
-            {props.isSearchbarToggled && <Searchbar />}
+
         </>
     )
 }

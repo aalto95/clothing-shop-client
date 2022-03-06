@@ -1,15 +1,16 @@
 import styles from './Products.module.scss'
 import Product from "./Product/Product";
-import {ItemType} from "../../types/types";
+import {Item} from "../../models/types";
 import React from "react";
 
 type PropsType = {
-    items: Array<ItemType>
+    items: Item[]
+    searchText: string
 }
 
-const Products : React.FC<PropsType> = (props) => {
+const Products: React.FC<PropsType> = (props) => {
 
-    let productElements = props.items.map((item, i) => <Product
+    const productElements = props.items.map((item, i) => <Product
         key={item.id}
         id={item.id}
         price={item.price}
@@ -19,8 +20,11 @@ const Products : React.FC<PropsType> = (props) => {
         style={{backgroundImage: `url(${item.img_small})`}}
     />)
 
+    if (!props.items.length) return <h1>Nothing found</h1>
+
     return (
         <>
+            <p>{props.items.length} results for '{props.searchText}'</p>
             <div className={styles.wrapper}>
                 <div className={styles.productContainer}>
                     {productElements}
