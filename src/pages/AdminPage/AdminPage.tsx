@@ -2,8 +2,15 @@ import styles from './AdminPage.module.scss'
 import React from "react";
 import Error403 from "../Error403/Error403";
 import Preloader from "../../components/Preloader/Preloader";
+import { Item } from '../../models/types'
 
-const AdminPage = (props) => {
+interface Props {
+    items: Item[];
+    isAdmin: boolean;
+    isFetching: boolean;
+}
+
+const AdminPage: React.FC<Props> = (props) => {
 
     let renderTable = () => {
         return props.items.map(item => {

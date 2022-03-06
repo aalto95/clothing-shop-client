@@ -1,25 +1,26 @@
 import React, {useEffect} from "react";
 import AdminPage from "./AdminPage";
-import {connect} from "react-redux";
-import {fetchAllItems} from "../../redux/admin-reducer";
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
+import { fetchItems } from '../../features/app-slice'
 
 const AdminPageContainer: React.FC = () => {
-    useEffect(props.fetchAllItems, [])
+    const isAdmin = useAppSelector((state) => state.app.isAdmin)
+    const items = useAppSelector((state) => state.app.items)
+    const isFetching = useAppSelector((state) => state.app.isFetching)
+    const dispatch = useAppDispatch()
+    useEffect(() => {
+        const promise = dispatch(fetchItems(''))
+        return () => {
+            promise.abort()
+        }
+    }, [])
     return (
-        <AdminPage {...props}/>
+        <AdminPage
+            isAdmin={isAdmin}
+            items={items}
+            isFetching={isFetching}
+        />
     )
 }
 
-let mapStateToProps = (state) => {
-    return {
-        isAdmin: state.loginPage.isAdmin,
-        items: state.adminPage.items,
-        isFetching: state.productsPage.isFetching
-    }
-}
-
-let mapDispatchToProps = {
-    fetchAllItems
-}
-
-export default connect(mapStateToProps, mapDispatchToProps) (AdminPageContainer)
+export default AdminPageContainer

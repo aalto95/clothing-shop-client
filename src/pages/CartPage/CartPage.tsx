@@ -2,14 +2,24 @@ import React from "react";
 import styles from './CartPage.module.scss'
 import deleteIcon from '../../assets/icons/delete.svg'
 import {ReactSVG} from "react-svg";
+import { CartItem, Item } from '../../models/types'
 
-const CartPage = (props) => {
+interface Props {
+    items: Item[]
+    cart: CartItem[]
+    addOne: Function
+    subtractOne: Function
+    checkout: Function
+    removeFromCart: Function
+}
 
-    let onAdd = (id) => {
+const CartPage: React.FC<Props> = (props) => {
+
+    let onAdd = (id: number) => {
         props.addOne(id)
     }
 
-    let onSubtract = (id) => {
+    let onSubtract = (id: number) => {
         if (props.cart[id].quantity > 1) {
             props.subtractOne(id)
         } else {
@@ -24,20 +34,20 @@ const CartPage = (props) => {
     let totalPrice = () => {
         let subTotal = 0
         // eslint-disable-next-line array-callback-return
-        props.cart.map(product => {
+        props.cart.map((product: CartItem) => {
             subTotal += (product.price * product.quantity)
         })
         return subTotal
     }
 
-    let onRemoveFromCart = (id) => {
+    let onRemoveFromCart = (id: number) => {
         props.removeFromCart(id)
     }
 
     if (props.cart.length) {
         return (
             <div className={styles.cart}>
-                {props.cart.map((product, i) =>
+                {props.cart.map((product: CartItem, i: number) =>
                     <div key={i} className={styles.product}>
                         <img src={product.img_small} className={styles.productImg} alt="product-img"/>
                         <p className={styles.productName}>{product.brand} {product.title} x {product.quantity} = <b>{product.price * product.quantity}$</b></p>
