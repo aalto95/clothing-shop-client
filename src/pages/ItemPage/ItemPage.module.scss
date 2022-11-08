@@ -4,24 +4,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   .item {
     display: flex;
     justify-content: center;
     align-items: center;
-    .itemImage {
-    }
+
     .infoBlock {
       display: flex;
       justify-content: flex-end;
       flex-direction: column;
       text-align: left;
+
       p {
         color: #878787;
         font-weight: 700;
       }
 
       select {
-
         padding: 10px;
       }
 
@@ -29,11 +29,12 @@
         border: none;
         background-color: #767676;
         height: 50px;
-        color: #FFF;
+        color: #fff;
         cursor: pointer;
+
         &:hover {
           background-color: #252525;
-          transition: background-color .5s;
+          transition: background-color 0.5s;
         }
       }
     }
@@ -44,9 +45,11 @@
   .item {
     flex-direction: column;
   }
+
   .itemImage {
     width: 70vw;
   }
+
   .infoBlock {
     width: 70vw;
   }
@@ -56,6 +59,7 @@
   .itemImage {
     width: 20vw;
   }
+
   .infoBlock {
     width: 30vw;
   }

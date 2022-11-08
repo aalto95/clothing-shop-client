@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FFF;
+  color: #fff;
   background-color: #3d50ab;
   width: 100vw;
   height: 50px;
@@ -19,9 +19,11 @@
   0% {
     top: 0;
   }
+
   50% {
     top: 50px;
   }
+
   100% {
     top: 0;
   }
