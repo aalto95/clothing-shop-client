@@ -56,21 +56,21 @@ const Footer = () => {
       </UnorderedList>
       <div>
         <Anchor href="https://www.vk.com/">
-          <Icon src={vkIcon} alt="" />
+          <Icon src={vkIcon} alt="vk-icon" />
         </Anchor>
         <Anchor href="https://www.twitter.com/">
-          <Icon src={twitterIcon} alt="" />
+          <Icon src={twitterIcon} alt="twitter-icon" />
         </Anchor>
         <Anchor href="https://www.instagram.com/">
-          <Icon src={instagramIcon} alt="" />
+          <Icon src={instagramIcon} alt="instagram-icon" />
         </Anchor>
         <Anchor href="https://www.facebook.com/">
-          <Icon src={facebookIcon} alt="" />
+          <Icon src={facebookIcon} alt="facebook-icon" />
         </Anchor>
       </div>
       <p>
-        website by{" "}
-        <Anchor href="https://github.com/y2k01">pavlov stanislav</Anchor>
+        website by
+        <Anchor href="https://github.com/aaltoo"> pavlov stanislav</Anchor>
       </p>
     </Container>
   );
