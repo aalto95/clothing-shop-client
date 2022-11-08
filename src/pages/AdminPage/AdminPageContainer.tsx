@@ -13,7 +13,7 @@ const AdminPageContainer: React.FC = () => {
     return () => {
       promise.abort();
     };
-  }, []);
+  }, [dispatch]);
   return <AdminPage isAdmin={isAdmin} items={items} isFetching={isFetching} />;
 };
 

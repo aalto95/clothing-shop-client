@@ -1,37 +1,43 @@
 import CartPage from "./CartPage";
-import { useAppSelector, useAppDispatch } from '../../app/hooks'
-import { addedOne, checkedOut, removedFromCart, subtractedOne } from '../../features/app-slice'
-import { Item } from '../../models/types'
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import {
+  addedOne,
+  checkedOut,
+  removedFromCart,
+  subtractedOne,
+} from "../../features/app-slice";
 
 const CartPageContainer = () => {
-    const items = useAppSelector((state) => state.app.items)
-    const cart = useAppSelector((state) => state.app.cart)
-    const dispatch = useAppDispatch()
-    
-    const addOne = (id: number) => {
-        dispatch(addedOne(id))
-    }
+  const items = useAppSelector((state) => state.app.items);
+  const cart = useAppSelector((state) => state.app.cart);
+  const dispatch = useAppDispatch();
 
-    const checkout = () => {
-        dispatch(checkedOut())
-    }
+  const addOne = (id: number) => {
+    dispatch(addedOne(id));
+  };
 
-    const removeFromCart = (id: number) => {
-        dispatch(removedFromCart(id))
-    }
+  const checkout = () => {
+    dispatch(checkedOut());
+  };
 
-    const subtractOne = (id: number) => {
-        dispatch(subtractedOne(id))
-    }
+  const removeFromCart = (id: number) => {
+    dispatch(removedFromCart(id));
+  };
 
-    return <CartPage
-        items={items}
-        cart={cart}
-        addOne={addOne}
-        checkout={checkout}
-        removeFromCart={removeFromCart}
-        subtractOne={subtractOne}
+  const subtractOne = (id: number) => {
+    dispatch(subtractedOne(id));
+  };
+
+  return (
+    <CartPage
+      items={items}
+      cart={cart}
+      addOne={addOne}
+      checkout={checkout}
+      removeFromCart={removeFromCart}
+      subtractOne={subtractOne}
     />
-}
+  );
+};
 
-export default CartPageContainer
+export default CartPageContainer;

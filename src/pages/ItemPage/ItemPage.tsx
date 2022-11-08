@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./ItemPage.module.scss";
-import Preloader from "../../components/Preloader/Preloader";
 import { Item } from "../../models/types";
 
 interface Props {

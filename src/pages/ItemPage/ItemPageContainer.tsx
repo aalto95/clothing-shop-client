@@ -11,7 +11,6 @@ import Preloader from "../../components/Preloader/Preloader";
 
 const ItemPageContainer = (props: any) => {
   let itemId = props.match.params.itemId;
-  const items = useAppSelector((state) => state.app.items);
   const cart = useAppSelector((state) => state.app.cart);
   const isFetching = useAppSelector((state) => state.app.isFetching);
   const specificItem = useAppSelector((state) => state.app.specificItem);
