@@ -10,14 +10,17 @@ $base-size: 50px;
   background-color: #303030;
   position: fixed;
   z-index: 1;
+
   .dropdown {
     overflow: hidden;
     font-family: Arial;
+
     &:hover {
       .dropdownContent {
         display: block;
       }
     }
+
     .dropBtn {
       font-size: 16px;
       border: none;
@@ -27,6 +30,7 @@ $base-size: 50px;
       font-family: inherit; /* Important for vertical align on mobile phones */
       margin: 0; /* Important for vertical align on mobile phones */
       height: $base-size;
+
       .navIcon {
         @include navElemMobile;
         @include darkenOnHover;
@@ -60,17 +64,20 @@ $base-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+
     .logo {
       width: 40px;
     }
   }
   .functionalityGroup {
     @include flexCenter;
+
     .searchWrapper {
       @include navElemMobile;
       @include flexCenter;
       @include darkenOnHover;
       cursor: pointer;
+
       img {
         width: 20px;
       }
@@ -79,6 +86,7 @@ $base-size: 50px;
       @include navElemMobile;
       @include flexCenter;
       @include darkenOnHover;
+
       p {
         color: #dddddd;
         margin: 5px;

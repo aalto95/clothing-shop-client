@@ -9,22 +9,27 @@
   grid-template-areas: "logo navigation";
   grid-template-columns: 7% 93%;
   z-index: 1;
+
   .logo {
     max-width: 40px;
     max-height: 40px;
     grid-area: logo;
   }
+
   .desktopNavbar {
     @include gridCenter;
     grid-area: navigation;
     grid-template-areas: "navList interactionGroup";
     grid-template-columns: 70% 30%;
+
     .navigationList {
       display: flex;
       grid-area: navList;
+
       li {
         list-style: none;
         display: flex;
+
         .navElem {
           @include navColor;
           @include flexCenter;
@@ -34,9 +39,11 @@
           cursor: pointer;
         }
       }
+
       span {
         display: none;
       }
+
       .men,
       .women,
       .brands {
@@ -52,6 +59,7 @@
           }
         }
       }
+
       .women {
         &:hover {
           .womenDropDown {
@@ -61,6 +69,7 @@
         }
       }
     }
+
     .interactionGroup {
       @include gridCenter;
       @include heightPreference;
@@ -68,17 +77,20 @@
       grid-template-columns: 70px 70px 70px;
       grid-template-areas: "search auth cart";
       justify-content: flex-end;
+
       .searchIcon {
         @include flexCenter;
         @include heightPreference;
         @include darkenOnHover;
         grid-area: search;
         cursor: pointer;
+
         img {
           color: #262626;
           width: 20px;
         }
       }
+
       .logButton {
         @include flexCenter;
         @include navColor;
@@ -88,14 +100,17 @@
         cursor: pointer;
         text-align: left;
       }
+
       .cartIcon {
         @include flexCenter;
         @include heightPreference;
         @include darkenOnHover;
         grid-area: cart;
+
         img {
           padding: 5px;
         }
+
         p {
           @include navColor;
         }

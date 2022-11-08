@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { CartItem, Item } from "../models/types";
+import { Item } from "../models/types";
 import { productsAPI } from "../api/api";
 
 interface ItemsState {

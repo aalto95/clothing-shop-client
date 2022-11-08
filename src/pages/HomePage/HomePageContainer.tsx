@@ -1,9 +1,7 @@
 import HomePage from "./HomePage";
 
 const HomePageContainer = () => {
-    return (
-        <HomePage />
-    )
-}
+  return <HomePage />;
+};
 
-export default HomePageContainer
+export default HomePageContainer;

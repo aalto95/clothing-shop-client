@@ -5,7 +5,7 @@ import NavbarContainer from "./components/Navbar/NavbarContainer";
 import Footer from "./components/Footer/Footer";
 import Preloader from "./components/Preloader/Preloader";
 import SearchbarContainer from "./components/Navbar/Searchbar/SearchbarContainer";
-import { useFetchItemsQuery } from './features/api/items-api-slice'
+
 const SearchPageContainer = lazy(
   () => import("./pages/SearchPage/SearchPageContainer")
 );

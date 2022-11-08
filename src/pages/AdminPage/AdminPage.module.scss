@@ -3,20 +3,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   table {
     width: 90vw;
     text-align: left;
+
     tbody {
       .firstRow {
         background-color: #767676;
       }
+
       tr {
         td {
           padding: 10px;
         }
+
         &:nth-child(even) {
-          background-color: #DDDDDD;
+          background-color: #dddddd;
         }
+
         &:hover {
           background-color: #3d50ab;
         }
