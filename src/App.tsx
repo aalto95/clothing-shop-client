@@ -15,9 +15,7 @@ const HomePageContainer = lazy(
 const ItemPageContainer = lazy(
   () => import("./pages/ItemPage/ItemPageContainer")
 );
-const LoginPageContainer = lazy(
-  () => import("./pages/LoginPage/LoginPageContainer")
-);
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const AdminPageContainer = lazy(
   () => import("./pages/AdminPage/AdminPageContainer")
 );
@@ -37,7 +35,7 @@ const App = () => {
         <Route path="/search/:string?" render={() => <SearchPageContainer />} />
         <Route path="/items/:itemId?" render={() => <ItemPageContainer />} />
         <Route path="/cart" render={() => <CartPageContainer />} />
-        <Route path="/login" render={() => <LoginPageContainer />} />
+        <Route path="/login" render={() => <LoginPage />} />
         <Route path="/admin" render={() => <AdminPageContainer />} />
       </Suspense>
       <Suspense fallback={<Preloader />}>

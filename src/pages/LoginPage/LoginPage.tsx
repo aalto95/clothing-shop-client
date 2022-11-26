@@ -1,48 +1,47 @@
 import styles from "./LoginPage.module.scss";
 import React from "react";
 import { Redirect } from "react-router-dom";
+import { useAppSelector } from "../../app/hooks";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import { firebaseApp } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
-interface Props {
-  login: string;
-  password: string;
-  isLogged: boolean;
-  onLoginChange: React.ChangeEventHandler<HTMLInputElement>;
-  onPasswordChange: React.ChangeEventHandler<HTMLInputElement>;
-  onFormSubmit: Function;
-}
+const LoginPage: React.FC = () => {
+  const isLogged = useAppSelector((state) => state.app.isLogged);
+  const auth = getAuth(firebaseApp);
+  function signInWithGoogle() {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider).then((result) => {
+      console.log(result);
+    });
+  }
 
-const LoginPage: React.FC<Props> = (props) => {
-  let onFormSubmit = (e: React.FormEvent): void => {
-    e.preventDefault();
-    setTimeout(props.onFormSubmit, 500);
-  };
-
+  function signOutWithGoogle() {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  }
+  const [user, userIsLoading] = useAuthState(auth);
   return (
     <div className={styles.loginComponent}>
-      {props.isLogged && <Redirect to="/admin" />}
+      {isLogged && <Redirect to="/admin" />}
       <div className={styles.formWrapper}>
-        <form action="" className={styles.loginForm} onSubmit={onFormSubmit}>
-          <input
-            type="text"
-            name="username"
-            placeholder="username"
-            onChange={props.onLoginChange}
-            value={props.login}
-          />
-          <input
-            type="text"
-            name="password"
-            placeholder="password"
-            onChange={props.onPasswordChange}
-            value={props.password}
-          />
-          <input
-            type="submit"
-            className={styles.submitBtn}
-            value="Log in"
-            disabled={!props.password && !props.login}
-          />
-        </form>
+        {userIsLoading && <div>Loading...</div>}
+        {user && !userIsLoading && (
+          <button onClick={signOutWithGoogle}>Sign out</button>
+        )}
+        {!user && !userIsLoading && (
+          <button onClick={signInWithGoogle}>Sign in with Google</button>
+        )}
       </div>
     </div>
   );
