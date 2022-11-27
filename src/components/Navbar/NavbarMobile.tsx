@@ -1,13 +1,13 @@
-import styles from "./NavbarMobile.module.scss";
-import LogoIcon from "../../assets/icons/logo.png";
-import SearchIcon from "../../assets/icons/search.svg";
-import CartIcon from "../../assets/icons/shopping-cart.svg";
-import CloseIcon from "../../assets/icons/close.svg";
 import { NavLink } from "react-router-dom";
 import React, { MouseEventHandler } from "react";
 import { useAppDispatch } from "../../app/hooks";
 import { sidebarToggled } from "../../features/sidebar-slice";
-import { BeakerIcon } from "@heroicons/react/24/solid";
+import {
+  Bars3Icon,
+  MagnifyingGlassIcon,
+  ShoppingCartIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/solid";
 
 interface Props {
   toggleSearchbar: MouseEventHandler<HTMLSpanElement>;
@@ -23,23 +23,21 @@ const NavbarMobile: React.FC<Props> = (props) => {
 
   return (
     <>
-      <nav className={styles.navMobile}>
-        <button onClick={toggleSidebar}>
-          <BeakerIcon className="w-6 h-6" />
+      <nav className="h-12 w-full z-10 px-4 flex md:hidden justify-between items-center bg-stone-900 fixed ">
+        <button onClick={toggleSidebar} className="w-8 h-8">
+          <Bars3Icon className="w-8 h-8 text-gray-300" />
         </button>
-        <NavLink to="/" className={styles.logoWrapper}>
-          <img src={LogoIcon} className={styles.logo} alt="logo-icon" />
-        </NavLink>
-        <div className={styles.functionalityGroup}>
-          <div className={styles.searchWrapper} onClick={props.toggleSearchbar}>
-            <img
-              src={props.isSearchbarToggled ? CloseIcon : SearchIcon}
-              alt="search-icon"
-            />
-          </div>
-          <NavLink to="/cart" className={styles.cartWrapper}>
-            <img src={CartIcon} alt="cart-icon" />
-            <p>{props.cartSize}</p>
+        <div className="flex items-center gap-2">
+          <button className="w-6 h-6" onClick={props.toggleSearchbar}>
+            {props.isSearchbarToggled ? (
+              <XMarkIcon className="w-6 h-6 text-gray-300" />
+            ) : (
+              <MagnifyingGlassIcon className="w-6 h-6 text-gray-300" />
+            )}
+          </button>
+          <NavLink to="/cart" className="flex gap-2 items-center">
+            <ShoppingCartIcon className="w-6 h-6 text-gray-300" />
+            <p className="text-gray-300">{props.cartSize}</p>
           </NavLink>
         </div>
       </nav>

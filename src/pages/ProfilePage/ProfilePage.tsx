@@ -41,12 +41,12 @@ const ProfilePage: React.FC = () => {
       {history &&
         history.map((order: any) => {
           return (
-            <div>
+            <div key={order.createdAt.seconds}>
               <h2>{new Date(order.createdAt.seconds * 1000).toDateString()}</h2>
               <div>
                 {order.items.map((item: any) => {
                   return (
-                    <div>
+                    <div key={item.uid}>
                       <h3>{item.name}</h3>
                       <p>Price: {item.price}</p>
                       <p>Quantity: {item.quantity}</p>
