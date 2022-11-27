@@ -1,0 +1,13 @@
+.adminPage {
+  padding-top: 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .image {
+    width: 300px;
+    height: 300px;
+  }
+}

@@ -1,30 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./CartPage.module.scss";
 import deleteIcon from "../../assets/icons/delete.svg";
 import { ReactSVG } from "react-svg";
 import { Item } from "../../models/types";
-import { doc, getDoc, getFirestore, updateDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getFirestore,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
 import { firebaseApp } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { cartSet } from "../../features/app-slice";
+import { cartSet, orderPushed } from "../../features/app-slice";
 
-interface Props {
-  items: Item[];
-  checkout: Function;
-}
-
-const CartPage: React.FC<Props> = (props) => {
+const CartPage: React.FC = () => {
   const firestore = getFirestore(firebaseApp);
   const auth = getAuth(firebaseApp);
   const [user] = useAuthState(auth);
   const cart = useAppSelector((state) => state.app.cart);
   const dispatch = useAppDispatch();
+  const [isLoading, setIsLoading] = React.useState(false);
 
   async function onAdd(uid: string, quantity: number) {
     const cartRef = doc(firestore, "carts", user!.uid);
     try {
+      setIsLoading(true);
       await updateDoc(cartRef, {
         items: cart.map((item: any) => {
           if (item.uid === uid) {
@@ -34,7 +38,6 @@ const CartPage: React.FC<Props> = (props) => {
           }
         }),
       });
-      console.log("Document updated");
       dispatch(
         cartSet(
           cart.map((item: any) => {
@@ -46,8 +49,9 @@ const CartPage: React.FC<Props> = (props) => {
           })
         )
       );
+      setIsLoading(false);
     } catch (error) {
-      console.log(error);
+      setIsLoading(false);
     }
   }
 
@@ -55,6 +59,7 @@ const CartPage: React.FC<Props> = (props) => {
     if (quantity > 1) {
       const cartRef = doc(firestore, "carts", user!.uid);
       try {
+        setIsLoading(true);
         await updateDoc(cartRef, {
           items: cart.map((item: any) => {
             if (item.uid === uid) {
@@ -64,7 +69,6 @@ const CartPage: React.FC<Props> = (props) => {
             }
           }),
         });
-        console.log("Document updated");
         dispatch(
           cartSet(
             cart.map((item: any) => {
@@ -76,16 +80,38 @@ const CartPage: React.FC<Props> = (props) => {
             })
           )
         );
+        setIsLoading(false);
       } catch (error) {
-        console.log(error);
+        setIsLoading(false);
       }
     } else {
       onRemoveFromCart(uid);
     }
   }
 
-  let onCheckout = () => {
-    props.checkout();
+  let onCheckout = async () => {
+    const ordersRef = collection(
+      firestore,
+      "order_history",
+      user!.uid,
+      "orders"
+    );
+    const cartRef = doc(firestore, "carts", user!.uid);
+    await addDoc(ordersRef, {
+      items: cart,
+      createdAt: serverTimestamp(),
+    });
+    await updateDoc(cartRef, {
+      items: [],
+    }).then(() => {
+      dispatch(cartSet([]));
+      dispatch(
+        orderPushed({
+          items: cart,
+          createdAt: serverTimestamp(),
+        })
+      );
+    });
   };
 
   let totalPrice = () => {
@@ -100,12 +126,14 @@ const CartPage: React.FC<Props> = (props) => {
   async function onRemoveFromCart(uid: string) {
     const cartRef = doc(firestore, "carts", user!.uid);
     try {
+      setIsLoading(true);
       await updateDoc(cartRef, {
         items: cart.filter((item: any) => item.uid !== uid),
       });
-      console.log("Document updated");
       dispatch(cartSet(cart.filter((item: any) => item.uid !== uid)));
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   }
@@ -129,19 +157,29 @@ const CartPage: React.FC<Props> = (props) => {
               alt="product-img"
             />
             <p className={styles.productName}>
-              {product.brand.name} {product.name} x {product.quantity} ={" "}
+              {product?.brand.name} {product.name} x {product.quantity} ={" "}
               <b>{product.price * product.quantity!}$</b>
             </p>
             <div className={styles.buttonGroup}>
               <button
                 className={styles.quantityButton}
                 onClick={() => onAdd(product.uid!, product.quantity!)}
+                disabled={isLoading}
+                style={{
+                  cursor: isLoading ? "not-allowed" : "pointer",
+                  opacity: isLoading ? 0.5 : 1,
+                }}
               >
                 +
               </button>
               <button
                 className={styles.quantityButton}
                 onClick={() => onSubtract(product.uid!, product.quantity!)}
+                disabled={isLoading}
+                style={{
+                  cursor: isLoading ? "not-allowed" : "pointer",
+                  opacity: isLoading ? 0.5 : 1,
+                }}
               >
                 -
               </button>
@@ -150,6 +188,10 @@ const CartPage: React.FC<Props> = (props) => {
                 src={deleteIcon}
                 onClick={() => {
                   onRemoveFromCart(product.uid!);
+                }}
+                style={{
+                  cursor: isLoading ? "not-allowed" : "pointer",
+                  opacity: isLoading ? 0.5 : 1,
                 }}
               />
             </div>

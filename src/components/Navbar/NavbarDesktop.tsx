@@ -60,6 +60,7 @@ const NavbarDesktop: React.FC<Props> = (props) => {
                   categories.map((category) => {
                     return (
                       <NavLink
+                        key={category.uid}
                         to={`/search/1/${category.name}`}
                         className={styles.menDropDownElem}
                       >
@@ -76,6 +77,7 @@ const NavbarDesktop: React.FC<Props> = (props) => {
                   categories.map((category) => {
                     return (
                       <NavLink
+                        key={category.uid}
                         to={`/search/2/${category.name}`}
                         className={styles.menDropDownElem}
                       >
@@ -92,6 +94,7 @@ const NavbarDesktop: React.FC<Props> = (props) => {
                   brands.map((brand) => {
                     return (
                       <NavLink
+                        key={brand.uid}
                         to={`/search/2/${brand.name}`}
                         className={styles.menDropDownElem}
                       >

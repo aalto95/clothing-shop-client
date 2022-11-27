@@ -13,17 +13,11 @@ import { useAppDispatch } from "./app/hooks";
 import { cartSet } from "./features/app-slice";
 
 const SearchPage = lazy(() => import("./pages/SearchPage/SearchPage"));
-const HomePageContainer = lazy(
-  () => import("./pages/HomePage/HomePageContainer")
-);
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const ItemPage = lazy(() => import("./pages/ItemPage/ItemPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
-const AdminPageContainer = lazy(
-  () => import("./pages/AdminPage/AdminPageContainer")
-);
-const CartPageContainer = lazy(
-  () => import("./pages/CartPage/CartPageContainer")
-);
+const ProfilePage = lazy(() => import("./pages/ProfilePage/ProfilePage"));
+const CartPage = lazy(() => import("./pages/CartPage/CartPage"));
 
 const App = () => {
   const auth = getAuth(firebaseApp);
@@ -61,15 +55,15 @@ const App = () => {
         <Route path="/" render={() => <SearchbarContainer />} />
       </Suspense>
       <Suspense fallback={<Preloader />}>
-        <Route exact path="/" render={() => <HomePageContainer />} />
+        <Route exact path="/" render={() => <HomePage />} />
         <Route
           path="/search/:sexEnum?/:category?/:brand?"
           render={() => <SearchPage />}
         />
         <Route path="/items/:itemId?" render={() => <ItemPage />} />
-        <Route path="/cart" render={() => <CartPageContainer />} />
+        <Route path="/cart" render={() => <CartPage />} />
         <Route path="/login" render={() => <LoginPage />} />
-        <Route path="/admin" render={() => <AdminPageContainer />} />
+        <Route path="/profile" render={() => <ProfilePage />} />
       </Suspense>
       <Suspense fallback={<Preloader />}>
         <Route path="/" render={() => <Footer />} />

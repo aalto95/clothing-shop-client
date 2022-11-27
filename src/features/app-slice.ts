@@ -16,6 +16,7 @@ interface ItemsState {
   isSearching: boolean;
   searchText: string;
   user: any;
+  orders: any;
 }
 
 const initialState: ItemsState = {
@@ -32,6 +33,7 @@ const initialState: ItemsState = {
   isSearching: false,
   searchText: "",
   user: null,
+  orders: [],
 };
 
 const appSlice = createSlice({
@@ -69,6 +71,9 @@ const appSlice = createSlice({
     cartSet(state, action) {
       state.cart = action.payload;
     },
+    orderPushed(state, action) {
+      state.orders.push(action.payload);
+    },
   },
   extraReducers: (builder) => {},
 });
@@ -83,5 +88,6 @@ export const {
   loggedOut,
   checkedOut,
   cartSet,
+  orderPushed,
 } = appSlice.actions;
 export default appSlice.reducer;
