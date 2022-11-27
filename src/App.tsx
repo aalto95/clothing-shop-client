@@ -9,8 +9,9 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
 import { firebaseApp } from "./firebase";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
-import { useAppDispatch } from "./app/hooks";
+import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { cartSet } from "./features/app-slice";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 const SearchPage = lazy(() => import("./pages/SearchPage/SearchPage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -40,6 +41,10 @@ const App = () => {
     user && getCart();
   }, [user]);
 
+  const isSidebarToggled = useAppSelector(
+    (state) => state.sidebar.isSidebarToggled
+  );
+
   if (userIsLoading) {
     return <Preloader />;
   }
@@ -50,6 +55,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Sidebar />
       <Suspense fallback={<Preloader />}>
         <Route path="/" render={() => <NavbarContainer />} />
         <Route path="/" render={() => <SearchbarContainer />} />

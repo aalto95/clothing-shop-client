@@ -1,0 +1,29 @@
+@media screen and (max-width: 600px) {
+  .sidebar {
+    width: 100vw;
+    height: 100vh;
+    background-color: bisque;
+    position: fixed;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: 0.3s;
+    top: 0;
+    left: 0;
+
+    .sidebarHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #252525;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      font-family: Montserrat;
+
+      .close {
+        cursor: pointer;
+      }
+    }
+  }
+}

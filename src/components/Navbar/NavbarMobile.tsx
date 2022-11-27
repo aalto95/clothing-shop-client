@@ -1,11 +1,13 @@
 import styles from "./NavbarMobile.module.scss";
-import NavIcon from "../../assets/icons/menu.svg";
 import LogoIcon from "../../assets/icons/logo.png";
 import SearchIcon from "../../assets/icons/search.svg";
 import CartIcon from "../../assets/icons/shopping-cart.svg";
 import CloseIcon from "../../assets/icons/close.svg";
 import { NavLink } from "react-router-dom";
 import React, { MouseEventHandler } from "react";
+import { useAppDispatch } from "../../app/hooks";
+import { sidebarToggled } from "../../features/sidebar-slice";
+import { BeakerIcon } from "@heroicons/react/24/solid";
 
 interface Props {
   toggleSearchbar: MouseEventHandler<HTMLSpanElement>;
@@ -14,20 +16,17 @@ interface Props {
 }
 
 const NavbarMobile: React.FC<Props> = (props) => {
+  const dispatch = useAppDispatch();
+  function toggleSidebar() {
+    dispatch(sidebarToggled());
+  }
+
   return (
     <>
       <nav className={styles.navMobile}>
-        <div className={styles.dropdown}>
-          <button className={styles.dropBtn}>
-            <img src={NavIcon} className={styles.navIcon} alt="nav-icon" />
-          </button>
-          <div className={styles.dropdownContent}>
-            <NavLink to="/">NEW ITEMS</NavLink>
-            <NavLink to="/search/1">MEN</NavLink>
-            <NavLink to="/search/2">WOMEN</NavLink>
-            <NavLink to="/">SALE</NavLink>
-          </div>
-        </div>
+        <button onClick={toggleSidebar}>
+          <BeakerIcon className="w-6 h-6" />
+        </button>
         <NavLink to="/" className={styles.logoWrapper}>
           <img src={LogoIcon} className={styles.logo} alt="logo-icon" />
         </NavLink>
