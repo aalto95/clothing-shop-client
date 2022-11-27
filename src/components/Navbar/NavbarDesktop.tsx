@@ -5,8 +5,10 @@ import CloseIcon from "../../assets/icons/close.svg";
 import UserIcon from "../../assets/icons/auth.svg";
 import LogoIcon from "../../assets/icons/logo.png";
 import { NavLink } from "react-router-dom";
-import React, { MouseEventHandler } from "react";
+import React, { MouseEventHandler, useEffect } from "react";
 import AddedToCartPopup from "./AddedToCartPopup/AddedToCartPopup";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { firebaseApp } from "../../firebase";
 
 interface Props {
   toggleSearchbar: MouseEventHandler<HTMLSpanElement>;
@@ -15,6 +17,29 @@ interface Props {
 }
 
 const NavbarDesktop: React.FC<Props> = (props) => {
+  const firestore = getFirestore(firebaseApp);
+  const [categories, setCategories] = React.useState<any[]>([]);
+  const [brands, setBrands] = React.useState<any[]>([]);
+
+  async function getCategories() {
+    const categoriesRef = collection(firestore, "categories");
+    const snapshot = await getDocs(categoriesRef);
+    const categories = snapshot.docs.map((doc) => doc.data());
+    setCategories(categories);
+  }
+
+  async function getBrands() {
+    const brandsRef = collection(firestore, "brands");
+    const snapshot = await getDocs(brandsRef);
+    const brands = snapshot.docs.map((doc) => doc.data());
+    setBrands(brands);
+  }
+
+  useEffect(() => {
+    getCategories();
+    getBrands();
+  }, []);
+
   return (
     <>
       <nav className={styles.navDesktop}>
@@ -28,23 +53,52 @@ const NavbarDesktop: React.FC<Props> = (props) => {
                 NEW ITEMS
               </NavLink>
             </li>
-            <li className={styles.men}>
-              <NavLink to="/search/men" className={styles.navElem}>
-                MEN
-              </NavLink>
+            <li className={styles.brands}>
+              <p className={styles.navElem}>MEN</p>
+              <span className={styles.menDropDown}>
+                {categories &&
+                  categories.map((category) => {
+                    return (
+                      <NavLink
+                        to={`/search/1/${category.name}`}
+                        className={styles.menDropDownElem}
+                      >
+                        {category.name}
+                      </NavLink>
+                    );
+                  })}
+              </span>
             </li>
-            <li className={styles.women}>
-              <NavLink to="/search/women" className={styles.navElem}>
-                WOMEN
-              </NavLink>
+            <li className={styles.brands}>
+              <p className={styles.navElem}>WOMEN</p>
+              <span className={styles.menDropDown}>
+                {categories &&
+                  categories.map((category) => {
+                    return (
+                      <NavLink
+                        to={`/search/2/${category.name}`}
+                        className={styles.menDropDownElem}
+                      >
+                        {category.name}
+                      </NavLink>
+                    );
+                  })}
+              </span>
             </li>
             <li className={styles.brands}>
               <p className={styles.navElem}>BRANDS</p>
               <span className={styles.menDropDown}>
-                <NavLink to="/search/nike">nike</NavLink>
-                <NavLink to="/search/grind london">grind london</NavLink>
-                <NavLink to="/search/polar">polar</NavLink>
-                <NavLink to="/search/carhartt">carhartt</NavLink>
+                {brands &&
+                  brands.map((brand) => {
+                    return (
+                      <NavLink
+                        to={`/search/2/${brand.name}`}
+                        className={styles.menDropDownElem}
+                      >
+                        {brand.name}
+                      </NavLink>
+                    );
+                  })}
               </span>
             </li>
             <li>

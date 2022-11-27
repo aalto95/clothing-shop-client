@@ -9,7 +9,7 @@ import { getAuth } from "firebase/auth";
 import { firebaseApp } from "../../firebase";
 import { NavLink, useParams } from "react-router-dom";
 
-const ItemPage: React.FC<any> = (props) => {
+const ItemPage: React.FC = () => {
   const cart = useAppSelector((state) => state.app.cart);
   const dispatch = useAppDispatch();
 
@@ -30,7 +30,7 @@ const ItemPage: React.FC<any> = (props) => {
     });
   }
 
-  const [item, setItem] = React.useState<any>(null);
+  const [item, setItem] = React.useState<Item | null>(null);
 
   const { itemId }: { itemId: string } = useParams();
 
@@ -38,7 +38,7 @@ const ItemPage: React.FC<any> = (props) => {
     const docRef = doc(firestore, "things", itemId);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      setItem({ ...docSnap.data(), quantity: 1 });
+      setItem({ ...docSnap.data(), quantity: 1 } as Item);
     } else {
       console.log("No such document!");
     }
@@ -48,29 +48,23 @@ const ItemPage: React.FC<any> = (props) => {
     getItem();
   }, []);
 
-  let newObj = Object.assign({}, item?.sizes);
-  let options = [];
-  for (const [key, value] of Object.entries(newObj)) {
-    //@ts-ignore
-    options.push(
-      // @ts-ignore
-      <option value={value} key={key}>
-        {key}
-      </option>
-    );
-  }
-
   return (
     <div className={styles.itemPage}>
       <div className={styles.item}>
         <img src={item?.image} alt="item-img" className={styles.itemImage} />
         <div className={styles.infoBlock}>
-          <h2>{item?.brand}</h2>
+          <h2>{item?.brand.name}</h2>
           <p>
             {item?.color} {item?.name}
           </p>
           <h5>Select Size:</h5>
-          <select name="sizes">{options}</select>
+          <select name="sizes">
+            {item?.sizes.map((size: any) => (
+              <option value={size} key={size}>
+                {size}
+              </option>
+            ))}
+          </select>
           <h2>{item?.price}$</h2>
           {cart.find((cartItem: any) => cartItem.uid === item?.uid) ? (
             <NavLink to="/cart" className={styles.addToCart}>

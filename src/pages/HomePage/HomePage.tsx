@@ -16,22 +16,22 @@ const HomePage = () => {
       </div>
 
       <div className={styles.genders}>
-        <NavLink to="/search/men" className={styles.men}>
+        <NavLink to="/search/1" className={styles.men}>
           <p className={styles.menText}>MEN</p>
         </NavLink>
-        <NavLink to="/search/women" className={styles.women}>
+        <NavLink to="/search/2" className={styles.women}>
           <p className={styles.womenText}>WOMEN</p>
         </NavLink>
       </div>
 
       <div className={styles.clothesCategories}>
-        <NavLink to="/search/footwear" className={styles.footwear}>
-          <p>FOOTWEAR</p>
+        <NavLink to="/search/0/shoes" className={styles.footwear}>
+          <p>SHOES</p>
         </NavLink>
-        <NavLink to="/search/pants" className={styles.pants}>
+        <NavLink to="/search/0/pants" className={styles.pants}>
           <p>PANTS</p>
         </NavLink>
-        <NavLink to="/search/hoodie" className={styles.hoodie}>
+        <NavLink to="/search/0/hoodie" className={styles.hoodie}>
           <p>HOODIES</p>
         </NavLink>
         <NavLink to="/search/shirt" className={styles.shirt}>

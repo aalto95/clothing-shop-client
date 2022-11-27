@@ -4,7 +4,10 @@ export interface Item {
   price: number;
   type: string;
   sex: string;
-  brand: string;
+  brand: {
+    uid: string;
+    name: string;
+  };
   color: string;
   sizes: any;
   image: string;

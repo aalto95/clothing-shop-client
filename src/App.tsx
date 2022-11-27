@@ -62,7 +62,10 @@ const App = () => {
       </Suspense>
       <Suspense fallback={<Preloader />}>
         <Route exact path="/" render={() => <HomePageContainer />} />
-        <Route path="/search/:string?" render={() => <SearchPage />} />
+        <Route
+          path="/search/:sexEnum?/:category?/:brand?"
+          render={() => <SearchPage />}
+        />
         <Route path="/items/:itemId?" render={() => <ItemPage />} />
         <Route path="/cart" render={() => <CartPageContainer />} />
         <Route path="/login" render={() => <LoginPage />} />

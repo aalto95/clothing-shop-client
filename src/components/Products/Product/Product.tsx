@@ -5,7 +5,10 @@ import React from "react";
 type PropsType = {
   uid: string;
   price: number;
-  brand: string;
+  brand: {
+    name: string;
+    uid: string;
+  };
   title: string;
   color: string;
   style: any;
@@ -18,7 +21,7 @@ const Product: React.FC<PropsType> = (props) => {
         <div className={styles.productImage} style={props.style}></div>
       </NavLink>
       <p>
-        {props.color} {props.brand} {props.title} <b>{props.price}$</b>
+        {props.color} {props.brand.name} {props.title} <b>{props.price}$</b>
       </p>
     </div>
   );

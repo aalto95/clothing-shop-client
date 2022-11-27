@@ -129,7 +129,7 @@ const CartPage: React.FC<Props> = (props) => {
               alt="product-img"
             />
             <p className={styles.productName}>
-              {product.brand} {product.name} x {product.quantity} ={" "}
+              {product.brand.name} {product.name} x {product.quantity} ={" "}
               <b>{product.price * product.quantity!}$</b>
             </p>
             <div className={styles.buttonGroup}>

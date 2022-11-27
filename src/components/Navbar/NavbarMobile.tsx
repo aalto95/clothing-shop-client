@@ -23,8 +23,8 @@ const NavbarMobile: React.FC<Props> = (props) => {
           </button>
           <div className={styles.dropdownContent}>
             <NavLink to="/">NEW ITEMS</NavLink>
-            <NavLink to="/search/men">MEN</NavLink>
-            <NavLink to="/search/women">WOMEN</NavLink>
+            <NavLink to="/search/1">MEN</NavLink>
+            <NavLink to="/search/2">WOMEN</NavLink>
             <NavLink to="/">SALE</NavLink>
           </div>
         </div>
