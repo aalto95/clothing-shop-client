@@ -1,7 +1,8 @@
 import styles from "./HomePage.module.scss";
 import { NavLink } from "react-router-dom";
+import React from "react";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
     <>
       <div className={styles.startingImage}>

@@ -6,7 +6,7 @@ import { store } from "./app/store";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import "./windi.css";
+import "virtual:windi.css";
 
 ReactDOM.render(
   <BrowserRouter>
