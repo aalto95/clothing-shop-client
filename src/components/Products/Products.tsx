@@ -4,20 +4,20 @@ import { Item } from "../../models/types";
 import React from "react";
 
 type PropsType = {
-  items: Item[];
+  items: any;
   searchText: string;
 };
 
 const Products: React.FC<PropsType> = (props) => {
-  const productElements = props.items.map((item, i) => (
+  const productElements = props.items.map((item: any, i: any) => (
     <Product
       key={item.id}
-      id={item.id}
+      uid={item.uid}
       price={item.price}
       brand={item.brand}
       title={item.title}
       color={item.color}
-      style={{ backgroundImage: `url(${item.img_small})` }}
+      style={{ backgroundImage: `url(${item.image})` }}
     />
   ));
 

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import React from "react";
 
 type PropsType = {
-  id: number;
+  uid: string;
   price: number;
   brand: string;
   title: string;
@@ -14,7 +14,7 @@ type PropsType = {
 const Product: React.FC<PropsType> = (props) => {
   return (
     <div className={styles.productWrap}>
-      <NavLink to={"/items/" + props.id}>
+      <NavLink to={"/items/" + props.uid}>
         <div className={styles.productImage} style={props.style}></div>
       </NavLink>
       <p>

@@ -1,15 +1,54 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./ItemPage.module.scss";
 import { Item } from "../../models/types";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { doc, getDoc, getFirestore, updateDoc } from "firebase/firestore";
+import { cartSet } from "../../features/app-slice";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { getAuth } from "firebase/auth";
+import { firebaseApp } from "../../firebase";
+import { NavLink, useParams } from "react-router-dom";
 
-interface Props {
-  specificItem: Item | null;
-  isFetching: boolean;
-  addToCart: React.MouseEventHandler<HTMLButtonElement>;
-}
+const ItemPage: React.FC<any> = (props) => {
+  const cart = useAppSelector((state) => state.app.cart);
+  const dispatch = useAppDispatch();
 
-const ItemPage: React.FC<Props> = (props) => {
-  let newObj = Object.assign({}, props.specificItem?.sizes);
+  const auth = getAuth(firebaseApp);
+  const [user] = useAuthState(auth);
+  const firestore = getFirestore(firebaseApp);
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  async function addToCart(uid: string) {
+    setIsLoading(true);
+    const cartRef = doc(firestore, "carts", user!.uid);
+    await updateDoc(cartRef, {
+      items: [...cart, { ...item, quantity: 1 }],
+    }).then(() => {
+      setIsLoading(false);
+      dispatch(cartSet([...cart, { ...item, quantity: 1 }]));
+      console.log("Document successfully updated!");
+    });
+  }
+
+  const [item, setItem] = React.useState<any>(null);
+
+  const { itemId }: { itemId: string } = useParams();
+
+  async function getItem() {
+    const docRef = doc(firestore, "things", itemId);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      setItem({ ...docSnap.data(), quantity: 1 });
+    } else {
+      console.log("No such document!");
+    }
+  }
+
+  useEffect(() => {
+    getItem();
+  }, []);
+
+  let newObj = Object.assign({}, item?.sizes);
   let options = [];
   for (const [key, value] of Object.entries(newObj)) {
     //@ts-ignore
@@ -24,22 +63,32 @@ const ItemPage: React.FC<Props> = (props) => {
   return (
     <div className={styles.itemPage}>
       <div className={styles.item}>
-        <img
-          src={props.specificItem?.img_big}
-          alt="item-img"
-          className={styles.itemImage}
-        />
+        <img src={item?.image} alt="item-img" className={styles.itemImage} />
         <div className={styles.infoBlock}>
-          <h2>{props.specificItem?.brand}</h2>
+          <h2>{item?.brand}</h2>
           <p>
-            {props.specificItem?.color} {props.specificItem?.title}
+            {item?.color} {item?.name}
           </p>
           <h5>Select Size:</h5>
           <select name="sizes">{options}</select>
-          <h2>{props.specificItem?.price}$</h2>
-          <button className={styles.addToCart} onClick={props.addToCart}>
-            Add To Cart
-          </button>
+          <h2>{item?.price}$</h2>
+          {cart.find((cartItem: any) => cartItem.uid === item?.uid) ? (
+            <NavLink to="/cart" className={styles.addToCart}>
+              Already in Cart
+            </NavLink>
+          ) : (
+            <button
+              className={styles.addToCart}
+              onClick={() => addToCart(user!.uid)}
+              disabled={isLoading}
+              style={{
+                cursor: isLoading ? "not-allowed" : "pointer",
+                opacity: isLoading ? 0.5 : 1,
+              }}
+            >
+              Add To Cart
+            </button>
+          )}
         </div>
       </div>
     </div>

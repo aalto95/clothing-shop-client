@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { searchbarToggled } from "../../features/app-slice";
 
 const NavbarContainer = () => {
-  const cartSize = useAppSelector((state) => state.app.cartSize);
+  const cart = useAppSelector((state) => state.app.cart);
   const isSearchbarToggled = useAppSelector(
     (state) => state.app.isSearchbarToggled
   );
@@ -15,12 +15,12 @@ const NavbarContainer = () => {
   return (
     <>
       <NavbarDesktop
-        cartSize={cartSize}
+        cartSize={cart.length}
         isSearchbarToggled={isSearchbarToggled}
         toggleSearchbar={toggleSearchbar}
       />
       <NavbarMobile
-        cartSize={cartSize}
+        cartSize={cart.length}
         isSearchbarToggled={isSearchbarToggled}
         toggleSearchbar={toggleSearchbar}
       />

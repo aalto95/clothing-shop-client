@@ -6,7 +6,6 @@ import { Item } from "../../models/types";
 
 interface Props {
   items: Item[];
-  isAdmin: boolean;
   isFetching: boolean;
 }
 
@@ -14,9 +13,9 @@ const AdminPage: React.FC<Props> = (props) => {
   let renderTable = () => {
     return props.items.map((item) => {
       return (
-        <tr key={item.id}>
-          <td>{item.id}</td>
-          <td>{item.title}</td>
+        <tr key={item.uid}>
+          <td>{item.uid}</td>
+          <td>{item.name}</td>
           <td>{item.type}</td>
           <td>{item.brand}</td>
           <td>{item.color}</td>
@@ -26,7 +25,6 @@ const AdminPage: React.FC<Props> = (props) => {
     });
   };
 
-  if (!props.isAdmin) return <Error403 />;
   if (props.isFetching) return <Preloader />;
 
   return (

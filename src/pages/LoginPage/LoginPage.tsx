@@ -8,16 +8,33 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { firebaseApp } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { addDoc, collection, orderBy, query } from "firebase/firestore";
 
 const LoginPage: React.FC = () => {
-  const isLogged = useAppSelector((state) => state.app.isLogged);
+  const loggedUser = useAppSelector((state) => state.app.user);
   const auth = getAuth(firebaseApp);
+  const firestore = getFirestore(firebaseApp);
+  const cartsRef = collection(firestore, "carts");
+  const [user, userIsLoading] = useAuthState(auth);
+
+  async function createCart(result: any) {
+    await setDoc(doc(firestore, "carts", result.user.uid), {
+      uid: result.user.uid,
+      email: result.user.email,
+      displayName: result.user.displayName,
+      items: [],
+    }).then(() => {
+      console.log("Cart created");
+    });
+  }
+
   function signInWithGoogle() {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((result) => {
-      console.log(result);
+      createCart(result);
     });
   }
 
@@ -30,10 +47,9 @@ const LoginPage: React.FC = () => {
         // An error happened.
       });
   }
-  const [user, userIsLoading] = useAuthState(auth);
+
   return (
     <div className={styles.loginComponent}>
-      {isLogged && <Redirect to="/admin" />}
       <div className={styles.formWrapper}>
         {userIsLoading && <div>Loading...</div>}
         {user && !userIsLoading && (
