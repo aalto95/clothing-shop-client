@@ -61,10 +61,20 @@ const LoginPage: React.FC = () => {
           <button onClick={signOutWithGoogle}>Sign out</button>
         )}
         {!user && !userIsLoading && (
-          <button onClick={signInWithGoogle}>Sign in with Google</button>
+          <button
+            onClick={signInWithGoogle}
+            className="flex gap-2 rounded-xl border-2 p-2 bg-gray-100"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+              alt="google"
+              className="w-6"
+            />
+            Sign in with Google
+          </button>
         )}
       </div>
-      <h1>Order history</h1>
+      {user && <h1>Order history</h1>}
       {history &&
         history.map((order: any) => {
           return <div>{order.createdAt.seconds}</div>;
