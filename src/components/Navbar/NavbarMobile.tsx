@@ -8,6 +8,7 @@ import {
   ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
+import AddedToCartPopup from "./AddedToCartPopup/AddedToCartPopup";
 
 interface Props {
   toggleSearchbar: MouseEventHandler<HTMLSpanElement>;
@@ -23,7 +24,7 @@ const NavbarMobile: React.FC<Props> = (props) => {
 
   return (
     <>
-      <nav className="h-12 w-full z-10 px-4 flex md:hidden justify-between items-center bg-stone-900 fixed ">
+      <nav className="h-12 w-full top-0 z-10 px-4 flex md:hidden justify-between items-center bg-stone-900 fixed ">
         <button onClick={toggleSidebar} className="w-8 h-8">
           <Bars3Icon className="w-8 h-8 text-gray-300" />
         </button>
@@ -41,6 +42,8 @@ const NavbarMobile: React.FC<Props> = (props) => {
           </NavLink>
         </div>
       </nav>
+
+      <AddedToCartPopup cartSize={props.cartSize} />
     </>
   );
 };

@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import styles from "./ItemPage.module.scss";
-import { Item } from "../../models/types";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { Item } from "../models/types";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { doc, getDoc, getFirestore, updateDoc } from "firebase/firestore";
-import { cartSet } from "../../features/app-slice";
+import { cartSet } from "../features/app-slice";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
-import { firebaseApp } from "../../firebase";
+import { firebaseApp } from "../firebase";
 import { NavLink, useParams } from "react-router-dom";
 
 const ItemPage: React.FC = () => {
@@ -17,6 +16,7 @@ const ItemPage: React.FC = () => {
   const [user] = useAuthState(auth);
   const firestore = getFirestore(firebaseApp);
   const [isLoading, setIsLoading] = React.useState(false);
+  const [selectedSize, setSelectedSize] = React.useState("");
 
   async function addToCart(uid: string) {
     setIsLoading(true);
@@ -39,6 +39,7 @@ const ItemPage: React.FC = () => {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setItem({ ...docSnap.data(), quantity: 1 } as Item);
+      setSelectedSize(docSnap.data().sizes[0]);
     } else {
       console.log("No such document!");
     }
@@ -49,38 +50,50 @@ const ItemPage: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.itemPage}>
-      <div className={styles.item}>
-        <img src={item?.image} alt="item-img" className={styles.itemImage} />
-        <div className={styles.infoBlock}>
-          <h2>{item?.brand.name}</h2>
-          <p>
+    <div className="bg-gray-100 w-full min-h-screen flex justify-center items-center">
+      <div className="flex gap-4 flex-col lg:flex-row">
+        <img src={item?.image} alt="item-img" />
+        <div className="flex flex-wrap flex-col items-center bg-white p-4 rounded-xl">
+          <h2 className="text-xl">{item?.brand.name}</h2>
+          <p className="text-sm text-gray-400">
             {item?.color} {item?.name}
           </p>
-          <h5>Select Size:</h5>
-          <select name="sizes">
+          <h5 className="text-sm my-4">Available sizes</h5>
+          <div className="flex gap-2 pb-4 border-b-1 w-full">
             {item?.sizes.map((size: any) => (
-              <option value={size} key={size}>
+              <button
+                value={size}
+                key={size}
+                className={
+                  "bg-gray-100 p-2 w-full rounded-xl" +
+                  (selectedSize === size ? " bg-gray-200" : "")
+                }
+                onClick={(e) => setSelectedSize(e.currentTarget.value)}
+              >
                 {size}
-              </option>
+              </button>
             ))}
-          </select>
-          <h2>{item?.price}$</h2>
+          </div>
+          <h2 className="my-2">{item?.price}$</h2>
           {cart.find((cartItem: any) => cartItem.uid === item?.uid) ? (
-            <NavLink to="/cart" className={styles.addToCart}>
+            <NavLink
+              to="/cart"
+              className="bg-blue-500 text-white p-2 rounded-xl w-full"
+            >
               Already in Cart
             </NavLink>
           ) : (
             <button
-              className={styles.addToCart}
               onClick={() => addToCart(user!.uid)}
               disabled={isLoading}
               style={{
                 cursor: isLoading ? "not-allowed" : "pointer",
                 opacity: isLoading ? 0.5 : 1,
               }}
+              className="bg-black text-white p-2 rounded-xl flex flex-col w-full"
             >
-              Add To Cart
+              <p>Add To Cart</p>
+              {selectedSize}
             </button>
           )}
         </div>

@@ -1,8 +1,5 @@
 import React from "react";
-import styles from "./CartPage.module.scss";
-import deleteIcon from "../../assets/icons/delete.svg";
-import { ReactSVG } from "react-svg";
-import { Item } from "../../models/types";
+import { Item } from "../models/types";
 import {
   addDoc,
   collection,
@@ -11,11 +8,11 @@ import {
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
-import { firebaseApp } from "../../firebase";
+import { firebaseApp } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { cartSet, orderPushed } from "../../features/app-slice";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { cartSet, orderPushed } from "../features/app-slice";
 
 const CartPage: React.FC = () => {
   const firestore = getFirestore(firebaseApp);
@@ -140,7 +137,7 @@ const CartPage: React.FC = () => {
 
   if (!user) {
     return (
-      <div className={styles.emptyCart}>
+      <div>
         <h1>Please Sign In</h1>
       </div>
     );
@@ -148,69 +145,83 @@ const CartPage: React.FC = () => {
 
   if (cart && cart.length > 0) {
     return (
-      <div className={styles.cart}>
-        {cart.map((product: Item, i: number) => (
-          <div key={i} className={styles.product}>
-            <img
-              src={product.image}
-              className={styles.productImg}
-              alt="product-img"
-            />
-            <p className={styles.productName}>
-              {product?.brand.name} {product.name} x {product.quantity} ={" "}
-              <b>{product.price * product.quantity!}$</b>
-            </p>
-            <div className={styles.buttonGroup}>
-              <button
-                className={styles.quantityButton}
-                onClick={() => onAdd(product.uid!, product.quantity!)}
-                disabled={isLoading}
-                style={{
-                  cursor: isLoading ? "not-allowed" : "pointer",
-                  opacity: isLoading ? 0.5 : 1,
-                }}
-              >
-                +
-              </button>
-              <button
-                className={styles.quantityButton}
-                onClick={() => onSubtract(product.uid!, product.quantity!)}
-                disabled={isLoading}
-                style={{
-                  cursor: isLoading ? "not-allowed" : "pointer",
-                  opacity: isLoading ? 0.5 : 1,
-                }}
-              >
-                -
-              </button>
-              <ReactSVG
-                className={styles.deleteIcon}
-                src={deleteIcon}
-                onClick={() => {
-                  onRemoveFromCart(product.uid!);
-                }}
-                style={{
-                  cursor: isLoading ? "not-allowed" : "pointer",
-                  opacity: isLoading ? 0.5 : 1,
-                }}
-              />
+      <div className="min-h-screen bg-gray-100">
+        <h1 className="text-left text-3xl font-bold p-4">Cart</h1>
+        <div className="flex flex-col gap-2">
+          {cart.map((product: Item, i: number) => (
+            <div key={i} className="flex flex-col w-full bg-white p-4">
+              <div className="flex items-center gap-2 border-b-1 pb-4">
+                <img src={product.image} className="w-16" alt="product-img" />
+                <div className="flex w-full justify-between">
+                  <p>{product.name}</p>
+                  <button
+                    onClick={() => {
+                      onRemoveFromCart(product.uid!);
+                    }}
+                    style={{
+                      cursor: isLoading ? "not-allowed" : "pointer",
+                      opacity: isLoading ? 0.5 : 1,
+                    }}
+                  ></button>
+                </div>
+              </div>
+              <div className="flex w-full justify-between mt-2">
+                <b>{product.price * product.quantity!}$</b>
+                <div className="flex bg-gray-200 gap-4 rounded-full items-center px-2">
+                  <button
+                    className="text-3xl"
+                    onClick={() => onSubtract(product.uid!, product.quantity!)}
+                    disabled={isLoading}
+                    style={{
+                      cursor: isLoading ? "not-allowed" : "pointer",
+                      opacity: isLoading ? 0.5 : 1,
+                    }}
+                  >
+                    <svg width="10" height="10" viewBox="0 0 10 10">
+                      <rect
+                        fill="#454B54"
+                        y="4"
+                        width="10"
+                        height="2"
+                        rx="1"
+                      ></rect>
+                    </svg>
+                  </button>
+                  <p className="text-md">{product.quantity}</p>
+                  <button
+                    className="text-3xl"
+                    onClick={() => onAdd(product.uid!, product.quantity!)}
+                    disabled={isLoading}
+                    style={{
+                      cursor: isLoading ? "not-allowed" : "pointer",
+                      opacity: isLoading ? 0.5 : 1,
+                    }}
+                  >
+                    <svg width="10" height="10" viewBox="0 0 10 10">
+                      <g fill="#454B54">
+                        <rect x="4" width="2" height="10" ry="1"></rect>
+                        <rect y="4" width="10" height="2" rx="1"></rect>
+                      </g>
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
-        <div className={styles.checkoutGroup}>
+          ))}
+        </div>
+
+        <div>
           <p>
             Subtotal: <b>{totalPrice()}$</b>
           </p>
-          <button className={styles.checkoutButton} onClick={onCheckout}>
-            Checkout
-          </button>
+          <button onClick={onCheckout}>Checkout</button>
         </div>
       </div>
     );
   }
 
   return (
-    <div className={styles.emptyCart}>
+    <div>
       <h1>Your cart is empty</h1>
     </div>
   );

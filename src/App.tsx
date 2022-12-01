@@ -15,10 +15,10 @@ import Sidebar from "./components/Sidebar/Sidebar";
 
 const SearchPage = lazy(() => import("./pages/SearchPage/SearchPage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
-const ItemPage = lazy(() => import("./pages/ItemPage/ItemPage"));
+const ItemPage = lazy(() => import("./pages/ItemPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage/ProfilePage"));
-const CartPage = lazy(() => import("./pages/CartPage/CartPage"));
+const CartPage = lazy(() => import("./pages/CartPage"));
 
 const App = () => {
   const auth = getAuth(firebaseApp);
