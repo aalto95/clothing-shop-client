@@ -1,7 +1,6 @@
 import styles from "./SearchPage.module.scss";
 import Products from "../../components/Products/Products";
 import Preloader from "../../components/Preloader/Preloader";
-import { Item } from "../../models/types";
 import {
   collection,
   getFirestore,
