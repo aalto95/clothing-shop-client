@@ -3,9 +3,12 @@ import { NavLink } from "react-router-dom";
 import React from "react";
 
 type PropsType = {
-  id: number;
+  uid: string;
   price: number;
-  brand: string;
+  brand: {
+    name: string;
+    uid: string;
+  };
   title: string;
   color: string;
   style: any;
@@ -14,11 +17,11 @@ type PropsType = {
 const Product: React.FC<PropsType> = (props) => {
   return (
     <div className={styles.productWrap}>
-      <NavLink to={"/items/" + props.id}>
+      <NavLink to={"/items/" + props.uid}>
         <div className={styles.productImage} style={props.style}></div>
       </NavLink>
       <p>
-        {props.color} {props.brand} {props.title} <b>{props.price}$</b>
+        {props.color} {props.brand.name} {props.title} <b>{props.price}$</b>
       </p>
     </div>
   );
