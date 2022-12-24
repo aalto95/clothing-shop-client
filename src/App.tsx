@@ -17,7 +17,7 @@ const SearchPage = lazy(() => import("./pages/SearchPage/SearchPage"));
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ItemPage = lazy(() => import("./pages/ItemPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
-const ProfilePage = lazy(() => import("./pages/ProfilePage/ProfilePage"));
+const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 const CartPage = lazy(() => import("./pages/CartPage"));
 
 const App = () => {

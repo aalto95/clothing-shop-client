@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Item } from "../models/types";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { doc, getDoc, getFirestore, updateDoc } from "firebase/firestore";
 import { cartSet } from "../features/app-slice";
@@ -7,6 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
 import { firebaseApp } from "../firebase";
 import { NavLink, useParams } from "react-router-dom";
+import { Thing } from "../models/thing.model";
 
 const ItemPage: React.FC = () => {
   const cart = useAppSelector((state) => state.app.cart);
@@ -30,7 +30,7 @@ const ItemPage: React.FC = () => {
     });
   }
 
-  const [item, setItem] = React.useState<Item | null>(null);
+  const [item, setItem] = React.useState<Thing | null>(null);
 
   const { itemId }: { itemId: string } = useParams();
 
@@ -38,8 +38,10 @@ const ItemPage: React.FC = () => {
     const docRef = doc(firestore, "things", itemId);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      setItem({ ...docSnap.data(), quantity: 1 } as Item);
-      setSelectedSize(docSnap.data()?.sizes[0]);
+      setItem({ ...docSnap.data(), quantity: 1 } as Thing);
+      if (docSnap.data()?.sizes) {
+        setSelectedSize(docSnap.data()?.sizes[0]);
+      }
     } else {
       console.log("No such document!");
     }
@@ -58,7 +60,7 @@ const ItemPage: React.FC = () => {
           <p className="text-sm text-gray-400">
             {item?.color} {item?.name}
           </p>
-          <h5 className="text-sm my-4">Available sizes</h5>
+          {item?.sizes && <h5 className="text-sm my-4">Available sizes</h5>}
           <div className="flex gap-2 pb-4 border-b-1 w-full">
             {item?.sizes?.map((size: any) => (
               <button

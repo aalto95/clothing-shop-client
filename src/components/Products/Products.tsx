@@ -1,7 +1,7 @@
 import styles from "./Products.module.scss";
 import Product from "./Product/Product";
-import { Item } from "../../models/types";
 import React from "react";
+import { Thing } from "../../models/thing.model";
 
 type PropsType = {
   items: any;
@@ -18,14 +18,14 @@ const Products: React.FC<PropsType> = (props) => {
       </p>
       <div className={styles.wrapper}>
         <div className={styles.productContainer}>
-          {props.items.map((item: any, i: any) => (
+          {props.items.map((item: Thing, i: any) => (
             <Product
               key={item.uid}
               uid={item.uid}
               price={item.price}
               brand={item.brand}
-              title={item.title}
-              color={item.color}
+              title={item.name}
+              color={item.color!}
               style={{ backgroundImage: `url(${item.image})` }}
             />
           ))}

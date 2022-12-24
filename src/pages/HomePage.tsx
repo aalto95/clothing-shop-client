@@ -24,7 +24,6 @@ const HomePage: React.FC = () => {
       return doc.data();
     });
     setThings(things);
-    console.log(things);
   }
 
   React.useEffect(() => {
@@ -32,7 +31,7 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-screen min-h-screen h-screen flex justify-center text-left">
+    <div className="w-screen min-h-screen flex justify-center text-left">
       <div className="w-358 max-w-358 h-full pt-12 p-4">
         <h1 className="text-left text-3xl font-bold my-4">Popular Items</h1>
         <div className="flex flex-wrap justify-center">

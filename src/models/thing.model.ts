@@ -18,4 +18,5 @@ export interface Thing {
     uid: string;
   };
   quantity?: number;
+  color?: string;
 }

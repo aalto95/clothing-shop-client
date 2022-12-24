@@ -153,86 +153,90 @@ const CartPage: React.FC = () => {
 
   if (cart && cart.length > 0) {
     return (
-      <div className="min-h-screen bg-gray-100 p-4 pt-12">
-        <h1 className="text-left text-3xl font-bold my-4">Cart</h1>
-        <div className="flex flex-col gap-2">
-          {cart.map((product: Thing, i: number) => (
-            <div key={i} className="flex flex-col w-full bg-white p-4">
-              <div className="flex items-center gap-2 border-b-1 pb-4">
-                <img
-                  src={product.image}
-                  className="w-16 h-16"
-                  alt="product-img"
-                />
-                <div className="flex w-full justify-between">
-                  <p>{product.name}</p>
-                  <button
-                    onClick={() => {
-                      onRemoveFromCart(product.uid!);
-                    }}
-                    style={{
-                      cursor: isLoading ? "not-allowed" : "pointer",
-                      opacity: isLoading ? 0.5 : 1,
-                    }}
-                  ></button>
+      <div className="w-screen min-h-screen h-screen bg-gray-100 p-4 pt-12 flex justify-center">
+        <div className="w-350 max-w-350 h-full">
+          <h1 className="text-left text-3xl font-bold my-4">Cart</h1>
+          <div className="flex flex-col gap-2">
+            {cart.map((product: Thing, i: number) => (
+              <div key={i} className="flex flex-col w-full bg-white p-4">
+                <div className="flex items-center gap-2 border-b-1 pb-4">
+                  <img
+                    src={product.image}
+                    className="w-16 h-16"
+                    alt="product-img"
+                  />
+                  <div className="flex w-full justify-between">
+                    <p>{product.name}</p>
+                    <button
+                      onClick={() => {
+                        onRemoveFromCart(product.uid!);
+                      }}
+                      style={{
+                        cursor: isLoading ? "not-allowed" : "pointer",
+                        opacity: isLoading ? 0.5 : 1,
+                      }}
+                    ></button>
+                  </div>
+                </div>
+                <div className="flex w-full justify-between mt-2">
+                  <b>{product.price * product.quantity!}$</b>
+                  <div className="flex bg-gray-200 gap-4 rounded-full items-center px-2">
+                    <button
+                      className="text-3xl"
+                      onClick={() =>
+                        onSubtract(product.uid!, product.quantity!)
+                      }
+                      disabled={isLoading}
+                      style={{
+                        cursor: isLoading ? "not-allowed" : "pointer",
+                        opacity: isLoading ? 0.5 : 1,
+                      }}
+                    >
+                      <svg width="10" height="10" viewBox="0 0 10 10">
+                        <rect
+                          fill="#454B54"
+                          y="4"
+                          width="10"
+                          height="2"
+                          rx="1"
+                        ></rect>
+                      </svg>
+                    </button>
+                    <p className="text-md">{product.quantity}</p>
+                    <button
+                      className="text-3xl"
+                      onClick={() => onAdd(product.uid!, product.quantity!)}
+                      disabled={isLoading}
+                      style={{
+                        cursor: isLoading ? "not-allowed" : "pointer",
+                        opacity: isLoading ? 0.5 : 1,
+                      }}
+                    >
+                      <svg width="10" height="10" viewBox="0 0 10 10">
+                        <g fill="#454B54">
+                          <rect x="4" width="2" height="10" ry="1"></rect>
+                          <rect y="4" width="10" height="2" rx="1"></rect>
+                        </g>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div className="flex w-full justify-between mt-2">
-                <b>{product.price * product.quantity!}$</b>
-                <div className="flex bg-gray-200 gap-4 rounded-full items-center px-2">
-                  <button
-                    className="text-3xl"
-                    onClick={() => onSubtract(product.uid!, product.quantity!)}
-                    disabled={isLoading}
-                    style={{
-                      cursor: isLoading ? "not-allowed" : "pointer",
-                      opacity: isLoading ? 0.5 : 1,
-                    }}
-                  >
-                    <svg width="10" height="10" viewBox="0 0 10 10">
-                      <rect
-                        fill="#454B54"
-                        y="4"
-                        width="10"
-                        height="2"
-                        rx="1"
-                      ></rect>
-                    </svg>
-                  </button>
-                  <p className="text-md">{product.quantity}</p>
-                  <button
-                    className="text-3xl"
-                    onClick={() => onAdd(product.uid!, product.quantity!)}
-                    disabled={isLoading}
-                    style={{
-                      cursor: isLoading ? "not-allowed" : "pointer",
-                      opacity: isLoading ? 0.5 : 1,
-                    }}
-                  >
-                    <svg width="10" height="10" viewBox="0 0 10 10">
-                      <g fill="#454B54">
-                        <rect x="4" width="2" height="10" ry="1"></rect>
-                        <rect y="4" width="10" height="2" rx="1"></rect>
-                      </g>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="w-full pt-2">
-          <div className="flex justify-between">
-            <p>{totalItems()} Items</p>
-            <p>{totalPrice()}$</p>
+            ))}
           </div>
-          <button
-            onClick={onCheckout}
-            className="w-full bg-blue-500 text-white rounded-full h-12"
-          >
-            Checkout
-          </button>
+
+          <div className="w-full pt-2">
+            <div className="flex justify-between">
+              <p>{totalItems()} Items</p>
+              <p>{totalPrice()}$</p>
+            </div>
+            <button
+              onClick={onCheckout}
+              className="w-full bg-blue-500 text-white rounded-full h-12"
+            >
+              Checkout
+            </button>
+          </div>
         </div>
       </div>
     );
