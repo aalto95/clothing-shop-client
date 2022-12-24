@@ -1,4 +1,3 @@
-import styles from "./ProfilePage.module.scss";
 import React, { useEffect } from "react";
 import {
   collection,
@@ -36,32 +35,41 @@ const ProfilePage: React.FC = () => {
   }, [user]);
 
   return (
-    <section className={styles.adminPage}>
-      <h1>Order history</h1>
-      {history &&
-        history.map((order: any) => {
-          return (
-            <div key={order.createdAt.seconds}>
-              <h2>{new Date(order.createdAt.seconds * 1000).toDateString()}</h2>
-              <div>
-                {order.items.map((item: any) => {
-                  return (
-                    <div key={item.uid}>
-                      <h3>{item.name}</h3>
-                      <p>Price: {item.price}</p>
-                      <p>Quantity: {item.quantity}</p>
-                      <img
-                        src={item.image}
-                        alt="item"
-                        className={styles.image}
-                      />
-                    </div>
-                  );
-                })}
+    <section className="min-h-screen bg-gray-100 pt-12 p-4">
+      <h1 className="text-left text-3xl font-bold my-4">Order history</h1>
+      <div className="flex flex-col gap-4">
+        {history &&
+          history.map((order: any) => {
+            return (
+              <div
+                key={order.createdAt.seconds}
+                className="bg-white text-left p-4"
+              >
+                <h2>
+                  {new Date(order.createdAt.seconds * 1000).toDateString()}
+                </h2>
+                <div>
+                  {order.items.map((item: any) => {
+                    return (
+                      <div key={item.uid} className="flex gap-2">
+                        <img
+                          src={item.image}
+                          alt="item"
+                          className="w-48 h-48"
+                        />
+                        <div>
+                          <h3>{item.name}</h3>
+                          <p>Price: {item.price}</p>
+                          <p>Quantity: {item.quantity}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+      </div>
     </section>
   );
 };

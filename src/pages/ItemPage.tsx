@@ -39,7 +39,7 @@ const ItemPage: React.FC = () => {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setItem({ ...docSnap.data(), quantity: 1 } as Item);
-      setSelectedSize(docSnap.data().sizes[0]);
+      setSelectedSize(docSnap.data()?.sizes[0]);
     } else {
       console.log("No such document!");
     }
@@ -54,13 +54,13 @@ const ItemPage: React.FC = () => {
       <div className="flex gap-4 flex-col lg:flex-row">
         <img src={item?.image} alt="item-img" />
         <div className="flex flex-wrap flex-col items-center bg-white p-4 rounded-xl">
-          <h2 className="text-xl">{item?.brand.name}</h2>
+          <h2 className="text-xl">{item?.brand?.name}</h2>
           <p className="text-sm text-gray-400">
             {item?.color} {item?.name}
           </p>
           <h5 className="text-sm my-4">Available sizes</h5>
           <div className="flex gap-2 pb-4 border-b-1 w-full">
-            {item?.sizes.map((size: any) => (
+            {item?.sizes?.map((size: any) => (
               <button
                 value={size}
                 key={size}

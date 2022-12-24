@@ -1,7 +1,6 @@
 import "./App.scss";
 import React, { Suspense, lazy, useEffect } from "react";
 import { Route } from "react-router-dom";
-import NavbarContainer from "./components/Navbar/NavbarContainer";
 import Footer from "./components/Footer/Footer";
 import Preloader from "./components/Preloader/Preloader";
 import SearchbarContainer from "./components/Navbar/Searchbar/SearchbarContainer";
@@ -12,9 +11,10 @@ import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { cartSet } from "./features/app-slice";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Navbar from "./components/Navbar/Navbar";
 
 const SearchPage = lazy(() => import("./pages/SearchPage/SearchPage"));
-const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const HomePage = lazy(() => import("./pages/HomePage"));
 const ItemPage = lazy(() => import("./pages/ItemPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage/ProfilePage"));
@@ -54,10 +54,10 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <div className="App ">
       <Sidebar />
       <Suspense fallback={<Preloader />}>
-        <Route path="/" render={() => <NavbarContainer />} />
+        <Route path="/" render={() => <Navbar />} />
         <Route path="/" render={() => <SearchbarContainer />} />
       </Suspense>
       <Suspense fallback={<Preloader />}>

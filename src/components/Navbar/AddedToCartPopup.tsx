@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styles from "./AddedToCartPopup.module.scss";
 
 interface Props {
   cartSize: number;
@@ -16,7 +15,7 @@ const AddedToCartPopup: React.FC<Props> = (props) => {
   }, [props.cartSize, useStateCondition]);
   return (
     <div>
-      <div className={popupCondition ? styles.active : styles.hidden}>
+      <div className={popupCondition ? "block" : "hidden"}>
         <p>added to cart</p>
       </div>
     </div>

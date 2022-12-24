@@ -1,5 +1,5 @@
 import React from "react";
-import { Item } from "../models/types";
+import { Thing } from "../models/thing.model";
 import {
   addDoc,
   collection,
@@ -114,10 +114,18 @@ const CartPage: React.FC = () => {
   let totalPrice = () => {
     let subTotal = 0;
     // eslint-disable-next-line array-callback-return
-    cart.map((product: Item) => {
+    cart.map((product: Thing) => {
       subTotal += product.price * product.quantity!;
     });
     return subTotal;
+  };
+
+  let totalItems = () => {
+    let total = 0;
+    cart.map((product: Thing) => {
+      total += product.quantity!;
+    });
+    return total;
   };
 
   async function onRemoveFromCart(uid: string) {
@@ -145,13 +153,17 @@ const CartPage: React.FC = () => {
 
   if (cart && cart.length > 0) {
     return (
-      <div className="min-h-screen bg-gray-100">
-        <h1 className="text-left text-3xl font-bold p-4">Cart</h1>
+      <div className="min-h-screen bg-gray-100 p-4 pt-12">
+        <h1 className="text-left text-3xl font-bold my-4">Cart</h1>
         <div className="flex flex-col gap-2">
-          {cart.map((product: Item, i: number) => (
+          {cart.map((product: Thing, i: number) => (
             <div key={i} className="flex flex-col w-full bg-white p-4">
               <div className="flex items-center gap-2 border-b-1 pb-4">
-                <img src={product.image} className="w-16" alt="product-img" />
+                <img
+                  src={product.image}
+                  className="w-16 h-16"
+                  alt="product-img"
+                />
                 <div className="flex w-full justify-between">
                   <p>{product.name}</p>
                   <button
@@ -210,19 +222,27 @@ const CartPage: React.FC = () => {
           ))}
         </div>
 
-        <div>
-          <p>
-            Subtotal: <b>{totalPrice()}$</b>
-          </p>
-          <button onClick={onCheckout}>Checkout</button>
+        <div className="w-full pt-2">
+          <div className="flex justify-between">
+            <p>{totalItems()} Items</p>
+            <p>{totalPrice()}$</p>
+          </div>
+          <button
+            onClick={onCheckout}
+            className="w-full bg-blue-500 text-white rounded-full h-12"
+          >
+            Checkout
+          </button>
         </div>
       </div>
     );
   }
 
   return (
-    <div>
-      <h1>Your cart is empty</h1>
+    <div className="min-h-screen pt-12 flex justify-center items-center">
+      <h1 className="text-left text-3xl font-bold my-4 text-center">
+        Your cart is empty
+      </h1>
     </div>
   );
 };
