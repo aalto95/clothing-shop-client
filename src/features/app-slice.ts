@@ -1,16 +1,16 @@
+import { Thing } from "./../models/thing.model";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Item } from "../models/types";
 import { productsAPI } from "../api/api";
 
 interface ItemsState {
-  items: Array<Item>;
+  items: Array<Thing>;
   isFetching: boolean;
   cart: any;
   currentPage: number;
   pageLength: number;
   pagesQuantity: number | null;
   isRedirecting: boolean;
-  specificItem: Item | null;
+  specificItem: Thing | null;
   isSearchbarToggled: boolean;
   searchField: string;
   isSearching: boolean;
