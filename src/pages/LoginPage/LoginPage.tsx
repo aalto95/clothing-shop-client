@@ -1,5 +1,5 @@
 import styles from "./LoginPage.module.scss";
-import React, { useEffect } from "react";
+import React from "react";
 import { Redirect } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
 import {
@@ -8,10 +8,9 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { doc, getDocs, getFirestore, setDoc } from "firebase/firestore";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { firebaseApp } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { addDoc, collection, orderBy, query } from "firebase/firestore";
 
 const LoginPage: React.FC = () => {
   const loggedUser = useAppSelector((state) => state.app.user);

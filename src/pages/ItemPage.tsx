@@ -26,7 +26,6 @@ const ItemPage: React.FC = () => {
     }).then(() => {
       setIsLoading(false);
       dispatch(cartSet([...cart, { ...item, quantity: 1 }]));
-      console.log("Document successfully updated!");
     });
   }
 

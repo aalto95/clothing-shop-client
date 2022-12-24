@@ -30,10 +30,9 @@ const App = () => {
     const cartRef = doc(firestore, "carts", user!.uid);
     try {
       const docSnap = await getDoc(cartRef);
-      console.log(docSnap.data()?.items);
       dispatch(cartSet(docSnap.data()?.items));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
